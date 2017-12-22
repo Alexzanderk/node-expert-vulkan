@@ -1,0 +1,228 @@
+include _mixin
+
+//- ul.catalog__list
+//-     li.catalog__item.active
+//-         +card('card', 'Рокла', 'SYP-2000', {'2т':'box', '65кг':'weight', '196 000грн':'wallet'}, '186 200 грн ', '/img/1.jpg')
+//-         +card('card','Штабелер', 'SYP-2000', {'2т':'box', '275кг':'weight','1.6м':'arrow_10', '26 500грн':'wallet'}, '6 200 грн ', '/img/hand-stacker-vulkan.jpg')
+//-         +card('card','Бочковоз', 'SYP-2000', {'200л':'water', '65кг':'weight', '1.6м':'38', '16 500грн':'wallet'}, '6 200 грн ', '/img/_1.png')
+//-         +card('card','Подъемный стол', 'SYP-2000', {'2т':'box', '65кг':'weight', '1.6м':'arrow_10', '6 500грн':'wallet'}, '6 200 грн ', '/img/_2.png')
+//-         +card('card','Штабелер самоходный', 'SYP-2000', {'2т':'box', '65кг':'weight', '1.6м':'arrow_10', '6 500грн':'wallet'}, '6 200 грн ', '/img/_3.png')
+//-         +card('card','Штабелер для Бочек', 'SYP-2000', {'2т':'box', '65кг':'weight', '1.6м':'arrow_10', '6 500грн':'wallet'}, '6 200 грн ', '/img/_4.png')
+//-     li.catalog__item
+//-         +card('card', 'Рокла', 'SYP-200', {'2т':'box', '65кг':'weight', '1.6m':'arrow_10'}, '26 200 грн ', '/img/truckLift.jpg')
+//-         +card('card', 'Рокла', 'SYP-200', {'2т':'box', '65кг':'weight'}, '26 200 грн ', '/img/truckLift.jpg')
+//-         +card('card', 'Рокла', 'SYP-200', {'2т':'box', '65кг':'weight'}, '6 200 грн ', '/img/truckLift.jpg')
+//-         +card('card', 'Рокла', 'SYP-200', {'2т':'box', '65кг':'weight'}, '6 200 грн ', '/img/truckLift.jpg')
+//-         +card('card', 'Рокла', 'SYP-200', {'2т':'box', '65кг':'weight'}, '6 200 грн ', '/img/truckLift.jpg')
+//-         +card('card', 'Рокла', 'SYP-200', {'2т':'box', '65кг':'weight'}, '6 200 грн ', '/img/truckLift.jpg')
+//-         +card('card', 'Рокла', 'SYP-200', {'2т':'box', '65кг':'weight'}, '6 200 грн ', '/img/truckLift.jpg')
+//-         +card('card', 'Рокла', 'SYP-200', {'2т':'box', '65кг':'weight'}, '6 200 грн ', '/img/truckLift.jpg')
+//-     li.catalog__item
+//-         +card('card', 'Рокла', 'SYP-200', {'2т':'box', '65кг':'weight'}, '6 200 грн ', '/img/truckLift.jpg')
+//-     li.catalog__item
+//-         +card('card', 'Рокла', 'SYP-200', {'2т':'box', '65кг':'weight'}, '6 200 грн ', '/img/truckLift.jpg')
+//-         +card('card', 'Рокла', 'SYP-200', {'2т':'box', '65кг':'weight'}, '6 200 грн ', '/img/truckLift.jpg')
+
+
++tabList({
+    0: {
+        1: {
+            className: 'card',
+            title: 'Рокла',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '65кг':'weight', '196 000грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/1.jpg'
+        },
+        2: {
+            className: 'card',
+            title: 'Штабелер',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '275кг':'weight','1.6м':'arrow_10', '26 500грн':'wallet'},
+            price: '6 200 грн',
+            src: '/img/hand-stacker-vulkan.jpg'
+        },
+        3: {
+            className: 'card',
+            title: 'Бочковоз',
+            art: 'SYP-2000',
+            icons: {'200л':'water', '65кг':'weight', '1.6м':'38', '16 500грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/_1.png'
+        },
+        4: {
+            className: 'card',
+            title: 'Подъемный стол',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '65кг':'weight', '1.6м':'arrow_10', '6 500грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/_2.png'
+        },
+        5: {
+            className: 'card',
+            title: 'Штабелер самоходный',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '65кг':'weight', '1.6м':'arrow_10', '6 500грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/_3.png'
+        },
+        6: {
+            className: 'card',
+            title: 'Штабелер для Бочек',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '65кг':'weight', '1.6м':'arrow_10', '6 500грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/_4.png'
+        }
+    },
+    1: {
+        1: {
+            className: 'card',
+            title: 'Рокла',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '65кг':'weight', '196 000грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/_1.png'
+        },
+        2: {
+            className: 'card',
+            title: 'Штабелер',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '275кг':'weight','1.6м':'arrow_10', '26 500грн':'wallet'},
+            price: '6 200 грн',
+            src: '/img/hand-stacker-vulkan.jpg'
+        },
+        3: {
+            className: 'card',
+            title: 'Бочковоз',
+            art: 'SYP-2000',
+            icons: {'200л':'water', '65кг':'weight', '1.6м':'38', '16 500грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/_1.png'
+        },
+        4: {
+            className: 'card',
+            title: 'Подъемный стол',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '65кг':'weight', '1.6м':'arrow_10', '6 500грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/_2.png'
+        },
+        5: {
+            className: 'card',
+            title: 'Штабелер самоходный',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '65кг':'weight', '1.6м':'arrow_10', '6 500грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/_3.png'
+        },
+        6: {
+            className: 'card',
+            title: 'Штабелер для Бочек',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '65кг':'weight', '1.6м':'arrow_10', '6 500грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/_4.png'
+        }
+    },
+    2: {
+        1: {
+            className: 'card',
+            title: 'Рокла',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '65кг':'weight', '196 000грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/1.jpg'
+        },
+        2: {
+            className: 'card',
+            title: 'Штабелер',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '275кг':'weight','1.6м':'arrow_10', '26 500грн':'wallet'},
+            price: '6 200 грн',
+            src: '/img/hand-stacker-vulkan.jpg'
+        },
+        3: {
+            className: 'card',
+            title: 'Бочковоз',
+            art: 'SYP-2000',
+            icons: {'200л':'water', '65кг':'weight', '1.6м':'38', '16 500грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/_1.png'
+        },
+        4: {
+            className: 'card',
+            title: 'Подъемный стол',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '65кг':'weight', '1.6м':'arrow_10', '6 500грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/_2.png'
+        },
+        5: {
+            className: 'card',
+            title: 'Штабелер самоходный',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '65кг':'weight', '1.6м':'arrow_10', '6 500грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/_3.png'
+        },
+        6: {
+            className: 'card',
+            title: 'Штабелер для Бочек',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '65кг':'weight', '1.6м':'arrow_10', '6 500грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/_4.png'
+        }
+    },
+    3: {
+        1: {
+            className: 'card',
+            title: 'Рокла',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '65кг':'weight', '196 000грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/1.jpg'
+        },
+        2: {
+            className: 'card',
+            title: 'Штабелер',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '275кг':'weight','1.6м':'arrow_10', '26 500грн':'wallet'},
+            price: '6 200 грн',
+            src: '/img/hand-stacker-vulkan.jpg'
+        },
+        3: {
+            className: 'card',
+            title: 'Бочковоз',
+            art: 'SYP-2000',
+            icons: {'200л':'water', '65кг':'weight', '1.6м':'38', '16 500грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/_1.png'
+        },
+        4: {
+            className: 'card',
+            title: 'Подъемный стол',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '65кг':'weight', '1.6м':'arrow_10', '6 500грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/_2.png'
+        },
+        5: {
+            className: 'card',
+            title: 'Штабелер самоходный',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '65кг':'weight', '1.6м':'arrow_10', '6 500грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/_3.png'
+        },
+        6: {
+            className: 'card',
+            title: 'Штабелер для Бочек',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '65кг':'weight', '1.6м':'arrow_10', '6 500грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/_4.png'
+        }
+    }
+}, '1')
