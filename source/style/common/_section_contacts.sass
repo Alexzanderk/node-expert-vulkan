@@ -1,0 +1,46 @@
+.section__contacts
+    position: relative
+.section__h2_absolute
+    position: absolute
+    left: 50%
+    z-index: 5
+    transform: translateX(-50%)
+.section__h2_bg
+    background-color: rgba(#000, .75)
+    padding: 15px 30px
+
+#map
+    width: 100%
+    min-height: 65vh
+    +breakpoint($phone)
+        min-height: 100vh
+
+.contacts-information
+    position: absolute
+    bottom: 15px
+    left: 50%
+    transform: translateX(-50%)
+    +breakpoint($phone)
+        width: 75%
+.contacts-information__list
+    padding: 0
+    list-style: none
+    background-color: rgba(#000, .75)
+    padding: 15px
+.contacts-information__item
+    margin-bottom: 5px
+    display: flex
+    align-items: center
+    &:last-child
+        margin-bottom: 0
+    &:nth-child(2)
+        .contacts-information__link
+            text-indent: 5px
+    
+.contacts-information__link
+    text-decoration: none
+    color: #fff
+.contacts-information__icon
+    color: #ddd
+    margin-right: 15px
+    font-size: 25px

@@ -1,0 +1,16 @@
+mixin productCatalog(products)
+	div(class=`product-catalog`)
+		ul(class=`product-catalog__list`)
+			each subProduct in products	
+				li(class=`product-catalog__item`)
+					a(class=`card__link` href=`product/${subProduct.products[0].alias}`)
+						div.card.card_catalog
+							figure(class=`card__figure card__figure_catalog`)
+								figcaption(class=`card__figcaption card__figcaption_catalog`)
+									h3(class=`card__title card__title_catalog`)= subProduct.productGroup
+									ul.card__icon-list.card__icon-list_catalog
+										each products in subProduct.products 
+											li.card__icon-item.card__icon-item_catalog
+												span.card__icon-span.card__icon-span_catalog= products.title
+								div(class=`card__img-frame card__img-frame_catalog`)
+									img(class=`card__img card__img_catalog` src=`${subProduct.imgGroup}` alt=`${subProduct.productGroup}`)

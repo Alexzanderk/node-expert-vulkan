@@ -1,0 +1,22 @@
+mixin newsCatalog(className, item)
+	li(class=`${className}__item`)
+		.img-wrapper
+			img(class=`${className}__img` src=`${item.src}`, alt="")
+		.content-wrap
+			h4(class=`${className}__h4`)= item.title
+			p(class=`${className}__description`)= item.desc
+			a(class=`${className}__link ${className}__btn` href=`news/${item.id}`) Узнать больше
+			div(class=`${className}__date`)= item.date
+				i.fa.fa-calendar
+
+mixin pagination(items)
+	ul.pagination
+		li.pagination__item
+			a.pagination__link(href="#")
+				span.pagination__previous <
+		each item in items
+			li.pagination__item
+				a(href="#" class=`pagination__link ` + ' ' + ((item == '1') ? "active" : ''))= item
+		li.pagination__item
+			a.pagination__link(href="#")
+				span.pagination__next >

@@ -1,8 +1,8 @@
 # **Nodejs** project **Vulkan**
 
 1. download project
-2. `npm install`
-3. `npm run dev`
+2. ```npm install```
+3. ```npm run dev```
 
 Проект - интернет магазин складской техники.
 

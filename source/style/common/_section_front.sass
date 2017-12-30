@@ -1,0 +1,430 @@
+.section__front
+    background: linear-gradient(to bottom, rgba(0,0,0, .9) 0%, rgba(0,0,0,0.2) 30%, rgba(255,255,255,0) 100%), url('../img/bg_lift_truck.jpg')
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: 50% 85%
+    height: 100vh
+    +breakpoint($phone)
+        height: auto
+        padding-bottom: 20px
+        
+    .layout
+        @supports (display: flex)
+            display: flex
+            flex-flow: row wrap
+            height: inherit
+
+
+.header
+    padding: 20px 0
+    background: inherit
+    margin-bottom: auto
+    @supports (display: flex)
+        flex: 1 0 100%
+        display: flex
+        align-items: center
+        justify-content: space-between
+    
+.logo
+    font-family: $mainFont
+    +breakpoint($phone)
+        margin: auto
+
+.logo__link
+    font-size: 28px
+    text-decoration: none
+    color: #fff
+
+.logo__color_yellow
+    color: $logo
+
+.nav
+
+.burger__link
+    text-decoration: none
+    width: 30px
+    height: 30px
+    display: none
+    overflow: hidden
+    position: fixed
+    top: 25px
+    right: 10px
+    z-index: 40
+    +breakpoint($phone)
+        display: block
+
+.burger
+    width: 25px
+    height: 3px
+    display: block
+    margin: 4px 0
+    background-color: #777
+    transition: all 0.3s ease
+
+.burger__link.open
+    z-index: 999
+    &>.burger1
+        +breakpoint($phone)
+            position: fixed
+            top: 30px
+            transform: rotate3D(0, -0, 25, 45deg)
+            transition: all 0.3s ease
+    &>.burger2
+        +breakpoint($phone)
+            position: fixed
+            top: 25px
+            display: none
+    &>.burger3
+        +breakpoint($phone)
+            position: fixed
+            top: 30px
+            transform: rotate3D(0, -0, 25, -45deg)
+            transition: all 0.3s ease
+
+.burger__link.open + .nav__list
+    +breakpoint($phone)
+        display: block
+
+.nav__list
+    padding: 0
+    list-style: none
+    display: flex
+    position: relative
+    +breakpoint($phone)
+        background-color: rgba(#333, .98)
+        position: fixed
+        top: 0
+        left: 0
+        display: flex
+        flex-flow: column
+        justify-content: center
+        align-content: center
+        width: 100%
+        height: 100%
+        z-index: 200
+        text-align: center
+        display: none
+
+.nav__item
+    margin-left: 35px
+    position: relative
+    &:before
+        position: absolute
+        top: 100%
+        left: 50%
+        color: transparent
+        content: '•'
+        text-shadow: 0 0 transparent
+        font-size: 25px
+        transition: text-shadow 0.25s, color 0.3s
+        transform: translateX(-50%)
+        pointer-events: none
+    &:hover:before
+        color: $yellow
+        text-shadow: 10px 0 darken($yellow, 8%), -10px 0 darken($yellow, 8%)
+    &.active:before
+        color: $yellow
+        text-shadow: 10px 0 darken($yellow, 8%), -10px 0 darken($yellow, 8%)
+    &.active>.nav__link
+        color: $yellow
+    &:first-child
+        margin-left: 0
+    +breakpoint($phone)
+        margin: 10px
+        padding: 10px
+        &:first-child
+            margin: 10px
+
+.nav__link
+    font-size: 20px
+    color: #fff
+    text-decoration: none
+    &:hover
+        color: $yellow
+
+.front__h1
+    flex: 1 0 50%
+    color: #fff
+    font-size: 22px
+    font-weight: 500
+    margin-bottom: auto
+    text-align: center
+    padding: 10px
+    +breakpoint($phone)
+        flex: 1 0 100%
+        text-align: center
+        margin: auto auto 10px
+        font-size: 20px
+        
+.contact-us
+    flex: 1 0 50%
+    padding: 15px 10px
+    min-width: 280px
+    max-width: 350px
+    background: rgba(#000, .85)
+    margin-bottom: auto
+    +breakpoint($phone)
+        flex: 1 0 100%
+        margin: auto
+
+.contact-info
+    margin-bottom: 15px
+
+.front__h2
+    color: #fff
+    font-size: 20px
+    margin-bottom: 15px
+    text-transform: uppercase
+
+.contact-info__list
+    padding: 0
+    list-style: none
+
+.contact-info__item
+    margin: 10px
+
+.contact-info__item_icon
+    margin-right: 15px
+    font-size: 25px 
+    color: #fff
+
+.contakt-info__link
+    text-decoration: none
+    color: #fff
+
+.contact__form
+.form-request
+    overflow: hidden
+    display: flex
+    flex-flow: row wrap
+    flex-flow: column
+
+.form-request__input
+    flex: 1
+    position: relative
+    z-index: 1
+    display: inline-block
+    max-width: 350px
+    width: 100%
+    vertical-align: top
+
+.input__field
+    position: relative
+    display: block
+    float: right
+    padding: 0.8em
+    width: 60%
+    border: none
+    border-radius: 0
+    background: #f0f0f0
+    color: #aaa
+    font-weight: 400
+
+.input__field:focus
+    outline: none
+
+.input__label
+    display: inline-block
+    float: right
+    padding: 0 1em
+    width: 40%
+    color: #696969
+    font-weight: bold
+    font-size: 70.25%
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+    -webkit-touch-callout: none
+    -webkit-user-select: none
+    -khtml-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    user-select: none
+
+.input__label-content
+    position: relative
+    display: block
+    padding: 1.6em 0
+    width: 100%
+
+.form-request__input
+    overflow: hidden
+
+.form-request__input_effect
+    overflow: hidden
+
+.input__field_effect
+    width: 100%
+    background: transparent
+    padding: 0.5em
+    margin-bottom: 2em
+    color: $yellow
+    z-index: 1000
+    opacity: 0   
+    
+.input__label_effect
+    width: 100%
+    position: absolute
+    text-align: left
+    padding: 0.5em 0
+    pointer-events: none
+    font-size: 1em
+    &:before, &:after
+        content: ''
+        position: absolute
+        width: 100%
+        left: 0
+    &:before
+        height: 100%
+        background: #A8A8A8
+        background: rgba(#222222, .8)
+        top: 0
+        transform: translate3d(0, -100%, 0)
+        transition: transform 0.2s
+    &:after
+        height: 2px
+        background: #A8A8A8
+        background: #888
+        background: $yellow
+        top: 100%
+        transition: opacity 0.2s
+
+.input__label-content_effect
+    padding: 0
+    transform-origin: 0 0
+    transition: transform 0.2s, color 0.2s
+
+.input__field_effect:focus,
+.input--filled .input__field_effect
+    opacity: 1
+    transition: opacity 0s 0.2s
+
+.input__label:before,
+.input__label:after,
+.input__label-content_effect,
+.input__field_effect:focus,
+.input--filled .input__field_effect
+    transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1)
+
+.input__field_effect:focus + .input__label_effect::before,
+.input--filled .input__label_effect::before
+    transform: translate3d(0, 0, 0)
+
+.input__field_effect:focus + .input__label_effect::after,
+.input--filled .input__label_effect::after 
+    opacity: 0
+
+.input__field_effect:focus + .input__label_effect .input__label-content_effect,
+.input--filled .input__label_effect .input__label-content_effect 
+    color: #cbc4c6
+    color: #cbc4c6
+    font-weight: 500
+    transform: translate3d(0, 2.1em, 0) scale3d(0.65, 0.65, 1)
+
+.form-request__button
+    margin-top: 10px
+    padding: 15px
+    color: #fff
+    text-transform: uppercase
+    font-size: 18px
+    font-weight: 500
+    letter-spacing: .8px
+    background-color: inherit
+    border: 1px solid #fff
+    cursor: pointer
+    position: relative
+    &:focus
+        outline: none
+    &:hover
+        color: $yellow
+        border: 1px solid rgba(#fff, 0)
+        .line1
+            animation: move1 1500ms infinite ease
+        .line2
+            animation: move2 1500ms infinite ease
+        .line3
+            animation: move3 1500ms infinite ease
+        .line4
+            animation: move4 1500ms infinite ease
+.line1
+    content: ""
+    display: block
+    position: absolute
+    width: 1px
+    background-color: $yellow
+    left: 0
+    bottom: 0
+.line2
+    content: ""
+    display: block
+    position: absolute
+    height: 1px
+    background-color: $yellow
+    left: 0
+    top: 0
+.line3
+    content: ""
+    display: block
+    position: absolute
+    width: 1px
+    background-color: $yellow
+    right: 0
+    top: 0
+.line4
+    content: ""
+    display: block
+    position: absolute
+    height: 1px
+    background-color: $yellow
+    right: 0
+    bottom: 0
+
+
+@keyframes move1 
+    0% 
+        height: 100% 
+        bottom: 0
+    54% 
+        height: 0 
+        bottom: 100%
+    55% 
+        height: 0 
+        bottom: 0
+    100% 
+        height: 100% 
+        bottom: 0
+
+@keyframes move2 
+    0% 
+        width: 0
+        left: 0
+    50% 
+        width: 100% 
+        left: 0
+    100% 
+        width: 0 
+        left: 100%
+
+@keyframes move3 
+    0% 
+        height: 100% 
+        top: 0
+    54% 
+        height: 0 
+        top: 100%
+    55% 
+        height: 0 
+        top: 0
+    100% 
+        height: 100% 
+        top: 0
+
+@keyframes move4 
+    0% 
+        width: 0 
+        right: 0
+    55% 
+        width: 100% 
+        right: 0
+    100% 
+        width: 0 
+        right: 100%

@@ -1,0 +1,17 @@
+extends _layout
+
+include ./mixins/_mixin
+
+block leftside
+    aside.left-side-catalog
+        h3.h3 Каталог продукции
+           
+        +leftSideCatalog(products)                        
+                        
+block content  
+    .right-side
+        a#menu-catalog(href="#")
+            span.burger.burger1
+            span.burger.burger2
+            span.burger.burger3
+        +product(product)

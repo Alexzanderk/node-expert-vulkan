@@ -1,0 +1,15 @@
+extends ../_layout
+
+include ./mixins/_mixin
+
+block main
+    section.section__news-catalog
+        .bg-fixed
+        .container
+            include ../_include/_header
+            div(class=`news-catalog`)
+                ul(class=`news-catalog__list`)
+                    each item in news
+                        +newsCatalog('news-catalog', item)
+
+            +pagination(['1', '2', '3', '4', '5', '...', '7', '8', '9', '10', '11', '12'])

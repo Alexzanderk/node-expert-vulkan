@@ -1,0 +1,105 @@
+.section__news-catalog
+	+breakpoint($phone)
+		background: url('../img/bg/ep_naturalblack.png')
+		background-attachment: none
+		background-size: auto
+        
+.news-catalog
+.news-catalog__list
+    padding: 0
+    list-style: none
+    display: flex
+    flex-flow: row wrap
+    justify-content: center
+
+
+
+.news-catalog__item
+    width: 45%
+    overflow: hidden
+    margin: 10px
+    position: relative
+    display: flex
+    background-color: rgba(#010101, .35)
+    color: #fff
+    +breakpoint($phone)
+        width: 100%
+
+.img-wrapper
+    width: 35%
+    background-color: #fff
+
+.news-catalog__img
+    width: 100%
+    height: 100%
+    object-fit: cover
+
+.content-wrap
+    width: 65%
+    padding: 10px
+    display: flex
+    flex-flow: row wrap
+
+.news-catalog__h4
+    flex: 1 0 100%
+    padding: 10px
+    color: $yellow
+    text-transform: uppercase
+
+.news-catalog__description
+    flex: 1 0 100%
+    padding: 10px
+    font-size: 14px
+
+.news-catalog__link
+
+.news-catalog__btn
+    text-decoration: none
+    color: $yellow
+    font-size: 12px
+    font-weight: 500
+    display: flex
+    justify-content: center
+    align-items: center
+    margin-left: 10px
+    &:hover
+        color: darken($yellow, 10%)
+
+.news-catalog__date
+    flex: 1
+    margin-top: auto
+    padding: 10px
+    font-size: 11px
+    text-align: right
+    display: flex
+    flex-flow: row-reverse
+    color: #777
+    &>.fa
+        margin-right: 5px
+        color: #ccc
+
+
+
+.pagination
+    display: flex
+    justify-content: space-around
+    margin: 25px auto
+    max-width: 800px
+    list-style: none
+
+.pagination__item
+    font-weight: 800
+
+.pagination__link
+    color: #fff
+    text-decoration: none
+    &:hover
+        color: #888
+        
+    &.active
+        color: $yellow
+        &:hover
+            color: $yellow
+
+.pagination__previous
+.pagination__next

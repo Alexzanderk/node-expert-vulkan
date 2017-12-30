@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Project #</title>
+    <meta content="" name="author">
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <link rel="stylesheet" href="/css/foundation.css">
+    <link rel="stylesheet" href="/css/app.css">
+    <script src="/js/foundation.js" defer></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js" defer></script>
+    <script src="/js/app.js" defer></script><!--[if lt IE 9]>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script><![endif]-->
+  </head>
+  <body>
+    <section class="section__front">
+      <div class="container layout">
+        <header class="header">
+          <div class="logo"><a class="logo__link" href="/">Складская<span class="logo__color_yellow">Техника</span></a></div>
+          <nav class="nav"><a class="burger__link" id="menu-link" href="#"><span class="burger burger1"></span><span class="burger burger2"></span><span class="burger burger3"></span></a>
+            <ul class="nav__list">
+              <li class="nav__item"><a class="nav__link cart__link" href="#"><i class="fa fa-shopping-cart cart-icon"> </i><span class="cart-number">1</span></a></li>
+              <li class="nav__item"><a class="nav__link" href="/news-catalog/">Новости</a></li>
+              <li class="nav__item"><a class="nav__link" href="/product-catalog/">Каталог</a></li>
+              <li class="nav__item"><a class="nav__link" href="/#delivery">Доставка</a></li>
+              <li class="nav__item"><a class="nav__link" href="/#contacts">Контакты</a></li>
+            </ul>
+          </nav>
+        </header>
+        <h1 class="front__h1">Качественная складская техника для всех сфер, гидравлические подъемные столы для легкой и тяжелой промышленности, роклы для складов и логистических центров, гидравлические штабелеры для погрузоки и разгрузоки грузовых авто, электроштабелеры для складов с высоким уровнем хранения товара, специализированная складская техника для пищевой и фармо сферы. </h1>
+        <div class="contact-us">
+          <div class="contact-info">
+            <div class="front__h2">Как с нами связаться</div>
+            <ul class="contact-info__list">
+              <li class="contact-info__item"><i class="fa fa-phone contact-info__item_icon"></i><a class="contakt-info__link" href="tel:+380674302151">+38 067 430 21 51</a></li>
+              <li class="contact-info__item"><i class="fa fa-envelope-open contact-info__item_icon"></i><a class="contakt-info__link" href="mailto: rm1f6@ukservice.biz">rm1f6@ukservice.biz</a></li>
+            </ul>
+          </div>
+          <div class="contact__form">
+            <div class="front__h2">Оставить запрос</div>
+            <form class="form-request" action=""><span class="form-request__input form-request__input_effect"> 
+                <input class="input__field input__field_effect" type="text" id="inputName">
+                <label class="input__label input__label_effect" for="inputName"><span class="input__label-content input__label-content_effect">Ваше имя</span></label></span><span class="form-request__input"> 
+                <input class="input__field input__field_effect" type="text" id="inputPhone">
+                <label class="input__label input__label_effect" for="inputPhone"><span class="input__label-content input__label-content_effect">Контактный телефон</span></label></span>
+              <button class="form-request__button">Отправить<span class="line1 btn-border-line"></span><span class="line2 btn-border-line"></span><span class="line3 btn-border-line"></span><span class="line4 btn-border-line"></span></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section__product">
+      <div class="container">
+        <h2 class="section__h2">Продукция</h2>
+        <ul class="product-list__list">
+          <li class="product-list__item active" data-tab="1"><a class="product-list__link" href="#">Роклы</a></li>
+          <li class="product-list__item " data-tab="2"><a class="product-list__link" href="#">Штабелеры</a></li>
+          <li class="product-list__item " data-tab="3"><a class="product-list__link" href="#">Электроштабелеры</a></li>
+          <li class="product-list__item " data-tab="4"><a class="product-list__link" href="#">Подъемные столы</a></li>
+        </ul>
+                <ul class="catalog__list">
+                  <li class="catalog__item active" data-list="1"><a class="card__link" href="/product-catalog/product">
+                      <div class="card">
+                        <figure class="card__figure">
+                          <figcaption class="card__figcaption">
+                            <h4 class="card__title">Рокла</h4><span class="card__article article">Арт.: SYP-2000</span>
+                            <ul class="card__icon-list">
+                              <li class="card__icon-item">
+                                <svg class="svg-box-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#box"></use>
+                                </svg><span class="card__icon-span">2т</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-weight-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#weight"></use>
+                                </svg><span class="card__icon-span">65кг</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-wallet-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#wallet"></use>
+                                </svg><span class="card__icon-span">196 000грн</span>
+                              </li>
+                            </ul>
+                            <ul class="card__marker-list marker__list">
+                              <li class="card__marker-item marker__item new-product">Новинка</li>
+                              <li class="card__marker-item marker__item best-price">Лучшая цена</li>
+                              <li class="card__marker-item marker__item week-product">Хит продаж</li>
+                            </ul>
+                          </figcaption>
+                          <div class="card__img-frame"><img class="card__img" src="/img/1.jpg" alt="undefined"></div>
+                        </figure>
+                      </div></a><a class="card__link" href="/product-catalog/product">
+                      <div class="card">
+                        <figure class="card__figure">
+                          <figcaption class="card__figcaption">
+                            <h4 class="card__title">Штабелер</h4><span class="card__article article">Арт.: SYP-2000</span>
+                            <ul class="card__icon-list">
+                              <li class="card__icon-item">
+                                <svg class="svg-box-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#box"></use>
+                                </svg><span class="card__icon-span">2т</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-weight-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#weight"></use>
+                                </svg><span class="card__icon-span">275кг</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-arrow_10-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#arrow_10"></use>
+                                </svg><span class="card__icon-span">1.6м</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-wallet-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#wallet"></use>
+                                </svg><span class="card__icon-span">26 500грн</span>
+                              </li>
+                            </ul>
+                            <ul class="card__marker-list marker__list">
+                              <li class="card__marker-item marker__item new-product">Новинка</li>
+                              <li class="card__marker-item marker__item best-price">Лучшая цена</li>
+                              <li class="card__marker-item marker__item week-product">Хит продаж</li>
+                            </ul>
+                          </figcaption>
+                          <div class="card__img-frame"><img class="card__img" src="/img/hand-stacker-vulkan.jpg" alt="undefined"></div>
+                        </figure>
+                      </div></a><a class="card__link" href="/product-catalog/product">
+                      <div class="card">
+                        <figure class="card__figure">
+                          <figcaption class="card__figcaption">
+                            <h4 class="card__title">Бочковоз</h4><span class="card__article article">Арт.: SYP-2000</span>
+                            <ul class="card__icon-list">
+                              <li class="card__icon-item">
+                                <svg class="svg-water-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#water"></use>
+                                </svg><span class="card__icon-span">200л</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-weight-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#weight"></use>
+                                </svg><span class="card__icon-span">65кг</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-38-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#38"></use>
+                                </svg><span class="card__icon-span">1.6м</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-wallet-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#wallet"></use>
+                                </svg><span class="card__icon-span">16 500грн</span>
+                              </li>
+                            </ul>
+                            <ul class="card__marker-list marker__list">
+                              <li class="card__marker-item marker__item new-product">Новинка</li>
+                              <li class="card__marker-item marker__item best-price">Лучшая цена</li>
+                              <li class="card__marker-item marker__item week-product">Хит продаж</li>
+                            </ul>
+                          </figcaption>
+                          <div class="card__img-frame"><img class="card__img" src="/img/_1.png" alt="undefined"></div>
+                        </figure>
+                      </div></a><a class="card__link" href="/product-catalog/product">
+                      <div class="card">
+                        <figure class="card__figure">
+                          <figcaption class="card__figcaption">
+                            <h4 class="card__title">Подъемный стол</h4><span class="card__article article">Арт.: SYP-2000</span>
+                            <ul class="card__icon-list">
+                              <li class="card__icon-item">
+                                <svg class="svg-box-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#box"></use>
+                                </svg><span class="card__icon-span">2т</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-weight-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#weight"></use>
+                                </svg><span class="card__icon-span">65кг</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-arrow_10-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#arrow_10"></use>
+                                </svg><span class="card__icon-span">1.6м</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-wallet-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#wallet"></use>
+                                </svg><span class="card__icon-span">6 500грн</span>
+                              </li>
+                            </ul>
+                            <ul class="card__marker-list marker__list">
+                              <li class="card__marker-item marker__item new-product">Новинка</li>
+                              <li class="card__marker-item marker__item best-price">Лучшая цена</li>
+                              <li class="card__marker-item marker__item week-product">Хит продаж</li>
+                            </ul>
+                          </figcaption>
+                          <div class="card__img-frame"><img class="card__img" src="/img/_2.png" alt="undefined"></div>
+                        </figure>
+                      </div></a><a class="card__link" href="/product-catalog/product">
+                      <div class="card">
+                        <figure class="card__figure">
+                          <figcaption class="card__figcaption">
+                            <h4 class="card__title">Штабелер самоходный</h4><span class="card__article article">Арт.: SYP-2000</span>
+                            <ul class="card__icon-list">
+                              <li class="card__icon-item">
+                                <svg class="svg-box-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#box"></use>
+                                </svg><span class="card__icon-span">2т</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-weight-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#weight"></use>
+                                </svg><span class="card__icon-span">65кг</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-arrow_10-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#arrow_10"></use>
+                                </svg><span class="card__icon-span">1.6м</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-wallet-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#wallet"></use>
+                                </svg><span class="card__icon-span">6 500грн</span>
+                              </li>
+                            </ul>
+                            <ul class="card__marker-list marker__list">
+                              <li class="card__marker-item marker__item new-product">Новинка</li>
+                              <li class="card__marker-item marker__item best-price">Лучшая цена</li>
+                              <li class="card__marker-item marker__item week-product">Хит продаж</li>
+                            </ul>
+                          </figcaption>
+                          <div class="card__img-frame"><img class="card__img" src="/img/_3.png" alt="undefined"></div>
+                        </figure>
+                      </div></a><a class="card__link" href="/product-catalog/product">
+                      <div class="card">
+                        <figure class="card__figure">
+                          <figcaption class="card__figcaption">
+                            <h4 class="card__title">Штабелер для Бочек</h4><span class="card__article article">Арт.: SYP-2000</span>
+                            <ul class="card__icon-list">
+                              <li class="card__icon-item">
+                                <svg class="svg-box-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#box"></use>
+                                </svg><span class="card__icon-span">2т</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-weight-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#weight"></use>
+                                </svg><span class="card__icon-span">65кг</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-arrow_10-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#arrow_10"></use>
+                                </svg><span class="card__icon-span">1.6м</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-wallet-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#wallet"></use>
+                                </svg><span class="card__icon-span">6 500грн</span>
+                              </li>
+                            </ul>
+                            <ul class="card__marker-list marker__list">
+                              <li class="card__marker-item marker__item new-product">Новинка</li>
+                              <li class="card__marker-item marker__item best-price">Лучшая цена</li>
+                              <li class="card__marker-item marker__item week-product">Хит продаж</li>
+                            </ul>
+                          </figcaption>
+                          <div class="card__img-frame"><img class="card__img" src="/img/_4.png" alt="undefined"></div>
+                        </figure>
+                      </div></a>
+                  </li>
+                  <li class="catalog__item " data-list="2"><a class="card__link" href="/product-catalog/product">
+                      <div class="card">
+                        <figure class="card__figure">
+                          <figcaption class="card__figcaption">
+                            <h4 class="card__title">Рокла</h4><span class="card__article article">Арт.: SYP-2000</span>
+                            <ul class="card__icon-list">
+                              <li class="card__icon-item">
+                                <svg class="svg-box-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#box"></use>
+                                </svg><span class="card__icon-span">2т</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-weight-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#weight"></use>
+                                </svg><span class="card__icon-span">65кг</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-wallet-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#wallet"></use>
+                                </svg><span class="card__icon-span">196 000грн</span>
+                              </li>
+                            </ul>
+                            <ul class="card__marker-list marker__list">
+                              <li class="card__marker-item marker__item new-product">Новинка</li>
+                              <li class="card__marker-item marker__item best-price">Лучшая цена</li>
+                              <li class="card__marker-item marker__item week-product">Хит продаж</li>
+                            </ul>
+                          </figcaption>
+                          <div class="card__img-frame"><img class="card__img" src="/img/_1.png" alt="undefined"></div>
+                        </figure>
+                      </div></a><a class="card__link" href="/product-catalog/product">
+                      <div class="card">
+                        <figure class="card__figure">
+                          <figcaption class="card__figcaption">
+                            <h4 class="card__title">Штабелер</h4><span class="card__article article">Арт.: SYP-2000</span>
+                            <ul class="card__icon-list">
+                              <li class="card__icon-item">
+                                <svg class="svg-box-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#box"></use>
+                                </svg><span class="card__icon-span">2т</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-weight-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#weight"></use>
+                                </svg><span class="card__icon-span">275кг</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-arrow_10-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#arrow_10"></use>
+                                </svg><span class="card__icon-span">1.6м</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-wallet-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#wallet"></use>
+                                </svg><span class="card__icon-span">26 500грн</span>
+                              </li>
+                            </ul>
+                            <ul class="card__marker-list marker__list">
+                              <li class="card__marker-item marker__item new-product">Новинка</li>
+                              <li class="card__marker-item marker__item best-price">Лучшая цена</li>
+                              <li class="card__marker-item marker__item week-product">Хит продаж</li>
+                            </ul>
+                          </figcaption>
+                          <div class="card__img-frame"><img class="card__img" src="/img/hand-stacker-vulkan.jpg" alt="undefined"></div>
+                        </figure>
+                      </div></a><a class="card__link" href="/product-catalog/product">
+                      <div class="card">
+                        <figure class="card__figure">
+                          <figcaption class="card__figcaption">
+                            <h4 class="card__title">Бочковоз</h4><span class="card__article article">Арт.: SYP-2000</span>
+                            <ul class="card__icon-list">
+                              <li class="card__icon-item">
+                                <svg class="svg-water-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#water"></use>
+                                </svg><span class="card__icon-span">200л</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-weight-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#weight"></use>
+                                </svg><span class="card__icon-span">65кг</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-38-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#38"></use>
+                                </svg><span class="card__icon-span">1.6м</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-wallet-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#wallet"></use>
+                                </svg><span class="card__icon-span">16 500грн</span>
+                              </li>
+                            </ul>
+                            <ul class="card__marker-list marker__list">
+                              <li class="card__marker-item marker__item new-product">Новинка</li>
+                              <li class="card__marker-item marker__item best-price">Лучшая цена</li>
+                              <li class="card__marker-item marker__item week-product">Хит продаж</li>
+                            </ul>
+                          </figcaption>
+                          <div class="card__img-frame"><img class="card__img" src="/img/_1.png" alt="undefined"></div>
+                        </figure>
+                      </div></a><a class="card__link" href="/product-catalog/product">
+                      <div class="card">
+                        <figure class="card__figure">
+                          <figcaption class="card__figcaption">
+                            <h4 class="card__title">Подъемный стол</h4><span class="card__article article">Арт.: SYP-2000</span>
+                            <ul class="card__icon-list">
+                              <li class="card__icon-item">
+                                <svg class="svg-box-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#box"></use>
+                                </svg><span class="card__icon-span">2т</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-weight-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#weight"></use>
+                                </svg><span class="card__icon-span">65кг</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-arrow_10-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#arrow_10"></use>
+                                </svg><span class="card__icon-span">1.6м</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-wallet-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#wallet"></use>
+                                </svg><span class="card__icon-span">6 500грн</span>
+                              </li>
+                            </ul>
+                            <ul class="card__marker-list marker__list">
+                              <li class="card__marker-item marker__item new-product">Новинка</li>
+                              <li class="card__marker-item marker__item best-price">Лучшая цена</li>
+                              <li class="card__marker-item marker__item week-product">Хит продаж</li>
+                            </ul>
+                          </figcaption>
+                          <div class="card__img-frame"><img class="card__img" src="/img/_2.png" alt="undefined"></div>
+                        </figure>
+                      </div></a><a class="card__link" href="/product-catalog/product">
+                      <div class="card">
+                        <figure class="card__figure">
+                          <figcaption class="card__figcaption">
+                            <h4 class="card__title">Штабелер самоходный</h4><span class="card__article article">Арт.: SYP-2000</span>
+                            <ul class="card__icon-list">
+                              <li class="card__icon-item">
+                                <svg class="svg-box-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#box"></use>
+                                </svg><span class="card__icon-span">2т</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-weight-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#weight"></use>
+                                </svg><span class="card__icon-span">65кг</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-arrow_10-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#arrow_10"></use>
+                                </svg><span class="card__icon-span">1.6м</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-wallet-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#wallet"></use>
+                                </svg><span class="card__icon-span">6 500грн</span>
+                              </li>
+                            </ul>
+                            <ul class="card__marker-list marker__list">
+                              <li class="card__marker-item marker__item new-product">Новинка</li>
+                              <li class="card__marker-item marker__item best-price">Лучшая цена</li>
+                              <li class="card__marker-item marker__item week-product">Хит продаж</li>
+                            </ul>
+                          </figcaption>
+                          <div class="card__img-frame"><img class="card__img" src="/img/_3.png" alt="undefined"></div>
+                        </figure>
+                      </div></a><a class="card__link" href="/product-catalog/product">
+                      <div class="card">
+                        <figure class="card__figure">
+                          <figcaption class="card__figcaption">
+                            <h4 class="card__title">Штабелер для Бочек</h4><span class="card__article article">Арт.: SYP-2000</span>
+                            <ul class="card__icon-list">
+                              <li class="card__icon-item">
+                                <svg class="svg-box-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#box"></use>
+                                </svg><span class="card__icon-span">2т</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-weight-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#weight"></use>
+                                </svg><span class="card__icon-span">65кг</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-arrow_10-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#arrow_10"></use>
+                                </svg><span class="card__icon-span">1.6м</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-wallet-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#wallet"></use>
+                                </svg><span class="card__icon-span">6 500грн</span>
+                              </li>
+                            </ul>
+                            <ul class="card__marker-list marker__list">
+                              <li class="card__marker-item marker__item new-product">Новинка</li>
+                              <li class="card__marker-item marker__item best-price">Лучшая цена</li>
+                              <li class="card__marker-item marker__item week-product">Хит продаж</li>
+                            </ul>
+                          </figcaption>
+                          <div class="card__img-frame"><img class="card__img" src="/img/_4.png" alt="undefined"></div>
+                        </figure>
+                      </div></a>
+                  </li>
+                  <li class="catalog__item " data-list="3"><a class="card__link" href="/product-catalog/product">
+                      <div class="card">
+                        <figure class="card__figure">
+                          <figcaption class="card__figcaption">
+                            <h4 class="card__title">Рокла</h4><span class="card__article article">Арт.: SYP-2000</span>
+                            <ul class="card__icon-list">
+                              <li class="card__icon-item">
+                                <svg class="svg-box-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#box"></use>
+                                </svg><span class="card__icon-span">2т</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-weight-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#weight"></use>
+                                </svg><span class="card__icon-span">65кг</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-wallet-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#wallet"></use>
+                                </svg><span class="card__icon-span">196 000грн</span>
+                              </li>
+                            </ul>
+                            <ul class="card__marker-list marker__list">
+                              <li class="card__marker-item marker__item new-product">Новинка</li>
+                              <li class="card__marker-item marker__item best-price">Лучшая цена</li>
+                              <li class="card__marker-item marker__item week-product">Хит продаж</li>
+                            </ul>
+                          </figcaption>
+                          <div class="card__img-frame"><img class="card__img" src="/img/1.jpg" alt="undefined"></div>
+                        </figure>
+                      </div></a><a class="card__link" href="/product-catalog/product">
+                      <div class="card">
+                        <figure class="card__figure">
+                          <figcaption class="card__figcaption">
+                            <h4 class="card__title">Штабелер</h4><span class="card__article article">Арт.: SYP-2000</span>
+                            <ul class="card__icon-list">
+                              <li class="card__icon-item">
+                                <svg class="svg-box-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#box"></use>
+                                </svg><span class="card__icon-span">2т</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-weight-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#weight"></use>
+                                </svg><span class="card__icon-span">275кг</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-arrow_10-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#arrow_10"></use>
+                                </svg><span class="card__icon-span">1.6м</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-wallet-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#wallet"></use>
+                                </svg><span class="card__icon-span">26 500грн</span>
+                              </li>
+                            </ul>
+                            <ul class="card__marker-list marker__list">
+                              <li class="card__marker-item marker__item new-product">Новинка</li>
+                              <li class="card__marker-item marker__item best-price">Лучшая цена</li>
+                              <li class="card__marker-item marker__item week-product">Хит продаж</li>
+                            </ul>
+                          </figcaption>
+                          <div class="card__img-frame"><img class="card__img" src="/img/hand-stacker-vulkan.jpg" alt="undefined"></div>
+                        </figure>
+                      </div></a><a class="card__link" href="/product-catalog/product">
+                      <div class="card">
+                        <figure class="card__figure">
+                          <figcaption class="card__figcaption">
+                            <h4 class="card__title">Бочковоз</h4><span class="card__article article">Арт.: SYP-2000</span>
+                            <ul class="card__icon-list">
+                              <li class="card__icon-item">
+                                <svg class="svg-water-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#water"></use>
+                                </svg><span class="card__icon-span">200л</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-weight-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#weight"></use>
+                                </svg><span class="card__icon-span">65кг</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-38-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#38"></use>
+                                </svg><span class="card__icon-span">1.6м</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-wallet-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#wallet"></use>
+                                </svg><span class="card__icon-span">16 500грн</span>
+                              </li>
+                            </ul>
+                            <ul class="card__marker-list marker__list">
+                              <li class="card__marker-item marker__item new-product">Новинка</li>
+                              <li class="card__marker-item marker__item best-price">Лучшая цена</li>
+                              <li class="card__marker-item marker__item week-product">Хит продаж</li>
+                            </ul>
+                          </figcaption>
+                          <div class="card__img-frame"><img class="card__img" src="/img/_1.png" alt="undefined"></div>
+                        </figure>
+                      </div></a><a class="card__link" href="/product-catalog/product">
+                      <div class="card">
+                        <figure class="card__figure">
+                          <figcaption class="card__figcaption">
+                            <h4 class="card__title">Подъемный стол</h4><span class="card__article article">Арт.: SYP-2000</span>
+                            <ul class="card__icon-list">
+                              <li class="card__icon-item">
+                                <svg class="svg-box-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#box"></use>
+                                </svg><span class="card__icon-span">2т</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-weight-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#weight"></use>
+                                </svg><span class="card__icon-span">65кг</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-arrow_10-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#arrow_10"></use>
+                                </svg><span class="card__icon-span">1.6м</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-wallet-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#wallet"></use>
+                                </svg><span class="card__icon-span">6 500грн</span>
+                              </li>
+                            </ul>
+                            <ul class="card__marker-list marker__list">
+                              <li class="card__marker-item marker__item new-product">Новинка</li>
+                              <li class="card__marker-item marker__item best-price">Лучшая цена</li>
+                              <li class="card__marker-item marker__item week-product">Хит продаж</li>
+                            </ul>
+                          </figcaption>
+                          <div class="card__img-frame"><img class="card__img" src="/img/_2.png" alt="undefined"></div>
+                        </figure>
+                      </div></a><a class="card__link" href="/product-catalog/product">
+                      <div class="card">
+                        <figure class="card__figure">
+                          <figcaption class="card__figcaption">
+                            <h4 class="card__title">Штабелер самоходный</h4><span class="card__article article">Арт.: SYP-2000</span>
+                            <ul class="card__icon-list">
+                              <li class="card__icon-item">
+                                <svg class="svg-box-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#box"></use>
+                                </svg><span class="card__icon-span">2т</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-weight-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#weight"></use>
+                                </svg><span class="card__icon-span">65кг</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-arrow_10-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#arrow_10"></use>
+                                </svg><span class="card__icon-span">1.6м</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-wallet-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#wallet"></use>
+                                </svg><span class="card__icon-span">6 500грн</span>
+                              </li>
+                            </ul>
+                            <ul class="card__marker-list marker__list">
+                              <li class="card__marker-item marker__item new-product">Новинка</li>
+                              <li class="card__marker-item marker__item best-price">Лучшая цена</li>
+                              <li class="card__marker-item marker__item week-product">Хит продаж</li>
+                            </ul>
+                          </figcaption>
+                          <div class="card__img-frame"><img class="card__img" src="/img/_3.png" alt="undefined"></div>
+                        </figure>
+                      </div></a><a class="card__link" href="/product-catalog/product">
+                      <div class="card">
+                        <figure class="card__figure">
+                          <figcaption class="card__figcaption">
+                            <h4 class="card__title">Штабелер для Бочек</h4><span class="card__article article">Арт.: SYP-2000</span>
+                            <ul class="card__icon-list">
+                              <li class="card__icon-item">
+                                <svg class="svg-box-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#box"></use>
+                                </svg><span class="card__icon-span">2т</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-weight-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#weight"></use>
+                                </svg><span class="card__icon-span">65кг</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-arrow_10-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#arrow_10"></use>
+                                </svg><span class="card__icon-span">1.6м</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-wallet-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#wallet"></use>
+                                </svg><span class="card__icon-span">6 500грн</span>
+                              </li>
+                            </ul>
+                            <ul class="card__marker-list marker__list">
+                              <li class="card__marker-item marker__item new-product">Новинка</li>
+                              <li class="card__marker-item marker__item best-price">Лучшая цена</li>
+                              <li class="card__marker-item marker__item week-product">Хит продаж</li>
+                            </ul>
+                          </figcaption>
+                          <div class="card__img-frame"><img class="card__img" src="/img/_4.png" alt="undefined"></div>
+                        </figure>
+                      </div></a>
+                  </li>
+                  <li class="catalog__item " data-list="4"><a class="card__link" href="/product-catalog/product">
+                      <div class="card">
+                        <figure class="card__figure">
+                          <figcaption class="card__figcaption">
+                            <h4 class="card__title">Рокла</h4><span class="card__article article">Арт.: SYP-2000</span>
+                            <ul class="card__icon-list">
+                              <li class="card__icon-item">
+                                <svg class="svg-box-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#box"></use>
+                                </svg><span class="card__icon-span">2т</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-weight-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#weight"></use>
+                                </svg><span class="card__icon-span">65кг</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-wallet-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#wallet"></use>
+                                </svg><span class="card__icon-span">196 000грн</span>
+                              </li>
+                            </ul>
+                            <ul class="card__marker-list marker__list">
+                              <li class="card__marker-item marker__item new-product">Новинка</li>
+                              <li class="card__marker-item marker__item best-price">Лучшая цена</li>
+                              <li class="card__marker-item marker__item week-product">Хит продаж</li>
+                            </ul>
+                          </figcaption>
+                          <div class="card__img-frame"><img class="card__img" src="/img/1.jpg" alt="undefined"></div>
+                        </figure>
+                      </div></a><a class="card__link" href="/product-catalog/product">
+                      <div class="card">
+                        <figure class="card__figure">
+                          <figcaption class="card__figcaption">
+                            <h4 class="card__title">Штабелер</h4><span class="card__article article">Арт.: SYP-2000</span>
+                            <ul class="card__icon-list">
+                              <li class="card__icon-item">
+                                <svg class="svg-box-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#box"></use>
+                                </svg><span class="card__icon-span">2т</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-weight-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#weight"></use>
+                                </svg><span class="card__icon-span">275кг</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-arrow_10-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#arrow_10"></use>
+                                </svg><span class="card__icon-span">1.6м</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-wallet-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#wallet"></use>
+                                </svg><span class="card__icon-span">26 500грн</span>
+                              </li>
+                            </ul>
+                            <ul class="card__marker-list marker__list">
+                              <li class="card__marker-item marker__item new-product">Новинка</li>
+                              <li class="card__marker-item marker__item best-price">Лучшая цена</li>
+                              <li class="card__marker-item marker__item week-product">Хит продаж</li>
+                            </ul>
+                          </figcaption>
+                          <div class="card__img-frame"><img class="card__img" src="/img/hand-stacker-vulkan.jpg" alt="undefined"></div>
+                        </figure>
+                      </div></a><a class="card__link" href="/product-catalog/product">
+                      <div class="card">
+                        <figure class="card__figure">
+                          <figcaption class="card__figcaption">
+                            <h4 class="card__title">Бочковоз</h4><span class="card__article article">Арт.: SYP-2000</span>
+                            <ul class="card__icon-list">
+                              <li class="card__icon-item">
+                                <svg class="svg-water-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#water"></use>
+                                </svg><span class="card__icon-span">200л</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-weight-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#weight"></use>
+                                </svg><span class="card__icon-span">65кг</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-38-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#38"></use>
+                                </svg><span class="card__icon-span">1.6м</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-wallet-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#wallet"></use>
+                                </svg><span class="card__icon-span">16 500грн</span>
+                              </li>
+                            </ul>
+                            <ul class="card__marker-list marker__list">
+                              <li class="card__marker-item marker__item new-product">Новинка</li>
+                              <li class="card__marker-item marker__item best-price">Лучшая цена</li>
+                              <li class="card__marker-item marker__item week-product">Хит продаж</li>
+                            </ul>
+                          </figcaption>
+                          <div class="card__img-frame"><img class="card__img" src="/img/_1.png" alt="undefined"></div>
+                        </figure>
+                      </div></a><a class="card__link" href="/product-catalog/product">
+                      <div class="card">
+                        <figure class="card__figure">
+                          <figcaption class="card__figcaption">
+                            <h4 class="card__title">Подъемный стол</h4><span class="card__article article">Арт.: SYP-2000</span>
+                            <ul class="card__icon-list">
+                              <li class="card__icon-item">
+                                <svg class="svg-box-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#box"></use>
+                                </svg><span class="card__icon-span">2т</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-weight-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#weight"></use>
+                                </svg><span class="card__icon-span">65кг</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-arrow_10-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#arrow_10"></use>
+                                </svg><span class="card__icon-span">1.6м</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-wallet-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#wallet"></use>
+                                </svg><span class="card__icon-span">6 500грн</span>
+                              </li>
+                            </ul>
+                            <ul class="card__marker-list marker__list">
+                              <li class="card__marker-item marker__item new-product">Новинка</li>
+                              <li class="card__marker-item marker__item best-price">Лучшая цена</li>
+                              <li class="card__marker-item marker__item week-product">Хит продаж</li>
+                            </ul>
+                          </figcaption>
+                          <div class="card__img-frame"><img class="card__img" src="/img/_2.png" alt="undefined"></div>
+                        </figure>
+                      </div></a><a class="card__link" href="/product-catalog/product">
+                      <div class="card">
+                        <figure class="card__figure">
+                          <figcaption class="card__figcaption">
+                            <h4 class="card__title">Штабелер самоходный</h4><span class="card__article article">Арт.: SYP-2000</span>
+                            <ul class="card__icon-list">
+                              <li class="card__icon-item">
+                                <svg class="svg-box-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#box"></use>
+                                </svg><span class="card__icon-span">2т</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-weight-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#weight"></use>
+                                </svg><span class="card__icon-span">65кг</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-arrow_10-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#arrow_10"></use>
+                                </svg><span class="card__icon-span">1.6м</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-wallet-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#wallet"></use>
+                                </svg><span class="card__icon-span">6 500грн</span>
+                              </li>
+                            </ul>
+                            <ul class="card__marker-list marker__list">
+                              <li class="card__marker-item marker__item new-product">Новинка</li>
+                              <li class="card__marker-item marker__item best-price">Лучшая цена</li>
+                              <li class="card__marker-item marker__item week-product">Хит продаж</li>
+                            </ul>
+                          </figcaption>
+                          <div class="card__img-frame"><img class="card__img" src="/img/_3.png" alt="undefined"></div>
+                        </figure>
+                      </div></a><a class="card__link" href="/product-catalog/product">
+                      <div class="card">
+                        <figure class="card__figure">
+                          <figcaption class="card__figcaption">
+                            <h4 class="card__title">Штабелер для Бочек</h4><span class="card__article article">Арт.: SYP-2000</span>
+                            <ul class="card__icon-list">
+                              <li class="card__icon-item">
+                                <svg class="svg-box-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#box"></use>
+                                </svg><span class="card__icon-span">2т</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-weight-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#weight"></use>
+                                </svg><span class="card__icon-span">65кг</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-arrow_10-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#arrow_10"></use>
+                                </svg><span class="card__icon-span">1.6м</span>
+                              </li>
+                              <li class="card__icon-item">
+                                <svg class="svg-wallet-dims card__icon">
+                                  <use xlink:href="/img/sprite.svg#wallet"></use>
+                                </svg><span class="card__icon-span">6 500грн</span>
+                              </li>
+                            </ul>
+                            <ul class="card__marker-list marker__list">
+                              <li class="card__marker-item marker__item new-product">Новинка</li>
+                              <li class="card__marker-item marker__item best-price">Лучшая цена</li>
+                              <li class="card__marker-item marker__item week-product">Хит продаж</li>
+                            </ul>
+                          </figcaption>
+                          <div class="card__img-frame"><img class="card__img" src="/img/_4.png" alt="undefined"></div>
+                        </figure>
+                      </div></a>
+                  </li>
+                </ul>
+      </div>
+    </section>
+    <section class="section__about" id="delivery">
+      <div class="container">
+        <h2 class="section__h2 section__h2_white">О нас</h2>
+        <p class="p">Мы компания импортер, на рынке Украины мы более 20лет, наш ассортиментный портфель насчитывает более 15000 наименований, в ассортименте представлены такие направления как: инструменты, генераторы, строительная техника, опрыскиватели.</p>
+        <p class="p">Складская техника это новое направление, которое мы активно развиваем и продвигаем на рынке Украины. Мы начинали с производства гидравлических рокл и на сегодня в нашем ассортиментном портфеле есть гидравлические тележки(роклы), гидравлические штабелеры, пожъемные столы, электрическая техника. Качесвтво складской техники Vulkan  признана такими компаниями как КЕРНЕЛ, АСТАРТА, ФОРМАК, ЕКОФАРМ и многие другие.</p>
+        <p class="p">Одним из главных преимуществ является отличное сочетание высокого качества складской техники за вменяемую стоимость.</p>
+        <h2 class="section__h2 section__h2_white">Доставка</h2>
+        <p class="p">Мы продаем складскую технику по всей Украине, одним из вопросов с которым сталкиваются клиенты это доставка. Доставку товара мы можем осуществить любой транспортной компанией, которая будет удобна нашему клиенту. По Киеву и Виннице мы делаем доставку бесплатно, в удобное для клиента время. </p>
+        <h2 class="section__h2 section__h2_white">Сервисное обслуживание и гарантия</h2>
+        <p class="p">На складскую технику гидравлическую и электрическую, распространяется гарантия 12месяцев, за два года продаж и проданных тысяч едениц складской техники не было не единого случая поломок. Однако будет лукавство сказать что все так гладко ведь человеческий фактор всегда присутствует и небрежное обращение и использование складской техники в жестких условиях способствуют к сокращению ресурса работы и приводят к поломкам и в данном случае нашим клиентом не стоит переживать на счет ремонта, мы ремонтируем складскую технику, а также поддерживаем в наличие все запчастb к складской технике как гидравлической так и электрической.</p>
+      </div>
+    </section>
+    <section class="section__contacts" id="contacts">
+      <h2 class="section__h2 section__h2_white section__h2_absolute section__h2_bg">Контакты</h2>
+      <div id="map"></div>
+              <div class="contacts-information">
+                <ul class="contacts-information__list">
+                  <li class="contacts-information__item"><i class="fa fa-map contacts-information__icon"></i><a class="contacts-information__link" href="https://goo.gl/maps/zH6xpFcrXXM2" data-href="comgooglemaps://?center=50.490185, 30.412841&amp;zoom=14&amp;views=traffic" target="_blank">г.Киев ул.Северо-Сырецкая, 1-3Г оф.216</a>
+                  </li>
+                  <li class="contacts-information__item"><i class="fa fa-phone contacts-information__icon"></i><a class="contacts-information__link" href="tel: +380674302151">+380674302151</a>
+                  </li>
+                  <li class="contacts-information__item"><i class="fa fa-envelope contacts-information__icon"></i><a class="contacts-information__link" href="mailto: rm1f6@ukrservice.biz">rm1f6@ukrservice.biz</a>
+                  </li>
+                </ul>
+              </div>
+    </section>
+  </body>
+  <!-- modal-->
+  <div class="modal-overlay">
+    <div class="modal"><a class="close-modal">
+        <svg class="icon-crosline" viewbox="0 0 20 20">
+          <path fill="#000000" d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
+        </svg></a>
+      <!-- close modal-->
+      <div class="modal-content">
+          <div class="cart">
+            <h2 class="h2_cart">Корзина</h2>
+            <ul class="cart__list">
+              <li class="cart__item">
+                <div class="cart-img-frame"><img class="cart-img" src="/img/truckLift.jpg" alt=""></div><span class="item-name">Рокла</span><span class="item-price">6000</span><span class="item-quantity">1</span>
+                <svg viewbox="0 0 20 20">
+                  <path fill="#000000" d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
+                </svg>
+              </li>
+              <li class="cart__item">
+                <div class="cart-img-frame"><img class="cart-img" src="/img/truckLift.jpg" alt=""></div><span class="item-name">Штабелер</span><span class="item-price">255000</span><span class="item-quantity">1</span>
+                <svg viewbox="0 0 20 20">
+                  <path fill="#000000" d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
+                </svg>
+              </li>
+              <li class="cart__item">
+                <div class="cart-img-frame"><img class="cart-img" src="/img/truckLift.jpg" alt=""></div><span class="item-name">Подъемный стол</span><span class="item-price">10000</span><span class="item-quantity">1</span>
+                <svg viewbox="0 0 20 20">
+                  <path fill="#000000" d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
+                </svg>
+              </li>
+            </ul>
+          </div>
+      </div>
+      <!-- content-->
+    </div>
+    <!-- modal-->
+  </div>
+  <!-- overlay-->
+  <footer class="footer">
+    <p class="footer__p">Складская Техника</p>
+    <p class="footer__p">2017 Все права защищены</p>
+  </footer>
+</html>

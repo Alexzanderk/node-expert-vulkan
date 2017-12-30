@@ -1,0 +1,24 @@
+{
+    "restartable": "rs",
+    "ignore": [
+      ".git",
+      "node_modules/**/node_modules",
+      "node_modules/**/*.*"
+    ],
+    "verbose": false,
+    "execMap": {
+      "js": "node"
+    },
+    "events": {
+    },
+    "watch": [
+      "public/",
+      "source/",
+      "views/",
+      "*.*"
+    ],
+    "env": {
+      "NODE_ENV": "development"
+    },
+    "ext": "js json css sass pug"
+  }

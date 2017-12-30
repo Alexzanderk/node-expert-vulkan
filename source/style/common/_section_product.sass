@@ -1,0 +1,218 @@
+.section__product
+    padding: 25px 
+    background-color: #fff
+
+.product-list__list
+    margin-top: 20px
+    margin-bottom: 15px
+    list-style: none
+    background-color: #333
+    display: flex
+    justify-content: center
+    padding: 5px
+    width: 100%
+    +breakpoint($phone)
+        flex-flow: column
+
+.product-list__item
+    &.active>.product-list__link:before, &.active>.product-list__link:after
+        opacity: 1
+        transform: translateY(0px)
+    &.active>.product-list__link
+        color: $yellow
+        
+.product-list__item
+    flex: 1
+    text-align: center
+
+.product-list__link
+    width: 100%
+    text-decoration: none
+    color: #888
+    font-family: $mainFont
+    font-size: 18px
+    text-transform: uppercase
+    padding: 15px 0
+    text-align: center
+    margin: auto
+    letter-spacing: .75px
+    display: block
+    position: relative
+    &:before, &:after
+        position: absolute
+        left: 0
+        width: 100%
+        height: 2px
+        background: #fff
+        content: ''
+        opacity: 0
+        transition: opacity 0.3s, transform 0.3s
+        transform: translateY(-10px)
+    &:before
+        top: 0
+        transform: translateY(-10px)
+    &:after
+        bottom: 0
+        transform: translateY(10px)
+    &:hover
+        color: #fff
+    &:hover:before, &:hover:after
+        opacity: 1
+        transform: translateY(0px)
+
+
+.catalog__list
+    list-style: none
+    display: flex
+    flex-flow: column
+    margin: 25px 0
+.catalog__item.active
+    display: flex
+    
+.catalog__item
+    display: flex
+    flex-flow: row wrap
+    margin: auto
+    justify-content: space-around
+    display: none
+
+
+.card__link
+    text-decoration: none
+    display: block
+    width: 270px
+    height: 345px
+    overflow: hidden
+    position: relative
+    background-color: #2f3238
+    z-index: 100
+    margin: 15px
+.card
+    position: relative
+    background-color: #2f3238
+.card__figure
+    margin: 0
+    padding: 0
+.card__figcaption
+    position: absolute
+    top: 10px
+    left: 10px
+    right: 0
+    bottom: 0
+    z-index: 5
+.card__title
+    position: relative
+    color: #18171c
+    font-family: $mainFont
+    font-size: 18px
+    font-weight: 700
+    text-transform: uppercase
+.card__article
+    color: #18171c
+    font-family: $mainFont
+    font-size: 12px
+    font-weight: 700
+    position: relative
+    position: absolute
+    bottom: 8px
+
+
+.card__icon-list
+    display: flex
+    flex-flow: column
+    align-items: flex-start
+    position: relative
+    top: 10px
+.card__icon-item
+    position: relative
+    z-index: 5
+    display: inline-block
+    margin: 0 0 3px
+    padding: 5px 15px
+    background: rgba(#fff, 0.75)
+    color: #2f3238
+    text-transform: none
+    font-weight: 500
+    font-size: 16px
+    transition: opacity 0.35s, transform 0.35s
+    transform: translate3d(-360px,0,0)
+    display: flex
+    align-items: center
+    &:first-child
+        transition-delay: 0.40s
+    &:nth-child(2)
+        transition-delay: 0.30s
+    &:nth-child(3)
+        transition-delay: 0.2s
+    &:nth-child(4)
+        transition-delay: 0.1s
+
+.card:hover > .card__figure > .card__figcaption > .card__icon-list > .card__icon-item:first-child
+    transition-delay: 0.0s
+.card:hover>.card__figure>.card__figcaption>.card__icon-list>.card__icon-item:nth-child(2)
+    transition-delay: 0.05s
+.card:hover>.card__figure>.card__figcaption>.card__icon-list>.card__icon-item:nth-child(3)
+    transition-delay: 0.15s
+.card:hover>.card__figure>.card__figcaption>.card__icon-list>.card__icon-item:nth-child(4)
+    transition-delay: 0.2s
+.card:hover>.card__figure>.card__figcaption>.card__price
+    transition-delay: 0.25s
+
+.card:hover>.card__figure>.card__figcaption>.card__icon-list>.card__icon-item,
+.card:hover>.card__figure>.card__figcaption >.card__price
+    opacity: 1
+    transform: translate3d(0,0,0)
+
+.card:hover>.card__figure>.card__img-frame
+    opacity: 0.5
+    transform: scale3d(1.05,1.05,1)
+
+.card__icon
+.card__icon-span
+    padding-left: 5px
+    color: #18171c
+    font-size: 16px
+    font-weight: 700
+
+.card__marker-list
+    list-style: none
+    position: absolute
+    bottom: 0
+    right: 0
+    z-index: 1
+    backface-visibility: hidden
+    transition: opacity 1s, transform 1s
+.card:hover >.card__figure > .card__figcaption >.card__marker-list
+    opacity: .4
+    transform: scale3d(1.05,1.05,1)
+.marker__list
+.card__marker-item
+    color: #222
+    font-size: 15px
+    font-weight: 800
+    text-transform: uppercase
+    padding: 8px 10px
+    text-align: center
+    background-color: $yellow
+    opacity: .9
+.marker__item
+.new-product
+    display: none
+.best-price
+.week-product
+    display: none
+.card__img-frame
+    width: 270px
+    height: 345px
+    background-color: #fff
+    display: flex
+    backface-visibility: hidden
+    transition: opacity 1s, transform 1s
+.card__img
+    margin: auto
+    background-color: #fff
+    object-fit: contain
+    width: 101%
+    height: 101%
+    backface-visibility: hidden
+    transition: opacity 1s, transform 1s

@@ -1,0 +1,40 @@
+.contact-us
+    .contact-info
+        .front__h2 Как с нами связаться
+        ul.contact-info__list
+            li.contact-info__item
+                i.fa.fa-phone.contact-info__item_icon
+                a.contakt-info__link(href="tel:+380674302151") +38 067 430 21 51
+            li.contact-info__item
+                i.fa.fa-envelope-open.contact-info__item_icon
+                a.contakt-info__link(href="mailto: rm1f6@ukservice.biz") rm1f6@ukservice.biz
+    
+    .contact__form
+        .front__h2 Оставить запрос
+        form.form-request(action="")
+            span.form-request__input.form-request__input_effect 
+                input.input__field.input__field_effect(type="text" id="inputName")
+                label.input__label.input__label_effect(for="inputName")
+                    span.input__label-content.input__label-content_effect Ваше имя
+            span.form-request__input 
+                input.input__field.input__field_effect(type="text" id="inputPhone")
+                label.input__label.input__label_effect(for="inputPhone")
+                    span.input__label-content.input__label-content_effect Контактный телефон
+            
+            button.form-request__button Отправить
+                span.line1.btn-border-line
+                span.line2.btn-border-line
+                span.line3.btn-border-line
+                span.line4.btn-border-line
+
+
+    //- .contact__form
+        .front__h2 Оставить запрос
+        form.form__request(action="")
+            input.form-request__input(type="text" placeholder="Ваше имя")
+            input.form-request__input(type="text" placeholder="Контактный телефон")
+            button.form-request__button Отправить
+                span.line1.btn-border-line
+                span.line2.btn-border-line
+                span.line3.btn-border-line
+                span.line4.btn-border-line

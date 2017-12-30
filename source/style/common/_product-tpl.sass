@@ -1,0 +1,156 @@
+.section__product-info
+    @extend .section__news-catalog 
+
+.main-container
+    display: flex
+    justify-content: space-around
+    justify-content: space-between
+    align-items: flex-start
+    margin-bottom: 10px
+.left-side-catalog
+    flex: 1.5
+    margin-right: 20px
+    background-color: rgba(#000, .8)
+    padding: 10px
+    width: 25%
+    +breakpoint($phone)
+        display: none
+        overflow-y: auto
+    &.open
+        +breakpoint($phone)
+            display: block
+            position: fixed
+            top: 0
+            left: 0
+            right: 0
+            height: 100%
+            width: 100%
+            z-index: 50
+            background-color: rgba(#000, .95)
+
+
+#menu-catalog
+    display: none
+    +breakpoint($phone)
+        position: fixed
+        top: 25px
+        left: 15px
+        display: block
+        z-index: 50
+#menu-catalog.open
+    .burger
+    .burger1
+        +breakpoint($phone)
+            position: fixed
+            top: 30px
+            transform: rotate3D(0, -0, 25, 45deg)
+            transition: all 0.3s ease
+    .burger2
+        +breakpoint($phone)
+            position: fixed
+            top: 25px
+            display: none
+    .burger3
+        +breakpoint($phone)
+            position: fixed
+            top: 30px
+            transform: rotate3D(0, -0, 25, -45deg)
+            transition: all 0.3s ease
+
+
+.h3
+    color: #fff
+    margin: 5px 0
+    letter-spacing: 1px
+    +breakpoint($phone)
+        text-align: center
+        margin-top: 15px
+.products-catalog__list
+    list-style: none
+    padding: 0
+    +breakpoint($phone)
+        text-align: center
+.products-catalog__item
+.h4
+    color: darken($yellow, 5%)
+    margin: 10px 0
+    margin-left: 10px
+    font-weight: 600
+    letter-spacing: 1px
+.product__list
+    list-style: none
+    padding: 0
+    padding-left: 15px
+.product__item
+    margin: 5px
+a.product__link
+    text-decoration: none
+    color: #999
+    &:hover
+        color: lighten(#999, 35%)
+    &.active
+        color: #fff
+        text-decoration: underline
+
+
+
+.right-side
+    flex: 4.5
+    background-color: rgba(#000, .8)
+    padding: 10px
+    width: 70%
+    +breakpoint($phone)
+        background-color: rgba(#000, .3)
+.product-container
+    display: flex
+    flex-flow: row wrap
+    +breakpoint($phone)
+        flex-flow: column
+.product-img-frame
+    // flex: 1
+    width: 250px
+    overflow: hidden
+    margin-right: 25px
+    background: #fff
+    +breakpoint($phone)
+        margin: auto
+        flex: 1
+.product__img
+    width: 100%
+.product-property
+    flex: 2
+    
+.product-property__table
+    width: 100%
+    color: #fff
+    border-collapse: collapse
+.thead
+    .tr
+        border-bottom: 2px solid $yellow
+    .td
+        font-size: 24px
+        padding-bottom: 5px
+.tbody
+    color: #000
+    .tr
+        background-color: rgba(#fff, .7)
+        border-bottom: 1px solid #000
+        &:last-child
+            border: none
+    .td
+        padding: 8px 10px
+        &:nth-child(even)
+            text-align: right
+        &:nth-child(odd)
+            font-weight: 800
+.product-description
+.p
+.ul
+    color: #fff
+    padding-left: 25px
+    margin-top: 15px
+.li
+    margin-left: 25px
+    line-height: 1.5
+    &:first-child
+        margin-top: 5px

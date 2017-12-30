@@ -1,62 +1,392 @@
-{
-    "1": {
+[
+    {
+        "id": 1,
         "title": "Comming soon aw",
         "desc": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!",
         "date": "31/12/17",
-        "src": "/img/bgDelivery.jpg"
+        "src": "/img/bgDelivery.jpg",
+        "fullDescription": {
+            "paragraf": [
+                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!",
+                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!",
+                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!"
+            ],
+            "ul": {
+                "title": "title UL",
+                "li": [
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit."
+                ]
+            },
+            "img": {
+                "1": {
+                    "className": "news__img_xs",
+                    "src": "/img/bgDelivery.jpg",
+                    "alt": "photo alt"
+                },
+                "2": {
+                    "className": "news__img_l",
+                    "src": "/img/bgDelivery.jpg",
+                    "alt": "photo alt"
+                },
+                "3": {
+                    "className": "news__img_xl",
+                    "src": "/img/bgDelivery.jpg",
+                    "alt": "photo alt"
+                }
+            }
+        }
     },
-    "2": {
+    {
+        "id": 2,
         "title": "Comming soon",
         "desc": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!",
-        "date": "31/12/17",
-        "src": "/img/bgDelivery.jpg"
+        "date": "30/12/17",
+        "src": "/img/bgDelivery.jpg",
+        "fullDescription": {
+            "paragraf": [
+                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!",
+                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!",
+                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!"
+            ],
+            "ul": {
+                "title": "title UL",
+                "li": [
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit."
+                ]
+            },
+            "img": {
+                "1": {
+                    "className": "news__img_xs",
+                    "src": "/img/bgDelivery.jpg",
+                    "alt": "photo alt"
+                },
+                "2": {
+                    "className": "news__img_l",
+                    "src": "/img/bgDelivery.jpg",
+                    "alt": "photo alt"
+                },
+                "3": {
+                    "className": "news__img_xl",
+                    "src": "/img/bgDelivery.jpg",
+                    "alt": "photo alt"
+                }
+            }
+        }
     },
-    "3": {
+    {
+        "id": 3,
         "title": "Comming soon",
         "desc": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!",
-        "date": "31/12/17",
-        "src": "/img/bgDelivery.jpg"
+        "date": "29/12/17",
+        "src": "/img/bgDelivery.jpg",
+        "fullDescription": {
+            "paragraf": [
+                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!",
+                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!",
+                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!"
+            ],
+            "ul": {
+                "title": "title UL",
+                "li": [
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit."
+                ]
+            },
+            "img": {
+                "1": {
+                    "className": "news__img_xs",
+                    "src": "/img/bgDelivery.jpg",
+                    "alt": "photo alt"
+                },
+                "2": {
+                    "className": "news__img_l",
+                    "src": "/img/bgDelivery.jpg",
+                    "alt": "photo alt"
+                },
+                "3": {
+                    "className": "news__img_xl",
+                    "src": "/img/bgDelivery.jpg",
+                    "alt": "photo alt"
+                }
+            }
+        }
     },
-    "4": {
+    {
+        "id": 4,
         "title": "Comming soon",
         "desc": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!",
-        "date": "31/12/17",
-        "src": "/img/bgDelivery.jpg"
+        "date": "28/12/17",
+        "src": "/img/bgDelivery.jpg",
+        "fullDescription": {
+            "paragraf": [
+                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!",
+                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!",
+                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!"
+            ],
+            "ul": {
+                "title": "title UL",
+                "li": [
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit."
+                ]
+            },
+            "img": {
+                "1": {
+                    "className": "news__img_xs",
+                    "src": "/img/bgDelivery.jpg",
+                    "alt": "photo alt"
+                },
+                "2": {
+                    "className": "news__img_l",
+                    "src": "/img/bgDelivery.jpg",
+                    "alt": "photo alt"
+                },
+                "3": {
+                    "className": "news__img_xl",
+                    "src": "/img/bgDelivery.jpg",
+                    "alt": "photo alt"
+                }
+            }
+        }
     },
-    "5": {
+    {
+        "id": 5,
         "title": "Comming soon",
         "desc": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!",
-        "date": "31/12/17",
-        "src": "/img/bgDelivery.jpg"
+        "date": "27/12/17",
+        "src": "/img/bgDelivery.jpg",
+        "fullDescription": {
+            "paragraf": [
+                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!",
+                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!",
+                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!"
+            ],
+            "ul": {
+                "title": "title UL",
+                "li": [
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit."
+                ]
+            },
+            "img": {
+                "1": {
+                    "className": "news__img_xs",
+                    "src": "/img/bgDelivery.jpg",
+                    "alt": "photo alt"
+                },
+                "2": {
+                    "className": "news__img_l",
+                    "src": "/img/bgDelivery.jpg",
+                    "alt": "photo alt"
+                },
+                "3": {
+                    "className": "news__img_xl",
+                    "src": "/img/bgDelivery.jpg",
+                    "alt": "photo alt"
+                }
+            }
+        }
     },
-    "6": {
+    {
+        "id": 6,
         "title": "Comming soon",
         "desc": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!",
-        "date": "31/12/17",
-        "src": "/img/bgDelivery.jpg"
+        "date": "26/12/17",
+        "src": "/img/bgDelivery.jpg",
+        "fullDescription": {
+            "paragraf": [
+                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!",
+                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!",
+                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!"
+            ],
+            "ul": {
+                "title": "title UL",
+                "li": [
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit."
+                ]
+            },
+            "img": {
+                "1": {
+                    "className": "news__img_xs",
+                    "src": "/img/bgDelivery.jpg",
+                    "alt": "photo alt"
+                },
+                "2": {
+                    "className": "news__img_l",
+                    "src": "/img/bgDelivery.jpg",
+                    "alt": "photo alt"
+                },
+                "3": {
+                    "className": "news__img_xl",
+                    "src": "/img/bgDelivery.jpg",
+                    "alt": "photo alt"
+                }
+            }
+        }
     },
-    "7": {
+    {
+        "id": 7,
         "title": "Comming soon",
         "desc": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!",
-        "date": "31/12/17",
-        "src": "/img/bgDelivery.jpg"
+        "date": "25/12/17",
+        "src": "/img/bgDelivery.jpg",
+        "fullDescription": {
+            "paragraf": [
+                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!",
+                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!",
+                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!"
+            ],
+            "ul": {
+                "title": "title UL",
+                "li": [
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit."
+                ]
+            },
+            "img": {
+                "1": {
+                    "className": "news__img_xs",
+                    "src": "/img/bgDelivery.jpg",
+                    "alt": "photo alt"
+                },
+                "2": {
+                    "className": "news__img_l",
+                    "src": "/img/bgDelivery.jpg",
+                    "alt": "photo alt"
+                },
+                "3": {
+                    "className": "news__img_xl",
+                    "src": "/img/bgDelivery.jpg",
+                    "alt": "photo alt"
+                }
+            }
+        }
     },
-    "8": {
+    {
+        "id": 8,
         "title": "Comming soon",
         "desc": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!",
-        "date": "31/12/17",
-        "src": "/img/bgDelivery.jpg"
+        "date": "24/12/17",
+        "src": "/img/bgDelivery.jpg",
+        "fullDescription": {
+            "paragraf": [
+                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!",
+                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!",
+                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!"
+            ],
+            "ul": {
+                "title": "title UL",
+                "li": [
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit."
+                ]
+            },
+            "img": {
+                "1": {
+                    "className": "news__img_xs",
+                    "src": "/img/bgDelivery.jpg",
+                    "alt": "photo alt"
+                },
+                "2": {
+                    "className": "news__img_l",
+                    "src": "/img/bgDelivery.jpg",
+                    "alt": "photo alt"
+                },
+                "3": {
+                    "className": "news__img_xl",
+                    "src": "/img/bgDelivery.jpg",
+                    "alt": "photo alt"
+                }
+            }
+        }
     },
-    "9": {
+    {
+        "id": 9,
         "title": "Comming soon",
         "desc": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!",
-        "date": "31/12/17",
-        "src": "/img/bgDelivery.jpg"
+        "date": "23/12/17",
+        "src": "/img/bgDelivery.jpg",
+        "fullDescription": {
+            "paragraf": [
+                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!",
+                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!",
+                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!"
+            ],
+            "ul": {
+                "title": "title UL",
+                "li": [
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit."
+                ]
+            },
+            "img": {
+                "1": {
+                    "className": "news__img_xs",
+                    "src": "/img/bgDelivery.jpg",
+                    "alt": "photo alt"
+                },
+                "2": {
+                    "className": "news__img_l",
+                    "src": "/img/bgDelivery.jpg",
+                    "alt": "photo alt"
+                },
+                "3": {
+                    "className": "news__img_xl",
+                    "src": "/img/bgDelivery.jpg",
+                    "alt": "photo alt"
+                }
+            }
+        }
     },
-    "10": {
+    {
+        "id": 10,
         "title": "Comming soon",
         "desc": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!",
-        "date": "31/12/17",
-        "src": "/img/bgDelivery.jpg"
+        "date": "22/12/17",
+        "src": "/img/bgDelivery.jpg",
+        "fullDescription": {
+            "paragraf": [
+                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!",
+                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!",
+                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius culpa vitae ad ratione rerum repudiandae error. Provident asperiores voluptatem mollitia hic laboriosam eos adipisci accusamus, itaque ad dignissimos ea placeat!"
+            ],
+            "ul": {
+                "title": "title UL",
+                "li": [
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+                    "Lorem ipsum dolor sit amet consectetur, adipisicing elit."
+                ]
+            },
+            "img": {
+                "1": {
+                    "className": "news__img_xs",
+                    "src": "/img/bgDelivery.jpg",
+                    "alt": "photo alt"
+                },
+                "2": {
+                    "className": "news__img_l",
+                    "src": "/img/bgDelivery.jpg",
+                    "alt": "photo alt"
+                },
+                "3": {
+                    "className": "news__img_xl",
+                    "src": "/img/bgDelivery.jpg",
+                    "alt": "photo alt"
+                }
+            }
+        }
     }
-}
+]

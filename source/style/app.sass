@@ -1,0 +1,61 @@
+@function rem($px)
+	@return $px / 16px + 0rem
+
+@import './common/_font'
+@import './../../node_modules/breakpoint-sass/stylesheets/_breakpoint.scss'
+@import './common/_varibles.sass'
+
+
+html, body
+	height: 100%
+	
+
+html
+	font-size: 16px
+	// +breakpoint($phone)
+	// 	font-size: 14px
+
+*, body
+	margin: 0
+	padding: 0
+	box-sizing: border-box
+	font-family: $mainFont
+	// lost-utility: edit
+
+.container
+	max-width: 1300px
+	margin: auto
+
+.section__h2
+	text-align: center
+	font-family: 'Days Sans Black'  
+	font-weight: 800
+
+body
+	display: flex
+	flex-flow: column
+section
+	flex: 1
+footer
+	flex: 0
+
+
+.section__news-catalog, .section__news, .section__product-catalog, .section__product-info
+    background: linear-gradient(to bottom, rgba(0,0,0, .9) 0%, rgba(0,0,0,0.2) 30%, rgba(255,255,255,0) 100%), url('../img/bg_lift_truck.jpg')
+    background-repeat: no-repeat
+    background-size: cover
+    background-attachment: fixed
+    background-position: 50% 85%
+
+
+@import './common/_section_front.sass'
+@import './common/_sprite.scss'
+@import './common/_section_product.sass'
+@import './common/_section_about.sass'
+@import './common/_section_contacts.sass'
+@import './common/_footer.sass'
+@import './common/_modal.sass'
+@import './common/_news-catalog-tpl.sass'
+@import './common/_news-tpl.sass'
+@import './common/_product-catalog-tpl.sass'
+@import './common/_product-tpl.sass'

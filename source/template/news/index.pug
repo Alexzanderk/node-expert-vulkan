@@ -1,0 +1,10 @@
+extends ../_layout
+
+include ./mixins/_mixin
+
+block main
+    section.section__news
+            .bg-fixed
+            .container
+                include ../_include/_header
+                +news(newsOne)

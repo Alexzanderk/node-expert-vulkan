@@ -1,0 +1,232 @@
+include _mixin
+
+mixin tabList(items, activeItem)
+	ul.catalog__list
+		- let i = 0
+		each li in items
+			-i++
+			li(class=`catalog__item`  + ' ' + ( (i == activeItem) ? 'active' : '' ) data-list=`${i}`)
+				each elems in li
+					a(class=`${elems.className}__link` href="/product-catalog/product")
+						div(class=`${elems.className}`)
+							figure(class=`${elems.className}__figure`)
+								figcaption(class=`${elems.className}__figcaption`)
+									h4(class=`${elems.className}__title`)= elems.title
+									span(class=`${elems.className}__article article`)= `Арт.: ${elems.art}`
+									ul(class=`${elems.className}__icon-list`)
+										each icon, text in elems.icons
+											li(class=`${elems.className}__icon-item`)
+												svg(class=`svg-${icon}-dims ${elems.className}__icon`)
+													use(xlink:href=`/img/sprite.svg#${icon}`)
+												span(class=`${elems.className}__icon-span`)= text
+									//- div(class=`${elems.className}__price`)= price
+									ul(class=`${elems.className}__marker-list`).marker__list
+										li(class=`${elems.className}__marker-item`).marker__item.new-product Новинка
+										li(class=`${elems.className}__marker-item`).marker__item.best-price Лучшая цена
+										li(class=`${elems.className}__marker-item`).marker__item.week-product Хит продаж
+								div(class=`${elems.className}__img-frame`)
+									img(class=`${elems.className}__img` src=`${elems.src}`, alt=`${title}`)
+					
+                    
++tabList({
+    0: {
+        1: {
+            className: 'card',
+            title: 'Рокла',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '65кг':'weight', '196 000грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/1.jpg'
+        },
+        2: {
+            className: 'card',
+            title: 'Штабелер',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '275кг':'weight','1.6м':'arrow_10', '26 500грн':'wallet'},
+            price: '6 200 грн',
+            src: '/img/hand-stacker-vulkan.jpg'
+        },
+        3: {
+            className: 'card',
+            title: 'Бочковоз',
+            art: 'SYP-2000',
+            icons: {'200л':'water', '65кг':'weight', '1.6м':'38', '16 500грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/_1.png'
+        },
+        4: {
+            className: 'card',
+            title: 'Подъемный стол',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '65кг':'weight', '1.6м':'arrow_10', '6 500грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/_2.png'
+        },
+        5: {
+            className: 'card',
+            title: 'Штабелер самоходный',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '65кг':'weight', '1.6м':'arrow_10', '6 500грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/_3.png'
+        },
+        6: {
+            className: 'card',
+            title: 'Штабелер для Бочек',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '65кг':'weight', '1.6м':'arrow_10', '6 500грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/_4.png'
+        }
+    },
+    1: {
+        1: {
+            className: 'card',
+            title: 'Рокла',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '65кг':'weight', '196 000грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/_1.png'
+        },
+        2: {
+            className: 'card',
+            title: 'Штабелер',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '275кг':'weight','1.6м':'arrow_10', '26 500грн':'wallet'},
+            price: '6 200 грн',
+            src: '/img/hand-stacker-vulkan.jpg'
+        },
+        3: {
+            className: 'card',
+            title: 'Бочковоз',
+            art: 'SYP-2000',
+            icons: {'200л':'water', '65кг':'weight', '1.6м':'38', '16 500грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/_1.png'
+        },
+        4: {
+            className: 'card',
+            title: 'Подъемный стол',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '65кг':'weight', '1.6м':'arrow_10', '6 500грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/_2.png'
+        },
+        5: {
+            className: 'card',
+            title: 'Штабелер самоходный',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '65кг':'weight', '1.6м':'arrow_10', '6 500грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/_3.png'
+        },
+        6: {
+            className: 'card',
+            title: 'Штабелер для Бочек',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '65кг':'weight', '1.6м':'arrow_10', '6 500грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/_4.png'
+        }
+    },
+    2: {
+        1: {
+            className: 'card',
+            title: 'Рокла',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '65кг':'weight', '196 000грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/1.jpg'
+        },
+        2: {
+            className: 'card',
+            title: 'Штабелер',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '275кг':'weight','1.6м':'arrow_10', '26 500грн':'wallet'},
+            price: '6 200 грн',
+            src: '/img/hand-stacker-vulkan.jpg'
+        },
+        3: {
+            className: 'card',
+            title: 'Бочковоз',
+            art: 'SYP-2000',
+            icons: {'200л':'water', '65кг':'weight', '1.6м':'38', '16 500грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/_1.png'
+        },
+        4: {
+            className: 'card',
+            title: 'Подъемный стол',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '65кг':'weight', '1.6м':'arrow_10', '6 500грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/_2.png'
+        },
+        5: {
+            className: 'card',
+            title: 'Штабелер самоходный',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '65кг':'weight', '1.6м':'arrow_10', '6 500грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/_3.png'
+        },
+        6: {
+            className: 'card',
+            title: 'Штабелер для Бочек',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '65кг':'weight', '1.6м':'arrow_10', '6 500грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/_4.png'
+        }
+    },
+    3: {
+        1: {
+            className: 'card',
+            title: 'Рокла',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '65кг':'weight', '196 000грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/1.jpg'
+        },
+        2: {
+            className: 'card',
+            title: 'Штабелер',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '275кг':'weight','1.6м':'arrow_10', '26 500грн':'wallet'},
+            price: '6 200 грн',
+            src: '/img/hand-stacker-vulkan.jpg'
+        },
+        3: {
+            className: 'card',
+            title: 'Бочковоз',
+            art: 'SYP-2000',
+            icons: {'200л':'water', '65кг':'weight', '1.6м':'38', '16 500грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/_1.png'
+        },
+        4: {
+            className: 'card',
+            title: 'Подъемный стол',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '65кг':'weight', '1.6м':'arrow_10', '6 500грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/_2.png'
+        },
+        5: {
+            className: 'card',
+            title: 'Штабелер самоходный',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '65кг':'weight', '1.6м':'arrow_10', '6 500грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/_3.png'
+        },
+        6: {
+            className: 'card',
+            title: 'Штабелер для Бочек',
+            art: 'SYP-2000',
+            icons: {'2т':'box', '65кг':'weight', '1.6м':'arrow_10', '6 500грн':'wallet'},
+            price: '186 200 грн',
+            src: '/img/_4.png'
+        }
+    }
+}, '1')

@@ -1,0 +1,50 @@
+.section__news
+    @extend .section__news-catalog 
+.news
+    background-color: rgba(#000, .75)
+    color: #ffffff
+    padding: 25px 15px
+    overflow: hidden
+    margin: 25px 0
+    +breakpoint($phone)
+        background-color: rgba(#000, .0)
+
+.news__h1
+    color: #ddd
+
+
+.news__date
+    font-size: 12px
+    color: #888
+    display: flex
+    flex-flow: row-reverse
+    .fa-calendar
+        margin-right: 10px
+.description 
+
+.news__p 
+    margin: 10px 0
+    line-height: 1.25
+    text-indent: 35px
+.news__ul
+    line-height: 1.75
+    font-weight: 600
+
+.news__li
+    font-weight: 400
+    margin-left: 30px
+    line-height: 1.25
+
+.news__img
+    margin: 10px
+    background-color: #fff
+    object-fit: cover
+.news__img_xs
+    width: 150px
+    max-width: 200px
+.news__img_l
+    width: 400px
+    max-width: 600px
+.news__img_xl
+    width: 600px
+    max-height: 800px
