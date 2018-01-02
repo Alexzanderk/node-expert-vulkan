@@ -7,13 +7,18 @@ mixin leftSideCatalog(productsCatalog)
 				ul.product__list
 					each products in items.products
 						li.product__item
-							a(href=`${products.alias}` class=`product__link` + ' ' + ((idx == '1' && item.active == true) ? "active" : ''))= products.title
-
+							-let isActive = product.alias === products.alias
+							a(class='product__link' href=`${products.alias}` class={'active': isActive })= products.title
 
 mixin product(item)
 	div(class=`product-container`)
+		input#product(type="hidden", name=`${item.title}` data-price=`${item.price}` data-id=`${item.alias}` data-img=`${item.src}`)
 		div(class=`product-img-frame`)
 			img(class=`product__img` src=`${item.src}`, alt="")
+			+btnCart('cart-icon_white')(class='cart-icon_center')
+			.product-price
+				span.price-title Цена:
+				span.price= item.price
 		div(class=`product-property`)
 			table(class=`product-property__table`)
 				thead.thead
@@ -28,6 +33,9 @@ mixin product(item)
 									td.td= val
 								if key == 'value' && val != ''
 									td.td= val
+					//- tr.tr
+						td.td Цена
+						td.td= item.price
 		div(class=`product-description`)
 			each p in item.description.p
 				p.p= p

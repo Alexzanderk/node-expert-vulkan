@@ -9,9 +9,8 @@ header.header
             span.burger.burger3
         ul.nav__list
             li.nav__item
-                a.nav__link.cart__link(href="#")
-                    i.fa.fa-shopping-cart.cart-icon 
-                    span.cart-number 1
+                a#headerCart.nav__link.cart__link(href="#")
+                    +cartbtn('shopping-cart')
             li.nav__item
                 a.nav__link(href="/news-catalog/") Новости
             li.nav__item

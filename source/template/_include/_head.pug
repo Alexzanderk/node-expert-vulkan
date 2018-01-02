@@ -1,15 +1,19 @@
 head
   meta(charset='utf-8')
-  title Project #
   meta(content='' name='author')
   meta(content='' name='description')
   meta(content='' name='keywords')
   meta(content='width=device-width, initial-scale=1' name='viewport')
   meta(content='ie=edge' http-equiv='x-ua-compatible')
+  
+  title Storage Equipment
+
   //- favicon block start
   //- favicon block end
+  
   link(rel='stylesheet' href='/css/foundation.css')
-  link(rel='stylesheet' href='/css/app.css')
+  link(rel='stylesheet' href=`/css/app.css?v=${version}`)
+  
   script(src='/js/foundation.js' defer)
   script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js' defer)
   script(src='/js/app.js' defer)

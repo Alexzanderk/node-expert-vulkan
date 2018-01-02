@@ -10,6 +10,6 @@ module.exports = function() {
           message:  error.message
         }
        }))
-      .pipe($.gulp.dest($.config.public + '/static'))
+      .pipe($.gulp.dest($.config.build))
   });
 };

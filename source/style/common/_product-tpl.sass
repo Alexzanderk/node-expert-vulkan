@@ -111,12 +111,25 @@ a.product__link
     width: 250px
     overflow: hidden
     margin-right: 25px
-    background: #fff
+    // max-height: 250px
+    display: flex
+    flex-flow: column
     +breakpoint($phone)
         margin: auto
         flex: 1
 .product__img
     width: 100%
+    background: #fff
+
+.product-price
+    color: #fff
+    font-weight: 800
+    font-size: 20px
+    text-align: center
+    margin-top: 10px
+.price-title
+    padding-right: 5px
+.price    
 .product-property
     flex: 2
     

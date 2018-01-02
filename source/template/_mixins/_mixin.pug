@@ -1,4 +1,7 @@
-//- include newsCatalog
+mixin btnCart(className)
+	button(id='cartAddBtn' type="submit").btn.btn-add-cart&attributes(attributes)
+		.cart-container
+			i(class=`fa fa-cart-plus cart-icon ${className} `)
 
 mixin tabControl(className, items, activeItem)
 	ul(class=`${className}__list`)
@@ -31,7 +34,8 @@ mixin tabList(catalog, activeItem)
 														span(class=`card__icon-span`)= item.value
 												if icon == 'wallet'
 													span(class=`card__icon-span`)= product.price
-									//- div(class=`card__price`)= price
+										li(class=`card__icon-item`)
+											+btnCart('cart-icon_black')
 									ul(class=`card__marker-list`).marker__list
 										li(class=`card__marker-item`).marker__item.new-product Новинка
 										li(class=`card__marker-item`).marker__item.best-price Лучшая цена
@@ -39,30 +43,6 @@ mixin tabList(catalog, activeItem)
 								div(class=`card__img-frame`)
 									img(class=`card__img` src=`${product.src}`, alt=`${product.title}`)
 					
-				
-
-
-mixin card(className, title, article, icons, price, img)
-	a(class=`${className}__link` href="/product-catalog/product")
-		div(class=`${className}`)
-			figure(class=`${className}__figure`)
-				figcaption(class=`${className}__figcaption`)
-					h4(class=`${className}__title`)= title
-					span(class=`${className}__article article`)= `Арт.: ${article}`
-					ul(class=`${className}__icon-list`)
-						each icon, text in icons
-							li(class=`${className}__icon-item`)
-								svg(class=`svg-${icon}-dims ${className}__icon`)
-									use(xlink:href=`/img/sprite.svg#${icon}`)
-								span(class=`${className}__icon-span`)= text
-					//- div(class=`${className}__price`)= price
-					ul(class=`${className}__marker-list`).marker__list
-						li(class=`${className}__marker-item`).marker__item.new-product Новинка
-						li(class=`${className}__marker-item`).marker__item.best-price Лучшая цена
-						li(class=`${className}__marker-item`).marker__item.week-product Хит продаж
-				div(class=`${className}__img-frame`)
-					img(class=`${className}__img` src=`${img}`, alt=`${title}`)
-
 mixin contacts(className, items)
 	div(class=`${className}`)
 		ul(class=`${className}__list`)
@@ -78,105 +58,20 @@ mixin contacts(className, items)
 					else
 						a(class=`${className}__link` href="#")= val
 
-//- mixin newsCatalog(className, items)
-	div(class=`${className}`)
-		ul(class=`${className}__list`)
-			each val in items
-				li(class=`${className}__item`)
-					a(class=`${className}__link` href="#")
-						img(class=`${className}__img` src=`${val.src}`, alt="")
-						h4(class=`${className}__h4`)= val.title
-						p(class=`${className}__description`)= val.desc
-						div(class=`${className}__date`)= val.date
-							i.fa.fa-calendar
+mixin cart(items)
+	each item in items
+		li(class=`cart__item`)
+			.cart-img-frame
+				img.cart-img(src=`${item.src}`, alt="")
+			span.item-name= item.title
+			span.item-price= item.price
+			span.item-quantity= item.qty
+			button.btn.btn_delete
+				i.fa.fa-times.close-icon
 
-//- mixin newsCatalog(className, newsCatalog)
-//- 	div(class=`${className}`)
-//- 		ul(class=`${className}__list`)
-//- 			each val in newsCatalog
-//- 				li(class=`${className}__item`)
-//- 					.img-wrapper
-//- 						img(class=`${className}__img` src=`${val.src}`, alt="")
-//- 					.content-wrap
-//- 						h4(class=`${className}__h4`)= val.title
-//- 						p(class=`${className}__description`)= val.desc
-//- 						a(class=`${className}__link ${className}__btn` href=`news/${id}`) Узнать больше
-//- 						div(class=`${className}__date`)= val.date
-//- 							i.fa.fa-calendar
-
-//- mixin pagination(items)
-//- 	ul.pagination
-//- 		li.pagination__item
-//- 			a.pagination__link(href="#")
-//- 				span.pagination__previous <
-//- 		each item in items
-//- 			li.pagination__item
-//- 				a(href="#" class=`pagination__link ` + ' ' + ((item == '1') ? "active" : ''))= item
-//- 		li.pagination__item
-//- 			a.pagination__link(href="#")
-//- 				span.pagination__next >
+mixin cartbtn(icon)
+	#cart-btn.cart-container
+		i(class=`fa fa-${icon} cart-icon`) 
+		span#headerCartNum.cart-number 1
 
 
-//- mixin productCatalog(className, items)
-	div(class=`${className}`)
-		ul(class=`${className}__list`)
-			each value in items	
-				li(class=`${className}__item`)
-					a(class=`card__link` href="product/")
-						div.card.card_catalog
-							figure(class=`card__figure card__figure_catalog`)
-								figcaption(class=`card__figcaption card__figcaption_catalog`)
-									h3(class=`card__title card__title_catalog`)= value.title
-									ul.card__icon-list.card__icon-list_catalog
-										each item in value.elem 
-											li.card__icon-item.card__icon-item_catalog
-												span.card__icon-span.card__icon-span_catalog= item
-								div(class=`card__img-frame card__img-frame_catalog`)
-									img(class=`card__img card__img_catalog` src=`${value.src}` alt=`${title}`)
-
-//- mixin leftSideCatalog(items)
-	ul.products-catalog__list
-		each item in items
-			li.products-catalog__item
-				h4.h4= item.title
-				each product, idx in item.items
-					ul.product__list
-						li.product__item
-							a(href="#" class=`product__link` + ' ' + ((idx == '1' && item.active == true) ? "active" : ''))= product
-
-
-//- mixin product(className, item)
-	div(class=`${className}-container`)
-		div(class=`${className}-img-frame`)
-			img(class=`${className}__img` src=`${item.src}`, alt="")
-		div(class=`${className}-property`)
-			table(class=`${className}-property__table`)
-				thead.thead
-					tr.tr
-						td.td Парамметры
-						td.td 
-				tbody.tbody
-					each td, key in item.table
-						tr.tr
-							td.td= key
-							td.td= td
-		div(class=`${className}-description`)
-			each p in item.description.p
-				p.p= p
-			ul.ul= item.description.ul.title
-				each li in item.description.ul.li
-					li.li= li 
-
-mixin cart(className, items)
-	.cart
-		h2.h2_cart Корзина
-		ul(class=`${className}__list`)
-			each item in items
-				li(class=`${className}__item`)
-					.cart-img-frame
-						img.cart-img(src=`${item.src}`, alt="")
-					span.item-name= item.title
-					span.item-price= item.price
-					span.item-quantity= item.qty
-					svg(viewbox='0 0 20 20')
-						path(fill='#000000', d='M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z')

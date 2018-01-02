@@ -30,13 +30,15 @@ $easing: cubic-bezier(.55,0,.1,1)
  */
 .modal 
     display: flex
-    align-items: center
-    justify-content: center
+    // align-items: center
+    // justify-content: center
     position: relative
     margin: 0 auto
     background-color: #fff
-    width: 600px
-    max-width: 75rem
+    min-width: 320px
+    width: 650px
+    // max-width: 75rem
+    max-width: 100%
     min-height: 20rem
     padding: 1rem
     opacity: 0
@@ -87,14 +89,54 @@ svg
     margin: 20px 0
 .cart__list
     width: 100%
+    display: flex
+    flex-flow: column
 .cart__item
+    width: 100%
     display: flex
     justify-content: space-between
+    align-items: center
 .cart-img-frame
     width: 50px
     overflow: hidden
 .cart-img
     width: 100%
 span.item-name
-span.item-price
-span.item-quantity
+    margin-left: 10px
+    margin-right: 15px
+    flex: 1
+    margin-right: auto
+.item-price
+    margin:  0 15px
+.item-quantity
+    width: 30px
+    margin-right: auto
+.btn_delete
+    margin-bottom: auto
+    // margin-bottom: auto
+    width: 15px
+
+.close-icon
+    font-size: 18px
+    font-weight: 500
+
+// CART BTN ADD
+.cart-icon_black
+    color: #000
+.cart-icon_white
+    color: #fff
+.cart-icon_center
+    text-align: center
+    margin-top: 15px
+
+.btn
+    background: initial
+    border: none
+    cursor: pointer
+    outline: none
+
+.btn-add-cart
+    font-size: 32px
+    position: relative
+    z-index: 25
+
