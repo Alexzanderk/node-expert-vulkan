@@ -7,6 +7,10 @@ class Model extends EventEmitter {
         this.items = items;
     }
 
+    findItem(id) {
+        return this.items.find(item => item.id == id);
+    }
+
     addItem(item) {
         this.items.push(item);
         this.emit('change', this.items);
@@ -19,9 +23,16 @@ class Model extends EventEmitter {
         
         if (index > -1) {
             this.items.splice(index, 1);
+            console.log(this.items);
             this.emit('change', this.items);
         }
-        console.log(this.items);
+        
+    }
+
+    changeCartItemsQuantity() {
+        const sum = this.items.length;
+
+        return sum;
     }
 }
 

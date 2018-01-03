@@ -1,9 +1,8 @@
 import View from './view';
 import Model from './model.js';
 import Controller from './controller';
+import { save, load } from './helpers';
 
-const model = new Model();
-const view = new View();
-const controller = new Controller(model, view);
 
-export {model, view, controller};
+
+export { Model, View, Controller, save, load };

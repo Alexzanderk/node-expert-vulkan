@@ -7,20 +7,21 @@ class View extends EventEmitter {
         this.cartListProduct = document.getElementById('cart-modal');
         this.modalOverlay = document.querySelector('.modal-overlay');
         this.modal = document.querySelector('.modal ');
+        this.cartQuantity = document.getElementById('headerCartNum');
 
         this.openCartButton = document.getElementById('headerCart');
         this.closeCartButton = document.querySelector('.close-modal');
         this.addCartButton = document.getElementById('cartAddBtn');
 
-        this.addCartButton.addEventListener('click', this.handleAdd.bind(this));
         this.openCartButton.addEventListener('click', this.openCart.bind(this));
         this.closeCartButton.addEventListener('click', this.closeCart.bind(this));
+        this.addCartButton.addEventListener('click', this.handleAdd.bind(this));
     }
     
     createListItemProduct(product) {
         const closeIcon = createElement('i', { className: 'fa fa-times close-icon' })
         const itemDeleteButton = createElement('button', { className: 'btn btn-delete' }, closeIcon);
-        const itemQuantity = createElement('span', { className: 'item-quantity' }, '1');
+        const itemQuantity = createElement('span', { className: 'item-quantity' }, product.qty);
         const itemPrice = createElement('span', { className: 'item-price' }, product.price);
         const itemTitle = createElement('span', { className: 'item-name' }, product.title);
         const itemImg = createElement('img', { className: 'cart-img', 'src': product.img });
@@ -49,7 +50,8 @@ class View extends EventEmitter {
         value.title = product.getAttribute('name');
         value.price = product.getAttribute('data-price');
         value.img = product.getAttribute('data-img');
-        console.log(value);
+        value.qty = '1';
+        
         this.emit('add', value);
     }
 
@@ -57,6 +59,16 @@ class View extends EventEmitter {
         const listItemProduct = target.parentNode.parentNode;
 
         this.emit('remove', listItemProduct.getAttribute('data-id'));
+    }
+
+    show(cart) {
+        cart.forEach(item => {
+            const listItem = this.createListItemProduct(item);
+
+            this.cartListProduct.appendChild(listItem);
+        });
+
+        this.changeCartQuantity(cart.length);
     }
 
     addProduct(product) {
@@ -69,6 +81,14 @@ class View extends EventEmitter {
         const listItemProduct = this.findListItemProduct(id);
         
         this.cartListProduct.removeChild(listItemProduct);
+    }
+
+    changeCartQuantity(cartSum) {
+        if (cartSum > 0) {
+            this.cartQuantity.innerText = cartSum;
+        } else {
+            this.cartQuantity.innerText = '';
+        }
     }
 
     openCart(event) {
