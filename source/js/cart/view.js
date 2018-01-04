@@ -15,7 +15,7 @@ class View extends EventEmitter {
 
         this.openCartButton.addEventListener('click', this.openCart.bind(this));
         this.closeCartButton.addEventListener('click', this.closeCart.bind(this));
-        this.addCartButton.addEventListener('click', this.handleAdd.bind(this));
+        if (this.addCartButton) this.addCartButton.addEventListener('click', this.handleAdd.bind(this));
     }
     
     createListItemProduct(product) {

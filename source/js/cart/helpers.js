@@ -39,17 +39,13 @@ function createElement(tag, props, ...children) {
 
 function save(data) {
     const string = JSON.stringify(data);
-
     localStorage.setItem('cart', string);
-
-    console.log(localStorage);
 }
 
 function load() {
     const string = localStorage.getItem('cart');
     const data = JSON.parse(string);
     
-    // console.log(localStorage);
     return data;
 }
 export { EventEmitter, createElement, save, load };

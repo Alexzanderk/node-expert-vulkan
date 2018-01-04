@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -68,101 +68,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EventEmitter; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return createElement; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return save; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return load; });
-class EventEmitter {
-    constructor() {
-        this.events = {};
-    }
-
-    on(type, listener) {
-        this.events[type] = this.events[type] || [];
-        this.events[type].push(listener);
-    }
-
-    emit(type, arg) {
-        if (this.events[type]) {
-            this.events[type].forEach(listener => listener(arg));
-        }
-    }
-}
-
-function createElement(tag, props, ...children) {
-    const element = document.createElement(tag);
-
-    Object.keys(props).forEach(key => {
-        if (key.startsWith('data-')) {
-            element.setAttribute(key, props[key]);
-        } else {
-            element[key] = props[key];
-        }
-    });
-
-    children.forEach(child => {
-        if (typeof child === 'string') {
-            child = document.createTextNode(child);
-        }
-
-        element.appendChild(child);
-    });
-
-    return element;
-}
-
-function save(data) {
-    const string = JSON.stringify(data);
-
-    localStorage.setItem('cart', string);
-
-    console.log(localStorage);
-}
-
-function load() {
-    const string = localStorage.getItem('cart');
-    const data = JSON.parse(string);
-    
-    // console.log(localStorage);
-    return data;
-}
-
-
-/***/ }),
-/* 1 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__functions_google__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__functions_regexForm__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__functions_regexPolyfillForm__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__functions_tab__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__functions_menuMobile__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__functions_productCatalogMenu__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__cart__ = __webpack_require__(9);
-
-
-
-
-
-
-
-
-
-const state = Object(__WEBPACK_IMPORTED_MODULE_6__cart__["d" /* load */])();
-
-const model = new __WEBPACK_IMPORTED_MODULE_6__cart__["b" /* Model */](state || undefined);
-model.on('change', state => Object(__WEBPACK_IMPORTED_MODULE_6__cart__["e" /* save */])(state));
-
-const view = new __WEBPACK_IMPORTED_MODULE_6__cart__["c" /* View */]();
-const controller = new __WEBPACK_IMPORTED_MODULE_6__cart__["a" /* Controller */](model, view);
-
-/***/ }),
-/* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 const googleMap = (function () {
     'use strict';
 
@@ -308,8 +214,99 @@ const googleMap = (function () {
 
 
 })();
-/* unused harmony export googleMap */
+/* harmony export (immutable) */ __webpack_exports__["googleMap"] = googleMap;
 
+
+/***/ }),
+/* 1 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EventEmitter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return createElement; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return save; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return load; });
+class EventEmitter {
+    constructor() {
+        this.events = {};
+    }
+
+    on(type, listener) {
+        this.events[type] = this.events[type] || [];
+        this.events[type].push(listener);
+    }
+
+    emit(type, arg) {
+        if (this.events[type]) {
+            this.events[type].forEach(listener => listener(arg));
+        }
+    }
+}
+
+function createElement(tag, props, ...children) {
+    const element = document.createElement(tag);
+
+    Object.keys(props).forEach(key => {
+        if (key.startsWith('data-')) {
+            element.setAttribute(key, props[key]);
+        } else {
+            element[key] = props[key];
+        }
+    });
+
+    children.forEach(child => {
+        if (typeof child === 'string') {
+            child = document.createTextNode(child);
+        }
+
+        element.appendChild(child);
+    });
+
+    return element;
+}
+
+function save(data) {
+    const string = JSON.stringify(data);
+    localStorage.setItem('cart', string);
+}
+
+function load() {
+    const string = localStorage.getItem('cart');
+    const data = JSON.parse(string);
+    
+    return data;
+}
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__functions_google__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__functions_regexForm__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__functions_regexPolyfillForm__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__functions_tab__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__functions_menuMobile__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__functions_productCatalogMenu__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__cart__ = __webpack_require__(9);
+
+
+
+
+
+
+
+
+
+const state = Object(__WEBPACK_IMPORTED_MODULE_6__cart__["d" /* load */])();
+
+const model = new __WEBPACK_IMPORTED_MODULE_6__cart__["b" /* Model */](state || undefined);
+model.on('change', state => Object(__WEBPACK_IMPORTED_MODULE_6__cart__["e" /* save */])(state));
+
+const view = new __WEBPACK_IMPORTED_MODULE_6__cart__["c" /* View */]();
+const controller = new __WEBPACK_IMPORTED_MODULE_6__cart__["a" /* Controller */](model, view);
 
 /***/ }),
 /* 3 */
@@ -510,7 +507,7 @@ const menuCatalog = (function() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__view__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__model_js__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__controller__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__helpers__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__helpers__ = __webpack_require__(1);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__model_js__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_0__view__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_2__controller__["a"]; });
@@ -530,7 +527,7 @@ const menuCatalog = (function() {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers__ = __webpack_require__(1);
 
 
 class View extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter */] {
@@ -548,7 +545,7 @@ class View extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter */
 
         this.openCartButton.addEventListener('click', this.openCart.bind(this));
         this.closeCartButton.addEventListener('click', this.closeCart.bind(this));
-        this.addCartButton.addEventListener('click', this.handleAdd.bind(this));
+        if (this.addCartButton) this.addCartButton.addEventListener('click', this.handleAdd.bind(this));
     }
     
     createListItemProduct(product) {
@@ -648,7 +645,7 @@ class View extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers__ = __webpack_require__(1);
 
 
 class Model extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter */] {
@@ -665,7 +662,6 @@ class Model extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter *
     addItem(item) {
         this.items.push(item);
         this.emit('change', this.items);
-        console.log(this.items);
         return item;
     }
     
@@ -674,7 +670,6 @@ class Model extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter *
         
         if (index > -1) {
             this.items.splice(index, 1);
-            console.log(this.items);
             this.emit('change', this.items);
         }
         

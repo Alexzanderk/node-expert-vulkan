@@ -6,6 +6,7 @@ module.exports = function () {
             .pipe($.webpackStream({
                 entry: {
                     app: './source/js/index.js',
+                    google: './source/js/functions/google.js'
                 },
                 output: {
                     filename: '[name].js',

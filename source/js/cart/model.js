@@ -14,7 +14,6 @@ class Model extends EventEmitter {
     addItem(item) {
         this.items.push(item);
         this.emit('change', this.items);
-        console.log(this.items);
         return item;
     }
     
@@ -23,7 +22,6 @@ class Model extends EventEmitter {
         
         if (index > -1) {
             this.items.splice(index, 1);
-            console.log(this.items);
             this.emit('change', this.items);
         }
         
