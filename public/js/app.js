@@ -60,165 +60,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-const googleMap = (function () {
-    'use strict';
-
-    // When the window has finished loading create our google map below
-    google.maps.event.addDomListener(window, 'load', init);
-
-    function init() {
-        var mapOptions = {
-            zoom: 15,
-            scrollwheel: false,
-            navigationControl: false,
-            mapTypeControl: false,
-            scaleControl: false,
-            draggable: true,
-            sensor: false,
-
-            // The latitude and longitude to center the map (always required)
-            center: new google.maps.LatLng(50.490527, 30.412927),
-            styles: [{
-                'featureType': 'all',
-                'elementType': 'labels.text.fill',
-                'stylers': [{
-                    'color': '#ffffff'
-                }]
-            },
-            {
-                'featureType': 'all',
-                'elementType': 'labels.text.stroke',
-                'stylers': [{
-                    'visibility': 'simplified'
-                },
-                {
-                    'color': '#3e606f'
-                },
-                {
-                    'weight': 2
-                },
-                {
-                    'gamma': 0.84
-                }
-                ]
-            },
-            {
-                'featureType': 'all',
-                'elementType': 'labels.icon',
-                'stylers': [{
-                    'visibility': 'off'
-                }]
-            },
-            {
-                'featureType': 'administrative',
-                'elementType': 'geometry',
-                'stylers': [{
-                    'weight': 0.6
-                },
-                {
-                    'color': '#1a3541'
-                }
-                ]
-            },
-            {
-                'featureType': 'landscape',
-                'elementType': 'geometry',
-                'stylers': [{
-                    'color': '#242930'
-                }]
-            },
-            {
-                'featureType': 'poi',
-                'elementType': 'geometry',
-                'stylers': [{
-                    'color': '#181b23'
-                }]
-            },
-            {
-                'featureType': 'poi.park',
-                'elementType': 'geometry',
-                'stylers': [{
-                    'color': '#2c712c'
-                },
-                {
-                    'saturation': '-19'
-                },
-                {
-                    'lightness': '-57'
-                },
-                {
-                    'gamma': '1.01'
-                }
-                ]
-            },
-            {
-                'featureType': 'road',
-                'elementType': 'geometry',
-                'stylers': [{
-                    'color': '#f7cd78'
-                },
-                {
-                    'lightness': '-66'
-                },
-                {
-                    'saturation': '-32'
-                },
-                {
-                    'gamma': '1.78'
-                },
-                {
-                    'weight': '1.00'
-                }
-                ]
-            },
-            {
-                'featureType': 'transit',
-                'elementType': 'geometry',
-                'stylers': [{
-                    'color': '#06091a'
-                }]
-            },
-            {
-                'featureType': 'water',
-                'elementType': 'geometry',
-                'stylers': [{
-                    'color': '#393e51'
-                }]
-            }
-            ]
-        };
-
-        // Get the HTML DOM element that will contain your map 
-        // We are using a div with id="map" seen below in the <body>
-        var mapElement = document.getElementById('map');
-
-        // Create the Google Map using our element and options defined above
-        var map = new google.maps.Map(mapElement, mapOptions);
-
-        // Let's also add a marker while we're at it
-        var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(50.490527, 30.412927),
-            map: map,
-            title: 'Snazzy!'
-        });
-    }
-
-
-})();
-/* harmony export (immutable) */ __webpack_exports__["googleMap"] = googleMap;
-
-
-/***/ }),
-/* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -279,18 +125,17 @@ function load() {
 
 
 /***/ }),
-/* 2 */
+/* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__functions_google__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__functions_regexForm__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__functions_regexPolyfillForm__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__functions_tab__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__functions_menuMobile__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__functions_productCatalogMenu__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__cart__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__functions_regexForm__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__functions_regexPolyfillForm__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__functions_tab__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__functions_menuMobile__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__functions_productCatalogMenu__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__cart__ = __webpack_require__(8);
 
 
 
@@ -299,17 +144,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+const state = Object(__WEBPACK_IMPORTED_MODULE_5__cart__["d" /* load */])();
 
-const state = Object(__WEBPACK_IMPORTED_MODULE_6__cart__["d" /* load */])();
+const model = new __WEBPACK_IMPORTED_MODULE_5__cart__["b" /* Model */](state || undefined);
+model.on('change', state => Object(__WEBPACK_IMPORTED_MODULE_5__cart__["e" /* save */])(state));
 
-const model = new __WEBPACK_IMPORTED_MODULE_6__cart__["b" /* Model */](state || undefined);
-model.on('change', state => Object(__WEBPACK_IMPORTED_MODULE_6__cart__["e" /* save */])(state));
-
-const view = new __WEBPACK_IMPORTED_MODULE_6__cart__["c" /* View */]();
-const controller = new __WEBPACK_IMPORTED_MODULE_6__cart__["a" /* Controller */](model, view);
+const view = new __WEBPACK_IMPORTED_MODULE_5__cart__["c" /* View */]();
+const controller = new __WEBPACK_IMPORTED_MODULE_5__cart__["a" /* Controller */](model, view);
 
 /***/ }),
-/* 3 */
+/* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -370,7 +214,7 @@ const regex = (function (window) {
     };
 
     // transport
-    if (typeof define === 'function' && __webpack_require__(4)) {
+    if (typeof define === 'function' && __webpack_require__(3)) {
         // AMD
         define(classie);
     } else {
@@ -382,7 +226,7 @@ const regex = (function (window) {
 
 
 /***/ }),
-/* 4 */
+/* 3 */
 /***/ (function(module, exports) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
@@ -391,7 +235,7 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ }),
-/* 5 */
+/* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -432,7 +276,7 @@ const regexPolyfill = (function () {
 
 
 /***/ }),
-/* 6 */
+/* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -460,7 +304,7 @@ const tab = (function () {
 
 
 /***/ }),
-/* 7 */
+/* 6 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -479,7 +323,7 @@ const menuMobile = (function() {
 
 
 /***/ }),
-/* 8 */
+/* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -500,14 +344,14 @@ const menuCatalog = (function() {
 
 
 /***/ }),
-/* 9 */
+/* 8 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__view__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__model_js__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__controller__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__helpers__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__view__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__model_js__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__controller__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__helpers__ = __webpack_require__(0);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__model_js__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_0__view__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_2__controller__["a"]; });
@@ -523,11 +367,11 @@ const menuCatalog = (function() {
 
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers__ = __webpack_require__(0);
 
 
 class View extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter */] {
@@ -641,11 +485,11 @@ class View extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter */
 /* harmony default export */ __webpack_exports__["a"] = (View);
 
 /***/ }),
-/* 11 */
+/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers__ = __webpack_require__(0);
 
 
 class Model extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter */] {
@@ -685,7 +529,7 @@ class Model extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter *
 /* harmony default export */ __webpack_exports__["a"] = (Model);
 
 /***/ }),
-/* 12 */
+/* 11 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
