@@ -12,7 +12,7 @@ mixin leftSideCatalog(productsCatalog)
 
 mixin product(item)
 	div(class=`product-container`)
-		input#product(type="hidden", name=`${item.title}` data-price=`${item.price}` data-id=`${item.alias}` data-img=`${item.src}`)
+		input#production(type="hidden", name=`${item.title}` data-price=`${item.price}` data-id=`${item.alias}` data-img=`${item.src}`)
 		div(class=`product-img-frame`)
 			img(class=`product__img` src=`${item.src}`, alt="")
 			+btnCart('cart-icon_white')(class='cart-icon_center')

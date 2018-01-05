@@ -8,7 +8,7 @@ class View extends EventEmitter {
         this.modalOverlay = document.querySelector('.modal-overlay');
         this.modal = document.querySelector('.modal ');
         this.cartQuantity = document.getElementById('headerCartNum');
-
+        
         this.openCartButton = document.getElementById('headerCart');
         this.closeCartButton = document.querySelector('.close-modal');
         this.addCartButton = document.getElementById('cartAddBtn');
@@ -19,7 +19,7 @@ class View extends EventEmitter {
     }
     
     createListItemProduct(product) {
-        const closeIcon = createElement('i', { className: 'fa fa-times close-icon' })
+        const closeIcon = createElement('i', { className: 'fa fa-times close-icon' });
         const itemDeleteButton = createElement('button', { className: 'btn btn-delete' }, closeIcon);
         const itemQuantity = createElement('span', { className: 'item-quantity' }, product.qty);
         const itemPrice = createElement('span', { className: 'item-price' }, product.price);
@@ -27,7 +27,7 @@ class View extends EventEmitter {
         const itemImg = createElement('img', { className: 'cart-img', 'src': product.img });
         const itemImgFrame = createElement('div', { className: 'cart-img-frame' }, itemImg);
         const item = createElement('li', { className: 'cart__item', 'data-id': product.id }, itemImgFrame, itemTitle, itemPrice, itemQuantity, itemDeleteButton);
-
+        
         return this.addEventListener(item);
     }
 
@@ -44,7 +44,7 @@ class View extends EventEmitter {
     }
 
     handleAdd() {
-        const product = document.getElementById('product');
+        const product = document.getElementById('production');
         const value = {};
         value.id = product.getAttribute('data-id');
         value.title = product.getAttribute('name');

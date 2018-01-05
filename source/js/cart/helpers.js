@@ -33,7 +33,7 @@ function createElement(tag, props, ...children) {
 
         element.appendChild(child);
     });
-
+    
     return element;
 }
 
@@ -48,4 +48,5 @@ function load() {
     
     return data;
 }
+
 export { EventEmitter, createElement, save, load };

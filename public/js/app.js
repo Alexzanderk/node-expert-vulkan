@@ -107,7 +107,7 @@ function createElement(tag, props, ...children) {
 
         element.appendChild(child);
     });
-
+    
     return element;
 }
 
@@ -122,6 +122,7 @@ function load() {
     
     return data;
 }
+
 
 
 /***/ }),
@@ -144,8 +145,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-const state = Object(__WEBPACK_IMPORTED_MODULE_5__cart__["d" /* load */])();
 
+const state = Object(__WEBPACK_IMPORTED_MODULE_5__cart__["d" /* load */])();
+console.log(state);
 const model = new __WEBPACK_IMPORTED_MODULE_5__cart__["b" /* Model */](state || undefined);
 model.on('change', state => Object(__WEBPACK_IMPORTED_MODULE_5__cart__["e" /* save */])(state));
 
@@ -382,7 +384,7 @@ class View extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter */
         this.modalOverlay = document.querySelector('.modal-overlay');
         this.modal = document.querySelector('.modal ');
         this.cartQuantity = document.getElementById('headerCartNum');
-
+        
         this.openCartButton = document.getElementById('headerCart');
         this.closeCartButton = document.querySelector('.close-modal');
         this.addCartButton = document.getElementById('cartAddBtn');
@@ -393,7 +395,7 @@ class View extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter */
     }
     
     createListItemProduct(product) {
-        const closeIcon = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* createElement */])('i', { className: 'fa fa-times close-icon' })
+        const closeIcon = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* createElement */])('i', { className: 'fa fa-times close-icon' });
         const itemDeleteButton = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* createElement */])('button', { className: 'btn btn-delete' }, closeIcon);
         const itemQuantity = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* createElement */])('span', { className: 'item-quantity' }, product.qty);
         const itemPrice = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* createElement */])('span', { className: 'item-price' }, product.price);
@@ -401,7 +403,7 @@ class View extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter */
         const itemImg = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* createElement */])('img', { className: 'cart-img', 'src': product.img });
         const itemImgFrame = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* createElement */])('div', { className: 'cart-img-frame' }, itemImg);
         const item = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* createElement */])('li', { className: 'cart__item', 'data-id': product.id }, itemImgFrame, itemTitle, itemPrice, itemQuantity, itemDeleteButton);
-
+        
         return this.addEventListener(item);
     }
 
@@ -418,7 +420,7 @@ class View extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter */
     }
 
     handleAdd() {
-        const product = document.getElementById('product');
+        const product = document.getElementById('production');
         const value = {};
         value.id = product.getAttribute('data-id');
         value.title = product.getAttribute('name');
