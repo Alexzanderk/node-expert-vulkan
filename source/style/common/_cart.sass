@@ -4,7 +4,7 @@ $delay: ($speed * .5)
 $easing: cubic-bezier(.55,0,.1,1)
 
   
-.modal-overlay 
+.modal-overlay
     display: flex
     align-items: center
     justify-content: center
@@ -30,19 +30,18 @@ $easing: cubic-bezier(.55,0,.1,1)
  */
 .modal 
     display: flex
-    // align-items: center
-    // justify-content: center
     position: relative
     margin: 0 auto
     background-color: #fff
     min-width: 320px
     width: 650px
-    // max-width: 75rem
     max-width: 100%
-    min-height: 20rem
+    min-height: 32rem
+    max-height: 95%
     padding: 1rem
     opacity: 0
-    overflow-y: auto
+    overflow: hidden
+    // overflow-y: auto
     visibility: hidden
     box-shadow: 0 2px 10px rgba(#000, 0.1)
     backface-visibility: hidden
@@ -81,10 +80,21 @@ svg
     backface-visibility: hidden
     transition: opacity $speed $easing
     transition-delay: $delay
+    display: flex
+    flex-flow: column
 
 
 
 .cart
+    flex: 1
+    overflow-y: auto
+    margin: 10px 0
+    &::-webkit-scrollbar
+        width: 3px
+        background: #eee
+    &::-webkit-scrollbar-thumb
+        background: #ccc
+
 .h2_cart
     margin: 20px 0
 .cart__list
@@ -148,3 +158,32 @@ svg
     padding: 15px
     font-weight: 600
     text-transform: uppercase
+
+.order-wrapper
+    display: flex
+.input
+    flex: 1
+    margin: 10px 0
+    margin-right: 10px
+    padding: 10px
+    border: 1px solid #999999
+    outline: none
+    &:last-child
+        margin-right: 0
+
+
+.order-sum
+    display: flex
+    border-top: 2px solid #000
+    padding: 10px
+.order-sum-title
+    flex: 5
+    text-align: right
+    font-weight: 800
+    margin-right: 10px
+.order-sum-price
+    flex: 1.25
+    text-align: center
+.order-sum-qty
+    flex: 1.25
+    text-align: center

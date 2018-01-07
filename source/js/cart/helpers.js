@@ -27,7 +27,7 @@ function createElement(tag, props, ...children) {
     });
 
     children.forEach(child => {
-        if (typeof child === 'string') {
+        if (typeof child === 'string' || typeof child === 'number') {
             child = document.createTextNode(child);
         }
 

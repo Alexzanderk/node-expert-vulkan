@@ -101,7 +101,7 @@ function createElement(tag, props, ...children) {
     });
 
     children.forEach(child => {
-        if (typeof child === 'string') {
+        if (typeof child === 'string' || typeof child === 'number') {
             child = document.createTextNode(child);
         }
 
@@ -137,7 +137,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__functions_menuMobile__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__functions_productCatalogMenu__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__cart__ = __webpack_require__(8);
-
 
 
 
@@ -384,13 +383,17 @@ class View extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter */
         this.modalOverlay = document.querySelector('.modal-overlay');
         this.modal = document.querySelector('.modal ');
         this.cartQuantity = document.getElementById('headerCartNum');
+        this.totalCartPrice = document.querySelector('.order-sum-price');
+        this.totalCartQuantity = document.querySelector('.order-sum-qty');
         
         this.openCartButton = document.getElementById('headerCart');
         this.closeCartButton = document.querySelector('.close-modal');
         this.addCartButton = document.getElementById('cartAddBtn');
+        this.orderButton = document.getElementById('order-button');
 
         this.openCartButton.addEventListener('click', this.openCart.bind(this));
         this.closeCartButton.addEventListener('click', this.closeCart.bind(this));
+        this.orderButton.addEventListener('click', this.handleOrder.bind(this));
         if (this.addCartButton) this.addCartButton.addEventListener('click', this.handleAdd.bind(this));
     }
     
@@ -416,7 +419,7 @@ class View extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter */
     }
 
     findListItemProduct(id) {
-        return this.cartListProduct.querySelector(`[data-id=${id}]`);
+        return this.cartListProduct.querySelector(`[data-id="${id}"]`);
     }
 
     handleAdd() {
@@ -437,20 +440,45 @@ class View extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter */
         this.emit('remove', listItemProduct.getAttribute('data-id'));
     }
 
+    handleOrder() {
+        this.emit('order');
+    }
+
+    deleteAllCartProducts() {
+        while (this.cartListProduct.firstChild) {
+            this.cartListProduct.removeChild(this.cartListProduct.firstChild);
+        }
+    }
+
     show(cart) {
+        let total = {
+            qty: 0, 
+            price: 0
+        };
+
         cart.forEach(item => {
             const listItem = this.createListItemProduct(item);
-
             this.cartListProduct.appendChild(listItem);
-        });
+            
+            total.qty += +item.qty;
+            total.price += +item.qty * +item.price;
 
-        this.changeCartQuantity(cart.length);
+        });
+        
+        this.changeCartQuantity(total.qty);
+        this.totalProductQuantity(total);
     }
 
     addProduct(product) {
-        const listItemProduct = this.createListItemProduct(product);
+        
+        if ( product.qty > 1 ) {
+            const productInList = this.findListItemProduct(product.id);
+            productInList.querySelector('.item-quantity').innerText = product.qty;
+        } else {
+            const listItemProduct = this.createListItemProduct(product);
+            this.cartListProduct.appendChild(listItemProduct);
 
-        this.cartListProduct.appendChild(listItemProduct);
+        }
     }
     
     removeProduct(id) {
@@ -465,6 +493,11 @@ class View extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter */
         } else {
             this.cartQuantity.innerText = '';
         }
+    }
+
+    totalProductQuantity(total) {
+        this.totalCartQuantity.innerText = +total.qty;
+        this.totalCartPrice.innerText = +total.price;
     }
 
     openCart(event) {
@@ -506,25 +539,90 @@ class Model extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter *
     }
 
     addItem(item) {
-        this.items.push(item);
+        if ( this.items.length > 0 ) {
+            const itemInCart = this.findItem(item.id);
+            const index = this.items.indexOf(itemInCart);
+            
+            if ( itemInCart !== undefined ) {
+                if (itemInCart.id === item.id) {
+                    itemInCart.qty = +itemInCart.qty + +item.qty;
+                    
+                    this.emit('change', this.items);
+                    return itemInCart;
+                } 
+            } else {
+                this.items.push(item);
+            }
+        } else {
+            this.items.push(item);
+        }
         this.emit('change', this.items);
+
         return item;
     }
-    
+
     removeItem(id) {
         const index = this.items.findIndex(item => item.id == id);
-        
-        if (index > -1) {
+
+        if ( index > -1 ) {
             this.items.splice(index, 1);
             this.emit('change', this.items);
         }
-        
+
     }
 
-    changeCartItemsQuantity() {
-        const sum = this.items.length;
+    totalItems() {
+        let totalQty = 0;
+        let totalPrice = 0;
+        
+        this.items.forEach(item => {
+            totalQty += +item.qty;
+            totalPrice += item.qty * item.price;
+        });
+
+        return {
+            qty: totalQty,
+            price: totalPrice
+        };
+    }
+
+    itemsQuantity() {
+        let sum = 0;
+
+        this.items.forEach(item => {
+            sum = sum + +item.qty;
+        });
 
         return sum;
+    }
+
+    orderItems() {
+        const url = 'http://localhost:3001/cart';
+        let body = {
+            items: JSON.stringify(this.items),
+            name: document.getElementById('order-name').value,
+            tel: document.getElementById('order-tel').value
+        };
+        const options = {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Accept': 'application/json, text/plain',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+        };
+        const req = new Request(url, options);
+
+        fetch(req)
+            .then(response => response.blob())
+            .then(data => console.log(data))
+            .catch(error => new Error('Ошибка с отправкой данных'));
+
+        this.items = [];
+
+        this.emit('change', this.items);
+        return this.items;
     }
 }
 
@@ -539,27 +637,42 @@ class Controller {
     constructor(model, view) {
         this.view = view;
         this.model = model;
-
+        
         view.on('add', this.addProduct.bind(this));
         view.on('remove', this.removeProduct.bind(this));
+        view.on('order', this.orderCart.bind(this));
 
         view.show(model.items);
     }
 
     addProduct(product) {
         const item = this.model.addItem(product);
-        const itemSum = this.model.changeCartItemsQuantity();
+        const itemSum = this.model.itemsQuantity();
+        const total = this.model.totalItems();
         
         this.view.addProduct(item);
         this.view.changeCartQuantity(itemSum);
+        this.view.totalProductQuantity(total);
     }
     
     removeProduct(id) {
         this.model.removeItem(id);
-        const itemSum = this.model.changeCartItemsQuantity();
+        
+        const itemSum = this.model.itemsQuantity();
+        const total = this.model.totalItems();
+        
         this.view.removeProduct(id);
         this.view.changeCartQuantity(itemSum);
+        this.view.totalProductQuantity(total);
     }
+
+    orderCart() {
+        this.model.orderItems();
+        this.view.deleteAllCartProducts();
+        this.view.changeCartQuantity(this.model.items);
+        this.view.closeCart();
+    }
+
 }
 
 /* harmony default export */ __webpack_exports__["a"] = (Controller);

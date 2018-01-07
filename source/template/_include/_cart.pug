@@ -10,8 +10,14 @@ include /_mixins/_mixin.pug
         h2.h2_cart Корзина
         .cart
             ul#cart-modal(class=`cart__list`)
-
-        button.btn.btn-submit(type="submit" ) Оформить заказ
+        .order-sum
+            span.order-sum-title Итого:
+            span.order-sum-price 
+            span.order-sum-qty 
+        .order-wrapper
+            input#order-name.input(type="text", name="name" placeholder="Ваше имя" required)
+            input#order-tel.input(type="tel", name="tel" placeholder="Телефон для связи" required pattern="^[ 0-9]+$")
+        button#order-button.btn.btn-submit(type="submit" formnovalidate) Оформить заказ
     // content
   // modal
 // overlay

@@ -8,13 +8,17 @@ class View extends EventEmitter {
         this.modalOverlay = document.querySelector('.modal-overlay');
         this.modal = document.querySelector('.modal ');
         this.cartQuantity = document.getElementById('headerCartNum');
+        this.totalCartPrice = document.querySelector('.order-sum-price');
+        this.totalCartQuantity = document.querySelector('.order-sum-qty');
         
         this.openCartButton = document.getElementById('headerCart');
         this.closeCartButton = document.querySelector('.close-modal');
         this.addCartButton = document.getElementById('cartAddBtn');
+        this.orderButton = document.getElementById('order-button');
 
         this.openCartButton.addEventListener('click', this.openCart.bind(this));
         this.closeCartButton.addEventListener('click', this.closeCart.bind(this));
+        this.orderButton.addEventListener('click', this.handleOrder.bind(this));
         if (this.addCartButton) this.addCartButton.addEventListener('click', this.handleAdd.bind(this));
     }
     
@@ -40,7 +44,7 @@ class View extends EventEmitter {
     }
 
     findListItemProduct(id) {
-        return this.cartListProduct.querySelector(`[data-id=${id}]`);
+        return this.cartListProduct.querySelector(`[data-id="${id}"]`);
     }
 
     handleAdd() {
@@ -61,20 +65,45 @@ class View extends EventEmitter {
         this.emit('remove', listItemProduct.getAttribute('data-id'));
     }
 
+    handleOrder() {
+        this.emit('order');
+    }
+
+    deleteAllCartProducts() {
+        while (this.cartListProduct.firstChild) {
+            this.cartListProduct.removeChild(this.cartListProduct.firstChild);
+        }
+    }
+
     show(cart) {
+        let total = {
+            qty: 0, 
+            price: 0
+        };
+
         cart.forEach(item => {
             const listItem = this.createListItemProduct(item);
-
             this.cartListProduct.appendChild(listItem);
-        });
+            
+            total.qty += +item.qty;
+            total.price += +item.qty * +item.price;
 
-        this.changeCartQuantity(cart.length);
+        });
+        
+        this.changeCartQuantity(total.qty);
+        this.totalProductQuantity(total);
     }
 
     addProduct(product) {
-        const listItemProduct = this.createListItemProduct(product);
+        
+        if ( product.qty > 1 ) {
+            const productInList = this.findListItemProduct(product.id);
+            productInList.querySelector('.item-quantity').innerText = product.qty;
+        } else {
+            const listItemProduct = this.createListItemProduct(product);
+            this.cartListProduct.appendChild(listItemProduct);
 
-        this.cartListProduct.appendChild(listItemProduct);
+        }
     }
     
     removeProduct(id) {
@@ -89,6 +118,11 @@ class View extends EventEmitter {
         } else {
             this.cartQuantity.innerText = '';
         }
+    }
+
+    totalProductQuantity(total) {
+        this.totalCartQuantity.innerText = +total.qty;
+        this.totalCartPrice.innerText = +total.price;
     }
 
     openCart(event) {

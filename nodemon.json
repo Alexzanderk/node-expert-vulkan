@@ -5,6 +5,7 @@
       "node_modules/**/node_modules",
       "node_modules/**/*.*",
       "public/**/*",
+      "data/**/order.json",
       "source/**/*",
       "views/**/*"
     ],
