@@ -146,7 +146,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 const state = Object(__WEBPACK_IMPORTED_MODULE_5__cart__["d" /* load */])();
-console.log(state);
+
 const model = new __WEBPACK_IMPORTED_MODULE_5__cart__["b" /* Model */](state || undefined);
 model.on('change', state => Object(__WEBPACK_IMPORTED_MODULE_5__cart__["e" /* save */])(state));
 
@@ -599,7 +599,7 @@ class Model extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter *
     orderItems() {
         const url = 'http://localhost:3001/cart';
         let body = {
-            items: JSON.stringify(this.items),
+            items: this.items,
             name: document.getElementById('order-name').value,
             tel: document.getElementById('order-tel').value
         };
@@ -613,9 +613,8 @@ class Model extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter *
             body: JSON.stringify(body)
         };
         const req = new Request(url, options);
-
         fetch(req)
-            .then(response => response.blob())
+            .then(response => console.log(response))
             .then(data => console.log(data))
             .catch(error => new Error('Ошибка с отправкой данных'));
 

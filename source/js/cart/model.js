@@ -72,7 +72,7 @@ class Model extends EventEmitter {
     orderItems() {
         const url = 'http://localhost:3001/cart';
         let body = {
-            items: JSON.stringify(this.items),
+            items: this.items,
             name: document.getElementById('order-name').value,
             tel: document.getElementById('order-tel').value
         };
@@ -86,9 +86,8 @@ class Model extends EventEmitter {
             body: JSON.stringify(body)
         };
         const req = new Request(url, options);
-
         fetch(req)
-            .then(response => response.blob())
+            .then(response => console.log(response))
             .then(data => console.log(data))
             .catch(error => new Error('Ошибка с отправкой данных'));
 

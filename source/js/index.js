@@ -7,7 +7,7 @@ import { Controller, Model, View, save, load } from './cart';
 
 
 const state = load();
-console.log(state);
+
 const model = new Model(state || undefined);
 model.on('change', state => save(state));
 

@@ -7,11 +7,9 @@ module.exports = {
     cartOrder(req, res) {
         let items = req.body;
         
-
-        items = JSON.stringify([items.name, items.tel, items.items], null, 4);
+        items = JSON.stringify(items, null, 4);
         
-        
-        fs.writeFile(path.resolve(__dirname, '..', 'data', 'order.json'), items, 'utf8' );
+        fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'order.json'), items, 'utf8' );
         res.end();
     }
 
