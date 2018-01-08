@@ -598,10 +598,23 @@ class Model extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter *
 
     orderItems() {
         const url = 'http://localhost:3001/cart';
+        let date = new Date();
+        const dateFormat = {
+            Y: date.getFullYear(),
+            M: date.getUTCMonth() + +1,
+            D: date.getDate(),
+            H: date.getHours(),
+            m: date.getMinutes()
+        };
+        // date.toLocaleDateString('ru', {year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric'});
+        date.toJSON();
+        console.log(date);
         let body = {
-            items: this.items,
+            date: date,
+            // date: `${dateFormat.Y}/${dateFormat.M}/${dateFormat.D} ----- ${dateFormat.H}:${dateFormat.m}`,
             name: document.getElementById('order-name').value,
-            tel: document.getElementById('order-tel').value
+            tel: document.getElementById('order-tel').value,
+            items: this.items
         };
         const options = {
             method: 'POST',

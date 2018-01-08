@@ -1,9 +1,11 @@
-const news = require('../data/news');
+const { News } = require('../models');
 
 module.exports = {
 
     // GET /news-catalog/
-    showNewsCatalog(req, res) {
+    async showNewsCatalog(req, res) {
+        let news = await News.getAllNews();
+        
         res.render('news-catalog', { 
             id: 'news-catalog',
             news 
@@ -11,8 +13,9 @@ module.exports = {
     },
 
     // GET /news-catalog/news/:id
-    showNews(req, res) {
-        let newsOne = news.find(newsOne => newsOne.id == req.params.id);
+    async showNews(req, res) {
+        let newsOne = await News.getOne(req.params.id);
+       
         res.render('news', { 
             id: 'news',
             newsOne 

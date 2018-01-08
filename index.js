@@ -4,7 +4,7 @@ const browserSync = require('browser-sync').create();
 const logger = require('morgan');
 
 const config = require('./config');
-const mainRoutes = require('./routers/main');
+const routers = require('./routers');
 
 const app = express();
 
@@ -21,7 +21,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(logger('dev'));
 
-app.use('/', mainRoutes);
+app.use('/', routers.main);
+app.use('/cart', routers.cart);
+app.use('/news-catalog', routers.news);
+app.use('/product-catalog', routers.product);
 
 // proxy на локальный сервер на Express
 browserSync.init({

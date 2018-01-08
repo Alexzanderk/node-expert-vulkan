@@ -1,9 +1,11 @@
-const products = require('../data/products');
+const { Product } = require('../models')
 
 module.exports = {
 
     //GET /
-    productsIndex(req, res) {
+    async productsIndex(req, res) {
+        let products = await Product.getAllProducts();
+
         res.render('index', { 
             id: 'front-page',
             products 
@@ -11,7 +13,9 @@ module.exports = {
     },
 
     //GET /product-catalog/
-    showProductsCatalog(req, res) {
+    async showProductsCatalog(req, res) {
+        let products = await Product.getAllProducts();
+
         res.render('product-catalog', { 
             id: 'product-catalog',
             products 
@@ -19,11 +23,14 @@ module.exports = {
     },
 
     //GET /product-catalog/product/:alias
-    showProduct(req, res) {
+    async showProduct(req, res) {
+        let products = await Product.getAllProducts();
+        let product = await Product.getOne(req.params.alias);
+        
         res.render('product', { 
             id: 'product',
-            products: products,
-            product: req.product
+            products,
+            product
          });
     }
 }
