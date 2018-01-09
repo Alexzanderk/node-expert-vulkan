@@ -621,7 +621,8 @@ class Model extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter *
             mode: 'cors',
             headers: {
                 'Accept': 'application/json, text/plain',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest'
             },
             body: JSON.stringify(body)
         };

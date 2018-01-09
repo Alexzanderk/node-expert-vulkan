@@ -29,7 +29,7 @@ app.use('/product-catalog', routers.product);
 // proxy на локальный сервер на Express
 browserSync.init({
     proxy: 'http://localhost:3000',
-    startPath: '/product-catalog/product/shtabeler-cd-1535',
+    startPath: '/news-catalog?page=1&limit=10',
     notify: false,
     tunnel: false,
     host: 'localhost',

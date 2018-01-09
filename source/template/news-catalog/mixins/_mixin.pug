@@ -9,14 +9,18 @@ mixin newsCatalog(className, item)
 			div(class=`${className}__date`)= item.date
 				i.fa.fa-calendar
 
-mixin pagination(items)
+mixin pagination(totalNewsCount, limit, currentpage)
+	-let i = 0;
 	ul.pagination
-		li.pagination__item
-			a.pagination__link(href="#")
-				span.pagination__previous <
-		each item in items
+		if currentpage > 1
 			li.pagination__item
-				a(href="#" class=`pagination__link ` + ' ' + ((item == '1') ? "active" : ''))= item
-		li.pagination__item
-			a.pagination__link(href="#")
-				span.pagination__next >
+				a.pagination__link(href=`/news-catalog?page=${currentpage - 1}&limit=${limit}`)
+					span.pagination__previous <
+		while i < totalNewsCount/limit
+			- i++
+			li.pagination__item
+				a(class= {'active': `${i}` === currentpage } href=`/news-catalog?page=${i}&limit=${limit}` class='pagination__link' )= i
+		if currentpage < totalNewsCount/limit
+			li.pagination__item
+				a.pagination__link(href=`/news-catalog?page=${++currentpage}&limit=${limit}`)
+					span.pagination__next >
