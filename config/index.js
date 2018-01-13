@@ -10,5 +10,6 @@ module.exports = {
         public: path.resolve(__dirname, '..', 'public'),
         lib: path.resolve(__dirname, '..', 'node_modules'),
         sourceTemplate: path.resolve(__dirname, '..', 'source', 'template')
-    }
+    },
+    mongodbUrl: 'mongodb://localhost:27017/vulkan'
 };

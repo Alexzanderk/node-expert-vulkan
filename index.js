@@ -4,6 +4,7 @@ const browserSync = require('browser-sync').create();
 const logger = require('morgan');
 
 const config = require('./config');
+const { error } = require('./middleware');
 const routers = require('./routers');
 
 const app = express();
@@ -25,6 +26,9 @@ app.use('/', routers.main);
 app.use('/cart', routers.cart);
 app.use('/news-catalog', routers.news);
 app.use('/product-catalog', routers.product);
+
+app.use(error.notFound);
+app.use(app.get('env') === 'development' ? error.development : error.production);
 
 // proxy на локальный сервер на Express
 browserSync.init({

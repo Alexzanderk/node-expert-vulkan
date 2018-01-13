@@ -1,0 +1,11 @@
+extends _layout.pug
+
+block main
+    section
+        i.fa.fa-exclamation-triangle error
+            if error
+                h1= error.message
+                pre= error.stack
+            else
+                h1= message
+                p Hey mann! What are you doing??? a... 
