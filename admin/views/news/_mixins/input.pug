@@ -1,0 +1,4 @@
+mixin input(label, input, className)
+    .form-group(class= className)
+        label(for=`${label.id}`)= label.title 
+        input(name=input id=label.id)&attributes(attributes)

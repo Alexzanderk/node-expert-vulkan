@@ -6,10 +6,12 @@ import { menuCatalog } from './functions/productCatalogMenu';
 import { Controller, Model, View, save, load } from './cart';
 
 
-const state = load();
+if (document.getElementById('headerCart')) {
+    const state = load();
 
-const model = new Model(state || undefined);
-model.on('change', state => save(state));
+    const model = new Model(state || undefined);
+    model.on('change', state => save(state));
 
-const view = new View();
-const controller = new Controller(model, view);
+    const view = new View();
+    const controller = new Controller(model, view);
+}

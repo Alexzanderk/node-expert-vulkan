@@ -1,0 +1,55 @@
+include ../_mixins/menu
+
+//- header.header-admin
+    .container
+        a.link(href="/admin")
+            h3.admin-title Admin panel
+        +menu([{
+                href: '/',
+                title: 'На сайт'
+            },
+            {
+                href: '/admin/news',
+                title: 'Новости'
+            },
+            {
+                href: '/admin/products',
+                title: 'Продукты'
+            }
+        ])
+
+header.header-admin.sticky-top
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+        .container
+            a.navbar-brand(href='/admin') Admin panel
+            button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+                span.navbar-toggler-icon
+            #navbarSupportedContent.collapse.navbar-collapse
+                +headerMenu([{
+                        href: '/admin/products',
+                        title: 'Продукты'
+                    },
+                    {
+                        href: '/admin/news',
+                        title: 'Новости'
+                    },
+                    {
+                        href: '/admin/order',
+                        title: 'Заказы'
+                    },
+                    {
+                        href: '/admin/base',
+                        title: 'База'
+                    },
+                    {
+                        href: '#',
+                        title: 'Дополнительно',
+                        drop: [
+                            {href: '/',
+                            title: 'На сайт'}
+                        ]
+                    }
+                ])
+                form.form-inline.my-2.my-lg-0
+                    input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
+                    button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Поиск

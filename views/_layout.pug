@@ -4,9 +4,13 @@ doctype html
 html(lang="ru")
     include ./_include/_head
     
-    body(id=`${id}`)
 
-        block main
-        
-    include ./_include/_cart
-    include ./_include/_footer
+    body(id=`${id}` class=className)
+
+        block main-content
+            section.section
+    
+        block cart
+            include ./_include/_cart
+
+        include ./_include/_footer

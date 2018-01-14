@@ -2,9 +2,9 @@ extends ../_layout
 
 include ./mixins/_mixin
 
-block main
+block main-content
     section.section__news
-            .bg-fixed
-            .container
-                include ../_include/_header
-                +news(newsOne)
+        .bg-fixed
+        .container
+            include /_include/_header
+            +news(newsOne)

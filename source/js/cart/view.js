@@ -15,7 +15,7 @@ class View extends EventEmitter {
         this.closeCartButton = document.querySelector('.close-modal');
         this.addCartButton = document.getElementById('cartAddBtn');
         this.orderButton = document.getElementById('order-button');
-
+        
         this.openCartButton.addEventListener('click', this.openCart.bind(this));
         this.closeCartButton.addEventListener('click', this.closeCart.bind(this));
         this.orderButton.addEventListener('click', this.handleOrder.bind(this));

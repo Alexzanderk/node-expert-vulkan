@@ -1,0 +1,22 @@
+mixin menu(items)
+    nav.admin-nav
+        ul.nav__list.admin-nav__list.menu.align-center
+            each item in items
+                li.nav__item.admin-nav__item
+                    a.admin-nav__link.nav__link.nav__link_b(href=`${item.href}`)= item.title
+
+
+mixin headerMenu(items)
+    ul.navbar-nav.mr-auto
+        each item in items
+            -let isActive = item.href === currentUrl
+            if item.drop
+                li.nav-item.dropdown
+                    a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')= item.title
+                    .dropdown-menu(aria-labelledby='navbarDropdown')
+                        each dropItem in item.drop
+                            a.dropdown-item(href=`${dropItem.href}`)= dropItem.title
+            else
+                li.nav-item(class={'active': isActive})
+                    a.nav-link(href=`${item.href}`)= item.title 
+                        span.sr-only (current)

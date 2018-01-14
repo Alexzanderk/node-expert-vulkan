@@ -1,0 +1,22 @@
+extends _layout
+
+block content
+    h4 Создание новости
+    form(method="post").form-create-news#form-create-news
+        +input({id: 'news-title', title: 'News title'}, 'title')(type='text' placeholder='Заголовок новости' class='form-control')
+        +input({id: 'upload-img', title: 'upload'}, 'upload')(type='file' class='form-control-file')
+        +textarea({id: 'news-descriptiom', title: 'Короткое описание'}, 'description')(placeholder='Короткое описание' rows='2' maxlength='255')
+        +textarea({id: 'news-content', title: 'Полное описание'}, 'content')(placeholder='Полное описание' rows='7')
+        .row.btn-row
+            .col-2
+                +input({id: 'news-date-publish', title: 'Дата публикации'}, 'news-date-publish')(type='date' class='form-control')
+                .form-check.news-publish-checkbox
+                    label.form-check-label 
+                        input.form-check-input(type='checkbox', name='publish', id='news-publish', value='checkedValue')
+                        | Опубликовать
+        .row.btn-row
+            .col-1
+                +button('Сохранить')(type='submimt' class='btn-success')
+            .col-1.offset-md-1  
+                +button('Отменить')(type='reset' class='btn-danger')
+        

@@ -5,7 +5,7 @@ mixin newsCatalog(className, item)
 		.content-wrap
 			h4(class=`${className}__h4`)= item.title
 			p(class=`${className}__description`)= item.desc
-			a(class=`${className}__link ${className}__btn` href=`news/${item.id}`) Узнать больше
+			a(class=`${className}__link ${className}__btn` href=`/news-catalog/news/${item.id}`) Узнать больше
 			div(class=`${className}__date`)= item.date
 				i.fa.fa-calendar
 

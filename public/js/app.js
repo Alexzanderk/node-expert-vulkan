@@ -145,13 +145,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-const state = Object(__WEBPACK_IMPORTED_MODULE_5__cart__["d" /* load */])();
+if (document.getElementById('headerCart')) {
+    const state = Object(__WEBPACK_IMPORTED_MODULE_5__cart__["d" /* load */])();
 
-const model = new __WEBPACK_IMPORTED_MODULE_5__cart__["b" /* Model */](state || undefined);
-model.on('change', state => Object(__WEBPACK_IMPORTED_MODULE_5__cart__["e" /* save */])(state));
+    const model = new __WEBPACK_IMPORTED_MODULE_5__cart__["b" /* Model */](state || undefined);
+    model.on('change', state => Object(__WEBPACK_IMPORTED_MODULE_5__cart__["e" /* save */])(state));
 
-const view = new __WEBPACK_IMPORTED_MODULE_5__cart__["c" /* View */]();
-const controller = new __WEBPACK_IMPORTED_MODULE_5__cart__["a" /* Controller */](model, view);
+    const view = new __WEBPACK_IMPORTED_MODULE_5__cart__["c" /* View */]();
+    const controller = new __WEBPACK_IMPORTED_MODULE_5__cart__["a" /* Controller */](model, view);
+}
 
 /***/ }),
 /* 2 */
@@ -317,8 +319,8 @@ const menuMobile = (function() {
 
         this.classList.toggle('open');
     }
-
-    iconMenu.addEventListener('click', toggleMenu);
+    
+    if (iconMenu !== null) iconMenu.addEventListener('click', toggleMenu);
 })();
 /* unused harmony export menuMobile */
 
@@ -390,7 +392,7 @@ class View extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter */
         this.closeCartButton = document.querySelector('.close-modal');
         this.addCartButton = document.getElementById('cartAddBtn');
         this.orderButton = document.getElementById('order-button');
-
+        
         this.openCartButton.addEventListener('click', this.openCart.bind(this));
         this.closeCartButton.addEventListener('click', this.closeCart.bind(this));
         this.orderButton.addEventListener('click', this.handleOrder.bind(this));

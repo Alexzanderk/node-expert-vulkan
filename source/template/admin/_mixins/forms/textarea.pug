@@ -1,0 +1,4 @@
+mixin textarea(label, name)
+    .form-group
+        label(for=`${label.id}`)= label.title
+        textarea.form-control(name=name, id=`${label}`)&attributes(attributes)

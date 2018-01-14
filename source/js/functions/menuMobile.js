@@ -6,6 +6,6 @@ export const menuMobile = (function() {
 
         this.classList.toggle('open');
     }
-
-    iconMenu.addEventListener('click', toggleMenu);
+    
+    if (iconMenu !== null) iconMenu.addEventListener('click', toggleMenu);
 })();

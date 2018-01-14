@@ -28,8 +28,10 @@ $.path.task.forEach(function(taskPath) {
 
 $.gulp.task('default', $.gulp.series(
   'clean',
+  'admin.clean',
   $.gulp.parallel(
     'sass',
+    'admin.sass',
     // 'jade',
     'js.foundation',
     // 'js.process',
@@ -37,7 +39,8 @@ $.gulp.task('default', $.gulp.series(
     // 'css.foundation',
     'copy.image',
     'copy.fonts',
-    'copy.pug'
+    'copy.pug',
+    'admin.pug'
   ),
   $.gulp.parallel(
     'watch',

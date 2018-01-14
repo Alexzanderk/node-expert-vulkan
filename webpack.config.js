@@ -14,18 +14,10 @@ module.exports = {
         filename: '[name].js'
     },
 
-    // resolve: {
-    //     extensions: [".js"],
-    //     alias: {
-    //         'google': './source/js/functions/google.js'
-    //     }
-    // },
+    externals: {
+        jquery: 'jQuery'
+      },
 
-    // plugins: [
-    //     new webpack.ProvidePlugin({
-    //         google: path.resolve(__dirname, 'source', 'js', 'functions', 'google.js')
-    //     })
-    // ],
     devtool: 'cheap-source-map'
 
 }

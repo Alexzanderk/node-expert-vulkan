@@ -6,6 +6,7 @@ module.exports = [
   './gulp/tasks/jade.js',
   './gulp/tasks/watch.js',
   './gulp/tasks/clean.js',
+  './gulp/tasks/admin.clean.js',
   './gulp/tasks/js.foundation.js',
   './gulp/tasks/css.foundation.js',
   './gulp/tasks/js.process.js',
@@ -14,6 +15,8 @@ module.exports = [
   './gulp/tasks/svg.js',
   './gulp/tasks/js.webpack.js',
   './gulp/tasks/copy.fonts.js',
+  './gulp/tasks/admin.pug.js',
+  './gulp/tasks/admin.sass.js',
   './gulp/tasks/copy.pug.js'
 ];
 

@@ -1,0 +1,5 @@
+mixin button(text)
+    #{attributes.href ? 'a' : 'button'}.btn(
+        href=attributes.href type=attributes.type
+        class=attributes.class
+    )= text

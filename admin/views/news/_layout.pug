@@ -1,0 +1,17 @@
+extends ../_layout
+
+include ../_mixins/forms/index
+
+block main
+    .container
+        block controls
+            .button-controls
+                .row
+                    .col-md-2
+                        a.btn(name='', id='', class='btn-outline-primary', href='/admin/news/create', role='button') Создать новость
+                    .col-md-2
+                        a.btn(name='', id='', class='btn-outline-primary', href='/admin/news', role='button') Показать новости
+                    .col-md-2
+                        a.btn(name='', id='', class='btn-outline-primary', href='/admin/news', role='button') Обновить
+    .container
+        block content

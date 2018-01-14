@@ -5,7 +5,9 @@ const logger = require('morgan');
 
 const config = require('./config');
 const { error } = require('./middleware');
+const connection = require('./services/db');
 const routers = require('./routers');
+const admin = require('./admin');
 
 const app = express();
 
@@ -19,6 +21,7 @@ app.locals.version = config.version;
 app.locals.basedir = config.paths.views;
 
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/lib', express.static(config.paths.lib));
 
 app.use(logger('dev'));
 
@@ -27,13 +30,15 @@ app.use('/cart', routers.cart);
 app.use('/news-catalog', routers.news);
 app.use('/product-catalog', routers.product);
 
+app.use('/admin', admin);
+
 app.use(error.notFound);
 app.use(app.get('env') === 'development' ? error.development : error.production);
 
 // proxy на локальный сервер на Express
 browserSync.init({
     proxy: 'http://localhost:3000',
-    startPath: '/news-catalog?page=1&limit=10',
+    startPath: '/admin',
     notify: false,
     tunnel: false,
     host: 'localhost',
