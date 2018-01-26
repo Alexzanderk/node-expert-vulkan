@@ -1,17 +1,34 @@
 extends ../_layout
 
 include ../_mixins/forms/index
+include ../_mixins/subMenu
+include ../_mixins/showItems
 
 block main
-    .container
-        block controls
-            .button-controls
-                .row
-                    .col-md-2
-                        a.btn(name='', id='', class='btn-outline-primary', href='/admin/news/create', role='button') Создать новость
-                    .col-md-2
-                        a.btn(name='', id='', class='btn-outline-primary', href='/admin/news', role='button') Показать новости
-                    .col-md-2
-                        a.btn(name='', id='', class='btn-outline-primary', href='/admin/news', role='button') Обновить
-    .container
+    block controls
+        +subMenu({
+            'Создать': '/admin/news/create',
+            'Сбросить': '/admin/news'
+        },[
+            {
+                title: 'Фильтры',
+                href: `/admin/news?published=true`,
+                drop: [{
+                    title: 'Date >',
+                    href: '/admin/news?dateUp=true'
+                },{
+                    title: 'Date <',
+                    href: '/admin/news?dateUp=false'
+                }],
+            },
+            {
+                title: 'Опубликованые',
+                href: `/admin/news?published=true`
+            },
+            {
+                title: 'Неопубликованые',
+                href: `/admin/news?published=false`
+            }
+        ])
+    .container.py-4
         block content

@@ -10,6 +10,6 @@ block main-content
             div(class=`news-catalog`)
                 ul(class=`news-catalog__list`)
                     each item in news
-                        +newsCatalog('news-catalog', item)
+                        +newsCatalog(item)
 
             +pagination(totalNewsCount, limit, page)

@@ -1,12 +1,12 @@
-mixin newsCatalog(className, item)
-	li(class=`${className}__item`)
+mixin newsCatalog(item)
+	li(class=`news-catalog__item`)
 		.img-wrapper
-			img(class=`${className}__img` src=`${item.src}`, alt="")
+			img(class=`news-catalog__img` src=`${item.upload}`, alt="")
 		.content-wrap
-			h4(class=`${className}__h4`)= item.title
-			p(class=`${className}__description`)= item.desc
-			a(class=`${className}__link ${className}__btn` href=`/news-catalog/news/${item.id}`) Узнать больше
-			div(class=`${className}__date`)= item.date
+			h4(class=`news-catalog__h4`)= item.title
+			p(class=`news-catalog__description`)= item.description
+			a(class=`news-catalog__link news-catalog__btn` href=`/news-catalog/${item.id}`) Узнать больше
+			div(class=`news-catalog__date`)= moment(item.publishDate).format('DD/MM/YYYY')
 				i.fa.fa-calendar
 
 mixin pagination(totalNewsCount, limit, currentpage)

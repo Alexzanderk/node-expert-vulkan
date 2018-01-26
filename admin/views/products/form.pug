@@ -1,0 +1,54 @@
+extends _layout
+
+
+block content
+    h4 Создание продукта
+    form(method="post" enctype='multipart/form-data').form-create-product#form-create-product
+        .row
+            .col-4
+                +input('title')(type='text' placeholder='Название продукта' class='form-control form-control-sm"')
+                +input('slug')(type='text' placeholder='Slug - имя в адресной строке' class='form-control form-control-sm"')
+                +input('uploadImg')(type='file' class='form-control-file')
+                +select('productCategory')
+                +input('model')(type='text' placeholder='Модель продукта' class='form-control form-control-sm"')
+                +input('article')(type='text' placeholder='Артикур продукта' class='form-control form-control-sm"')
+                +input('article')(type='text' placeholder='Цена продукта' class='form-control form-control-sm"')
+                +select('icons')
+            .col-8
+                .row.mb-2
+                    +button('Добавить')(class='btn-success mr-2' id='add-props')
+                    +button('Удалить все')(class='btn-danger ' id='delete-props-table')
+                .row
+                    table.table
+                        thead
+                            tr
+                                th.text-center Иконки
+                                th.text-center Название свойства
+                                th.text-center Значение свойства
+                        tbody
+                            tr
+                                th
+                                    +select('icon')
+                                th
+                                    +input('name')(type='text' placeholder='Название свойства' class='form-control form-control-sm"')
+                                th
+                                    +input('value')(type='text' placeholder='Значение свойства' class='form-control form-control-sm"')
+                                th
+                                    button.close(type='button', aria-label='Close')
+                                        span(aria-hidden='true') ×
+                            tr
+                                th
+                                    +select('icon')
+                                th
+                                    +input('name')(type='text' placeholder='Название свойства' class='form-control form-control-sm"')
+                                th
+                                    +input('value')(type='text' placeholder='Значение свойства' class='form-control form-control-sm"')
+        
+        .row.btn-row
+            .col-1
+                +button(true ? 'Создать' : 'Сохранить')(type='submimt' class='btn-success')
+            .col-1.offset-md-1
+                if true
+                    +button('Отменить')(type='reset' class='btn-danger' )
+                else 
+                    +button('Удалить')(href=`/admin/news/${'asd'}/delete` class='btn-danger')

@@ -1,0 +1,17 @@
+mixin badge(name)
+    span.badge.font-weight-normal.ml-2&attributes(attributes)= name
+
+mixin showItems(items)
+    table.table
+        tbody
+            each item in items
+                tr
+                    th.mw-50= item.title
+                    td
+                        i.ml-auto.fa.fa-calendar
+                        span.admin-table-date.ml-2= moment(item.publishDate).format('YYYY-MM-DD')
+                    td
+                        +badge(item.published ? 'Опубликовано' : 'Неопубликовано')(class='text-center ' + ((item.published === true) ? 'badge-success' : 'badge-danger'))
+                    td.d-flex
+                        +button('Изменить')(href=`/admin/news/${item.id}/edit` class='btn-primary ml-auto mr-2')
+                        +button('Удалить')(href=`/admin/news/${item.id}/delete` class='btn-danger')

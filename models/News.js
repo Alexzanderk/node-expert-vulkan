@@ -1,17 +1,17 @@
-const news = require('../data/news');
+const mongoose = require('mongoose');
 
-class News {
-    static getAllNews() {
-        return Promise.resolve(news);
-    }
+const Schema = mongoose.Schema;
 
-    static getOne(id) {
-        return Promise.resolve(news.find(newsOne => newsOne.id == id));
-    }
-    
-    constructor() {
-        
-    }
-}
+const News = new Schema({
+    title: String,
+    upload: { type: String },
+    description: String,
+    content: String,
+    publishDate: { type: Date },
+    published: { type: Boolean },
+}, {
+        timestamps: true
 
-module.exports = News;
+    });
+
+module.exports = mongoose.model('News', News);

@@ -1,0 +1,10 @@
+extends _layout
+
+block content
+    .container.d-flex.flex-wrap
+        h2.text-center.w-100 Точно удалить?
+
+        form(method="post" class='my-5 mx-auto d-flex w-75')
+            +button('Да')(class='btn btn-success w-25 ml-auto mr-3' type='submit')
+            +button('Нет')(class='btn btn-danger w-25 mr-auto ml-3' href='javascript:history.back()')
+            

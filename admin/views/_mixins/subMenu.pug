@@ -1,0 +1,26 @@
+mixin subMenu(items, filters)
+    nav.navbar.navbar-expand-lg.navbar-light.bg-secondary
+        .container
+            button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNavDropdown', aria-controls='navbarNavDropdown', aria-expanded='false', aria-label='Toggle navigation')
+                span.navbar-toggler-icon.text-light
+            
+            #navbarNavDropdown.collapse.navbar-collapse.d-flex.justify-content-between
+                
+                ul.nav-pills.nav
+                    each val, key in items
+                        li.nav-item
+                            a.nav-link.btn.btn-outline-light.btn-sm.mr-2(href=val)= key
+                
+                ul.nav
+                    each filter in filters
+                        if !filter.drop
+                            li.nav-item
+                                a.text-light.nav-link.btn-sm.mr-2(href=filter.href)= filter.title
+                        if filter.drop
+                            li.nav-item.dropdown
+                                a#navbarDropdownMenuLink.text-light.nav-link.dropdown-toggle.btn-sm(href='#', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                                    | Фильтры
+                                .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
+                                    each dropFilter in filter.drop
+                                        a.dropdown-item(href=dropFilter.href)= dropFilter.title
+                                

@@ -1,14 +1,7 @@
 mixin news(item)
 	.news
-		-console.log(item.title)
 		h1.news__h1= item.title
-		.news__date= item.date
+		.news__date= moment(item.publishDate).format('DD/MM/YYYY')
 			i.fa.fa-calendar
 		.description
-			each p in item.fullDescription.paragraf
-				p.news__p= p
-			ul.news__ul= item.fullDescription.ul.title
-				each li in item.fullDescription.ul.li
-					li.news__li= li
-			each img in item.fullDescription.img
-				img.news__img(class=`${img.className}` src=`${img.src}`, alt=`${img.alt}`)
+			pre= item.content

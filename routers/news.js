@@ -5,6 +5,6 @@ const { news: { showNewsCatalog, showNews } } = require('../controllers');
 
 router.get('/', showNewsCatalog);
 
-router.get('/news/:id', showNews);
+router.get('/:id', showNews);
 
 module.exports = router;

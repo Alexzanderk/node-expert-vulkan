@@ -1,0 +1,34 @@
+mixin select(name, value)
+
+
+    if name === 'productCategory'
+        .form-group(class=className)
+            label(for=name) Категория
+            select( name=name id=name).form-control
+                option( value= value ||'palletTruck' ) Рокла
+                option( value= value || 'stacker' ) Штабелер
+                option( value= value || 'electricStacker' ) Електроштабелер
+                option( value= value || 'liftTable' ) Подъемные столы
+
+
+    if name === 'icons'
+        .form-group(class=className)
+            label(for=name) Card icons
+            select.form-control(name=name multiple id=name)
+                option( value= value ||'box' ) Грузоподъемность
+                option( value= value || 'arrow_10' ) Высота подъема
+                option( value= value || 'weight' ) Вес
+                option( value= value || 'wallet' selected) Стоимость
+                option( value= value || 'water' ) Литраж
+    
+    
+    if name === 'icon'
+        .form-group(class=className).mb-0
+            select.form-control(name=name id=name)
+                option( value= value ||'box' ) Грузоподъемность
+                option( value= value || 'arrow_10' ) Высота подъема
+                option( value= value || 'weight' ) Вес
+                option( value= value || 'wallet' ) Стоимость
+                option( value= value || 'water' ) Литраж
+            
+

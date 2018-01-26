@@ -4,6 +4,7 @@ import { tab } from './functions/tab';
 import { menuMobile } from './functions/menuMobile';
 import { menuCatalog } from './functions/productCatalogMenu';
 import { Controller, Model, View, save, load } from './cart';
+import * as adminTableProps from './adminAddProps';
 
 
 if (document.getElementById('headerCart')) {

@@ -22,6 +22,7 @@ app.locals.basedir = config.paths.views;
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/lib', express.static(config.paths.lib));
+app.use(express.urlencoded({ extended: false }));
 
 app.use(logger('dev'));
 
@@ -38,7 +39,7 @@ app.use(app.get('env') === 'development' ? error.development : error.production)
 // proxy на локальный сервер на Express
 browserSync.init({
     proxy: 'http://localhost:3000',
-    startPath: '/admin',
+    startPath: '/admin/news',
     notify: false,
     tunnel: false,
     host: 'localhost',

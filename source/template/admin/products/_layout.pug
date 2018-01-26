@@ -1,0 +1,33 @@
+extends ../_layout
+
+include ../_mixins/forms/index
+include ../_mixins/subMenu
+include ../_mixins/showItems
+
+block main
+    +subMenu({
+            'Создать': '/admin/products/create',
+            'Сбросить': '/admin/products'
+        },[
+            {
+                title: 'Фильтры',
+                href: `/admin/products?published=true`,
+                drop: [{
+                    title: 'Date >',
+                    href: '/admin/products?dateUp=true'
+                },{
+                    title: 'Date <',
+                    href: '/admin/products?dateUp=false'
+                }],
+            },
+            {
+                title: 'Опубликованые',
+                href: `/admin/products?published=true`
+            },
+            {
+                title: 'Неопубликованые',
+                href: `/admin/products?published=false`
+            }
+        ])
+    .container.py-4
+        block content

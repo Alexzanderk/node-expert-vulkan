@@ -11,5 +11,7 @@ module.exports = {
         lib: path.resolve(__dirname, '..', 'node_modules'),
         sourceTemplate: path.resolve(__dirname, '..', 'source', 'template')
     },
-    mongodbUrl: 'mongodb://localhost:27017/vulkan'
+    mongodbUrl: 'mongodb://localhost:27017/vulkan',
+    mongodbMlab: process.env.MONGODB_MLAB_URL
+
 };
