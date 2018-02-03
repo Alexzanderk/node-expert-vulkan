@@ -3,10 +3,12 @@ extends ../_layout
 include ../_mixins/forms/index
 include ../_mixins/subMenu
 include ../_mixins/showItems
+include ./_mixins/tr
 
 block main
     +subMenu({
-            'Создать': '/admin/products/create',
+            'Создать товар': '/admin/products/create',
+            'Создать категорию': '/admin/products/create-category',
             'Сбросить': '/admin/products'
         },[
             {

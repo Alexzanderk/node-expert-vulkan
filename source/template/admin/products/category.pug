@@ -1,0 +1,26 @@
+extends _layout
+
+
+block content
+    h4 Создание категории
+    form(method="post" enctype='multipart/form-data').form-create-product#form-create-product
+        .row
+            .col-6
+                +input('title')(type='text' placeholder='Название категории' class='form-control form-control-sm')
+                +input('_id', category.slug)(type='text' placeholder='_ID - имя категории для продукта' class='form-control form-control-sm')
+                +input('uploadImg')(type='file' class='form-control-file')
+                
+                if category.title
+                    img(src=`${category.uploadImg}`, alt="" class='img-thumbnail w-25')
+                
+                .form-check.news-publish-checkbox
+                    label.form-check-label
+                        input.form-check-input(type='checkbox', name='published', id='publish', checked=category.published )
+                        | Опубликовать
+        
+        .row.my-3.ml-auto
+            +button(!category.title ? 'Создать' : 'Сохранить')(type='submimt' class='btn-success mr-3')
+            if !category.title
+                +button('Отменить')(type='reset' class='btn-danger' )
+            else 
+                +button('Удалить')(href=`/admin/${entity}/${category.id}/delete` class='btn-danger')

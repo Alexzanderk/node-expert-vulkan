@@ -146,6 +146,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+if (document.getElementById('admin-products')) {
+    Object(__WEBPACK_IMPORTED_MODULE_6__adminAddProps__["a" /* adminAddProps */])();
+}
 
 if (document.getElementById('headerCart')) {
     const state = Object(__WEBPACK_IMPORTED_MODULE_5__cart__["d" /* load */])();
@@ -612,7 +615,6 @@ class Model extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter *
         };
         // date.toLocaleDateString('ru', {year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric'});
         date.toJSON();
-        console.log(date);
         let body = {
             date: date,
             // date: `${dateFormat.Y}/${dateFormat.M}/${dateFormat.D} ----- ${dateFormat.H}:${dateFormat.m}`,
@@ -699,9 +701,173 @@ class Controller {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers__ = __webpack_require__(13);
+
+const adminAddProps = function() {
+    //Cashe DOM
+    const addRowButton = document.getElementById('add-props');
+    const deletePropsTableButton = document.getElementById('delete-props-table');
+    const table = addRowButton.parentNode.nextSibling.querySelector('.table');
+    const thead = table.querySelector('thead');
+    const tbody = table.querySelector('tbody');
+    
+    function deleteAllRows(event) {
+        event.preventDefault();
+        
+        while ( tbody.firstChild ) {
+            tbody.removeChild(tbody.firstChild);
+        }
+    }
+
+    function addRow(event) {
+        event.preventDefault();
+
+        const theadTitles = [];
+        thead.querySelector('tr').childNodes.forEach(el => theadTitles.push(el.innerText));
+        
+        const productIcons = ['NO ICON', 'box', 'arrow_10', 'weight', 'wallet', 'water'];
+
+        const fragment = document.createDocumentFragment();
+        const deleteIcon = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createElement */])('span', {'aria-hidden': true}, '×');
+        const deleteRowButton = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createElement */])('button', {'class': 'close', 'aria-label': 'Close', 'type': 'button'}, deleteIcon);
+        const iconSelect = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createElement */])('select', {'class': 'form-control form-control-sm', 'name': 'icon', 'id': 'icon'});
+        const tr = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createElement */])('tr', {'class': 'tr'});
+
+        for (let i = 0; i < theadTitles.length; i++) {
+       
+            if (theadTitles[i] === 'Иконка') {
+       
+                productIcons.map(icon => {
+                    if (icon === 'box') {
+                        let option = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createElement */])('option', { 'value': `${icon}` }, 'Грузоподъемность');
+                        iconSelect.appendChild(option)
+                    } else if (icon === 'arrow_10') {
+                        let option = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createElement */])('option', { 'value': `${icon}` }, 'Высота подъема');
+                        iconSelect.appendChild(option)
+                    } else if (icon === 'weight') {
+                        let option = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createElement */])('option', { 'value': `${icon}` }, 'Вес');
+                        iconSelect.appendChild(option)
+                    } else if (icon === 'wallet') {
+                        let option = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createElement */])('option', { 'value': `${icon}` }, 'Стоимость');
+                        iconSelect.appendChild(option)
+                    } else if (icon === 'water') {
+                        let option = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createElement */])('option', { 'value': `${icon}` }, 'Литраж');
+                        iconSelect.appendChild(option)
+                    } else {
+                        let option = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createElement */])('option', { value: 'none', selected: 'selected'}, 'Вариант не выбран');
+                        iconSelect.appendChild(option)
+
+                    }
+                });
+       
+                const thIconProps = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createElement */])('th', {'class': 'th'}, iconSelect);
+                tr.appendChild(thIconProps);
+                
+            } else if (theadTitles[i] === 'Название свойства') {
+                
+                const input = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createElement */])('input', {'name': 'name', 'placeholder': theadTitles[i], 'class': 'form-control form-control-sm'});
+                const formGroup = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createElement */])('div', {'class': 'form-group'}, input);
+                const thNameProps = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createElement */])('th', {'class': 'th'}, formGroup);
+                tr.appendChild(thNameProps);
+                
+            } else if ( theadTitles[i] === 'Значение свойства' ) {
+                
+                const input = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createElement */])('input', {'name': 'value', 'placeholder': theadTitles[i], 'class': 'form-control form-control-sm'});
+                const formGroup = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createElement */])('div', {'class': 'form-group'}, input);
+                const thValueProps = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createElement */])('th', {'class': 'th'}, formGroup);
+                tr.appendChild(thValueProps);
+                
+            } else if ( theadTitles[i] === '' ) {
+                const thDeleteButton = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createElement */])('th', {'class': 'th'}, deleteRowButton);
+                tr.appendChild(thDeleteButton);
+            }
+        }
+        
+        fragment.appendChild(tr);
+        tbody.appendChild(fragment);
+        bindEvents();
+    }
+
+    function deleteRow(event) {
+        const row = this.parentNode.parentNode;
+        const tbody = row.parentNode;
+        tbody.removeChild(row);
+    }
+    
+    function bindEvents() {
+        const deleteRowButtons = document.querySelectorAll('th>button.close');
+
+        deleteRowButtons.forEach(button => button.addEventListener('click', deleteRow));
+    }
+
+    bindEvents();
+    addRowButton.addEventListener('click', addRow);
+    deletePropsTableButton.addEventListener('click', deleteAllRows);
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = adminAddProps;
 
 
-/* unused harmony default export */ var _unused_webpack_default_export = (console.log('object'));
+/***/ }),
+/* 13 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export EventEmitter */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return createElement; });
+/* unused harmony export save */
+/* unused harmony export load */
+class EventEmitter {
+    constructor() {
+        this.events = {};
+    }
+
+    on(type, listener) {
+        this.events[type] = this.events[type] || [];
+        this.events[type].push(listener);
+    }
+
+    emit(type, arg) {
+        if (this.events[type]) {
+            this.events[type].forEach(listener => listener(arg));
+        }
+    }
+}
+
+function createElement(tag, props, ...children) {
+    const element = document.createElement(tag);
+
+    Object.keys(props).forEach(key => {
+        if (key.startsWith('data-') || String) {
+            element.setAttribute(key, props[key]);
+        } else {
+            element[key] = props[key];
+        }
+    });
+
+    children.forEach(child => {
+        if (typeof child === 'string' || typeof child === 'number') {
+            child = document.createTextNode(child);
+        }
+
+        element.appendChild(child);
+    });
+    
+    return element;
+}
+
+function save(data) {
+    const string = JSON.stringify(data);
+    localStorage.setItem('cart', string);
+}
+
+function load() {
+    const string = localStorage.getItem('cart');
+    const data = JSON.parse(string);
+    
+    return data;
+}
+
+
 
 /***/ })
 /******/ ]);

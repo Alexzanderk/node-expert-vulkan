@@ -1,36 +1,48 @@
-const { Product } = require('../models')
+const { Products, Category } = require('../models')
 
 module.exports = {
 
     //GET /
     async productsIndex(req, res) {
-        let products = await Product.getAllProducts();
+        let products = await Products.find({ published: true });
+        let rokla = await Products.find({ published: true, category: 'palletTruck' });
+        let shtabeler = await Products.find({ published: true, category: 'stacker' });
+        let electroShtabeler = await Products.find({ published: true, category: 'electricStacker' });
+        let liftTable = await Products.find({ published: true, category: 'liftTable' });
 
-        res.render('index', { 
+        res.render('index', {
             id: 'front-page',
-            products 
+            products,
+            rokla,
+            shtabeler,
+            electroShtabeler,
+            liftTable
         });
     },
 
     //GET /product-catalog/
     async showProductsCatalog(req, res) {
-        let products = await Product.getAllProducts();
-
-        res.render('product-catalog', { 
+        let catalog = await Category.find({ published: true }).populate('products', 'title slug');
+        res.render('product-catalog', {
             id: 'product-catalog',
-            products 
+            catalog
         });
     },
 
     //GET /product-catalog/product/:alias
-    async showProduct(req, res) {
-        let products = await Product.getAllProducts();
-        let product = await Product.getOne(req.params.alias);
-        
-        res.render('product', { 
-            id: 'product',
-            products,
-            product
-         });
+    async showProduct(req, res, next) {
+        try {
+            let [category, product] = await Promise.all([Category.find({ published: true }).populate('products'), Products.findById(req.params.id)]);
+
+            res.render('product', {
+                id: 'product',
+                category,
+                product,
+                urlId: req.params.id
+            });
+
+        } catch (error) {
+            next(error);
+        }
     }
 }

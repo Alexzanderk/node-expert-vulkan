@@ -4,7 +4,7 @@ const config = require('../config');
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect(config.mongodbMlab, { useMongoClient: true });
+mongoose.connect(config.mongodbUrl, { useMongoClient: true });
 
 mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
 mongoose.connection.once('open', () => console.log('Connected to MongoDB'));

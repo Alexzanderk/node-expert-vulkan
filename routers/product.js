@@ -7,6 +7,6 @@ const { product: { findProduct, findCategory } } = require('../middleware');
 
 router.get('/', showProductsCatalog);
 
-router.get('/product/:alias', showProduct);
+router.get('/product/:id', showProduct);
 
 module.exports = router;

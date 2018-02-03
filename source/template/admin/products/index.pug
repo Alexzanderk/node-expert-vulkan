@@ -2,4 +2,16 @@ extends _layout
 
 
 block content
-    h1 product page
+
+    ul#myTab.nav.nav-tabs(role='tablist')
+        li.nav-item
+            a#products-tab.nav-link.active(data-toggle='tab', href='#products', role='tab', aria-controls='products', aria-selected='true') Продукты
+        li.nav-item
+            a#categories-tab.nav-link(data-toggle='tab', href='#categories', role='tab', aria-controls='categories', aria-selected='false') Категории
+
+    #myTabContent.tab-content
+        #products.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='products-tab')
+            +showItems(products)
+        #categories.tab-pane.fade(role='tabpanel', aria-labelledby='categories-tab')
+            +showItems(category)
+

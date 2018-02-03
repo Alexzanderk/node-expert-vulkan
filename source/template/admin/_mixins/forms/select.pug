@@ -1,34 +1,37 @@
-mixin select(name, value)
+mixin select(name, values)
+    -let icons = {'box': 'Грузоподъемность', 'arrow_10': 'Высота подъема ', 'weight': 'Вес', 'wallet': 'Стоимость', 'water': 'Литраж'}
+    -let iconCategory = {'palletTruck': 'Рокла', 'stacker': 'Штабелер', 'electricStacker': 'Електроштабелер', 'liftTable': 'Подъемные столы'}
+    -let categoryProducts = {'palletTruck': 'Роклы', 'stacker': 'Штабелеры', 'electricStacker': 'Електроштабелеры', 'liftTable': 'Подъемные столы'}
+    -let iconProd = {'none': 'Вариант не выбран', 'box': 'Грузоподъемность', 'arrow_10': 'Высота подъема ', 'weight': 'Вес', 'wallet': 'Стоимость', 'water': 'Литраж'}
 
-
-    if name === 'productCategory'
+    if name === 'category'
         .form-group(class=className)
             label(for=name) Категория
-            select( name=name id=name).form-control
-                option( value= value ||'palletTruck' ) Рокла
-                option( value= value || 'stacker' ) Штабелер
-                option( value= value || 'electricStacker' ) Електроштабелер
-                option( value= value || 'liftTable' ) Подъемные столы
-
+            select( name=name id=name ).form-control&attributes(attributes)
+                each item in category
+                    option(value=item.id selected=(values==item.id))= item.title
 
     if name === 'icons'
         .form-group(class=className)
             label(for=name) Card icons
-            select.form-control(name=name multiple id=name)
-                option( value= value ||'box' ) Грузоподъемность
-                option( value= value || 'arrow_10' ) Высота подъема
-                option( value= value || 'weight' ) Вес
-                option( value= value || 'wallet' selected) Стоимость
-                option( value= value || 'water' ) Литраж
-    
+            select.form-control(name=name multiple id=name size='5')
+                -let [box, arrow_10, weight, wallet, water] = values
+                each name, ico in icons
+                    if ico ==box || ico == arrow_10 || ico == weight|| ico == wallet|| ico == water
+                        option(value=ico selected)= name
+                    else 
+                        option(value=ico)= name
+
     
     if name === 'icon'
         .form-group(class=className).mb-0
-            select.form-control(name=name id=name)
-                option( value= value ||'box' ) Грузоподъемность
-                option( value= value || 'arrow_10' ) Высота подъема
-                option( value= value || 'weight' ) Вес
-                option( value= value || 'wallet' ) Стоимость
-                option( value= value || 'water' ) Литраж
+            select.form-control.form-control-sm(name=name id=name)
+                each name, ico in iconProd
+                    option( value=ico selected=(values==ico) )= name
             
-
+    //- if name === 'products'
+        .form-group(class=className)
+            label(for=name) Продукты категории
+            select( name=name id=name ).form-control&attributes(attributes)
+                each val, key in categoryProducts
+                    option(value=key selected=(values==key))= val

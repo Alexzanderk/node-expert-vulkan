@@ -24,7 +24,6 @@ module.exports = {
     
     // POST /admin/news/create  -  createNews
     createNews(req, res, next) {
-        console.log(req.file);
         News.create({
             title: req.body.title,
             upload: req.file ? '/' + req.file.fieldname + '/' + req.file.filename : '',

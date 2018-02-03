@@ -1,0 +1,14 @@
+include ../../_mixins/forms/index
+
+mixin tr(items)
+    each item in items
+        tr
+            th
+                +select('icon', item.icon)
+            th
+                +input('name', item.name)(type='text' placeholder='Название свойства' class='form-control form-control-sm')
+            th
+                +input('value', item.value)(type='text' placeholder='Значение свойства' class='form-control form-control-sm')
+            th
+                button.close(type='button', aria-label='Close')
+                    span(aria-hidden='true') ×

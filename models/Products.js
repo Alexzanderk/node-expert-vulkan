@@ -2,13 +2,25 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
+const ProductProperty = new Schema({
+    icon: String,
+    value: String,
+    name: String
+  });
+
 const Products = new Schema({
     title: String,
-    upload: { type: String },
+    slug: String,
+    uploadImg: { type: String },
     description: String,
-    content: String,
-    publishDate: { type: Date },
-    published: { type: Boolean },
+    category: {type: String, ref: 'Category'},
+    model: String,
+    article: Number,
+    price: Number,
+    published: {type: Boolean},
+    description: {type: String},
+    icons: {type: Array, enum: ['box', 'weight', 'wallet', 'arrow_10', 'water']},
+    properties: [ProductProperty]
 }, {
         timestamps: true
 

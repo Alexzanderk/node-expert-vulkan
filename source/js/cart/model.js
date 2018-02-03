@@ -81,7 +81,6 @@ class Model extends EventEmitter {
         };
         // date.toLocaleDateString('ru', {year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric'});
         date.toJSON();
-        console.log(date);
         let body = {
             date: date,
             // date: `${dateFormat.Y}/${dateFormat.M}/${dateFormat.D} ----- ${dateFormat.H}:${dateFormat.m}`,

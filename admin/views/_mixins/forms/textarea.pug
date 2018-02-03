@@ -1,4 +1,8 @@
 mixin textarea(name, value)
     .form-group
-        label(for=`${name}`)= name
-        textarea.form-control(name=name, id=`${name}`)&attributes(attributes)= value
+        if name === 'description'
+            label(for=`${name}`) Описание
+            textarea.form-control(name=name, id=`${name}` )&attributes(attributes)= value
+        else
+            label(for=`${name}`)= name
+            textarea.form-control(name=name, id=`${name}`)&attributes(attributes)= value

@@ -12,8 +12,16 @@ block product
 	section.section__product
 		.container
 			h2.section__h2 Продукция
-			+tabControl('product-list', products, '1')
-			+tabList(products, '1')
+			+tabControl(['Роклы', 'Штабелеры', 'Электроштабелеры', 'Подъемные столы'], '1')
+			ul.catalog__list
+				li(class=`catalog__item active` data-list='1')
+					+tabList(rokla)
+				li(class=`catalog__item` data-list='2')
+					+tabList(shtabeler)
+				li(class=`catalog__item` data-list='3')
+					+tabList(electroShtabeler)
+				li(class=`catalog__item` data-list='4')
+					+tabList(liftTable)
 
 block about
 	section.section__about#delivery

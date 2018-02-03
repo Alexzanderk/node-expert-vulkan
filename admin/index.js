@@ -15,6 +15,7 @@ admin.on('mount', server => {
 admin.use('/:entity*', (req, res, next) => {
     res.locals.id = `admin-${req.params.entity}`;
     res.locals.currentUrl = `/admin/${req.params.entity}`;
+    res.locals.entity = req.params.entity;
     next();
 });
 

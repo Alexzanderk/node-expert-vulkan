@@ -3,7 +3,6 @@ extends _layout
 block content
     h4 Создание новости
     form(method="post" enctype='multipart/form-data').form-create-news#form-create-news
-        
         +input('title', oneNews.title)(type='text' placeholder='Заголовок новости' class='form-control')
         if oneNews.title
             img(src=`${oneNews.upload}`, alt="" class='img-thumbnail w-25')

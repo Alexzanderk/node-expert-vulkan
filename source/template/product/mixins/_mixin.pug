@@ -1,20 +1,20 @@
 
-mixin leftSideCatalog(productsCatalog)
+mixin leftSideCatalog(categories)
 	ul.products-catalog__list
-		each items in productsCatalog
+		each category in categories
 			li.products-catalog__item
-				h4.h4= items.productGroup
+				h4.h4= category.title
 				ul.product__list
-					each products in items.products
+					each product in category.products
 						li.product__item
-							-let isActive = product.alias === products.alias
-							a(class='product__link' href=`${products.alias}` class={'active': isActive })= products.title
+							-let isActive = urlId === product.id
+							a(class='product__link' href=`${product.id}` class={'active': isActive })= product.title
 
 mixin product(item)
 	div(class=`product-container`)
-		input#production(type="hidden", name=`${item.title}` data-price=`${item.price}` data-id=`${item.alias}` data-img=`${item.src}`)
+		input#production(type="hidden", name=`${item.title}` data-price=`${item.price}` data-id=`${item.id}` data-img=`${item.uploadImg}`)
 		div(class=`product-img-frame`)
-			img(class=`product__img` src=`${item.src}`, alt="")
+			img(class=`product__img` src=`${item.uploadImg}`, alt="")
 			+btnCart('cart-icon_white')(class='cart-icon_center')
 			.product-price
 				span.price-title Цена:
@@ -26,19 +26,17 @@ mixin product(item)
 						td.td Парамметры
 						td.td 
 				tbody.tbody
-					each element in item.tabel
+					each element in item.properties
 						tr.tr
 							each val, key in element
-								if key == 'props'
+								if key == 'name'
 									td.td= val
-								if key == 'value' && val != ''
+								if key == 'value'
 									td.td= val
 					//- tr.tr
 						td.td Цена
 						td.td= item.price
 		div(class=`product-description`)
-			each p in item.description.p
-				p.p= p
-			ul.ul= item.description.ul.title
-				each li in item.description.ul.li
-					li.li= li 
+			p.p
+				pre.p= item.description
+			

@@ -3,46 +3,41 @@ mixin btnCart(className)
 		.cart-container
 			i(class=`fa fa-cart-plus cart-icon ${className} `)
 
-mixin tabControl(className, items, activeItem)
-	ul(class=`${className}__list`)
-		-var i = 0
+mixin tabControl(items, activeItem)
+	ul(class=`product-list__list`)
+		-let i = 0
 		each item in items
 			-i++
-			li(class=`${className}__item`  + ' ' + ( (i == activeItem) ? 'active' : '' ) data-tab=`${i}`)
-				a(class=`${className}__link` href="#")= item.tabName
+			li(class=`product-list__item`  + ' ' + ( (i == activeItem) ? 'active' : '' ) data-tab=`${i}`)
+				a(class=`product-list__link` href="#")= item
 
-mixin tabList(catalog, activeItem)
-	ul.catalog__list
-		- let i = 0
-		each productGroup in catalog
-			-i++
-			li(class=`catalog__item`  + ' ' + ( (i == activeItem) ? 'active' : '' ) data-list=`${i}`)
-				each product in productGroup.products
-					a(class=`card__link` href=`/product-catalog/product/${product.alias}`)
-						div(class=`card`)
-							figure(class=`card__figure`)
-								figcaption(class=`card__figcaption`)
-									h4(class=`card__title`)= product.title
-									span(class=`card__article article`)= `Арт.: ${product.model}`
-									ul(class=`card__icon-list`)
-										each icon in product.icons
-											li(class=`card__icon-item`)
-												svg(class=`svg-${icon}-dims card__icon`)
-													use(xlink:href=`/img/sprite.svg#${icon}`)
-												each item in product.tabel
-													if item.icon == icon
-														span(class=`card__icon-span`)= item.value
-												if icon == 'wallet'
-													span(class=`card__icon-span`)= product.price
-										li(class=`card__icon-item`)
-											+btnCart('cart-icon_black')
-									ul(class=`card__marker-list`).marker__list
-										li(class=`card__marker-item`).marker__item.new-product Новинка
-										li(class=`card__marker-item`).marker__item.best-price Лучшая цена
-										li(class=`card__marker-item`).marker__item.week-product Хит продаж
-								div(class=`card__img-frame`)
-									img(class=`card__img` src=`${product.src}`, alt=`${product.title}`)
-					
+mixin tabList(products)
+	each product in products
+		a(class=`card__link` href=`/product-catalog/product/${product.id}`)
+			div(class=`card`)
+				figure(class=`card__figure`)
+					figcaption(class=`card__figcaption`)
+						h4(class=`card__title`)= product.title
+						span(class=`card__article article`)= `Арт.: ${product.model}`
+						ul(class=`card__icon-list`)
+							each icon in product.icons
+								li(class=`card__icon-item`)
+									svg(class=`svg-${icon}-dims card__icon`)
+										use(xlink:href=`/img/sprite.svg#${icon}`)
+									each item in product.properties
+										if item.icon == icon
+											span(class=`card__icon-span`)= item.value
+									if icon == 'wallet'
+										span(class=`card__icon-span`)= product.price
+							li(class=`card__icon-item`)
+								+btnCart('cart-icon_black')
+						ul(class=`card__marker-list`).marker__list
+							li(class=`card__marker-item`).marker__item.new-product Новинка
+							li(class=`card__marker-item`).marker__item.best-price Лучшая цена
+							li(class=`card__marker-item`).marker__item.week-product Хит продаж
+					div(class=`card__img-frame`)
+						img(class=`card__img` src=`${product.uploadImg}`, alt=`${product.title}`)
+		
 mixin contacts(className, items)
 	div(class=`${className}`)
 		ul(class=`${className}__list`)
