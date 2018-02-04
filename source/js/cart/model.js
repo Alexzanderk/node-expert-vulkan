@@ -5,6 +5,7 @@ class Model extends EventEmitter {
         super();
 
         this.items = items;
+        console.log(this.items);
     }
 
     findItem(id) {
@@ -18,7 +19,7 @@ class Model extends EventEmitter {
             
             if ( itemInCart !== undefined ) {
                 if (itemInCart.id === item.id) {
-                    itemInCart.qty = +itemInCart.qty + +item.qty;
+                    itemInCart.quantity = +itemInCart.quantity + +item.quantity;
                     
                     this.emit('change', this.items);
                     return itemInCart;
@@ -49,12 +50,12 @@ class Model extends EventEmitter {
         let totalPrice = 0;
         
         this.items.forEach(item => {
-            totalQty += +item.qty;
-            totalPrice += item.qty * item.price;
+            totalQty += +item.quantity;
+            totalPrice += item.quantity * item.price;
         });
 
         return {
-            qty: totalQty,
+            quantity: totalQty,
             price: totalPrice
         };
     }
@@ -63,7 +64,7 @@ class Model extends EventEmitter {
         let sum = 0;
 
         this.items.forEach(item => {
-            sum = sum + +item.qty;
+            sum = sum + +item.quantity;
         });
 
         return sum;
@@ -72,21 +73,12 @@ class Model extends EventEmitter {
     orderItems() {
         const url = 'http://localhost:3001/cart';
         let date = new Date();
-        const dateFormat = {
-            Y: date.getFullYear(),
-            M: date.getUTCMonth() + +1,
-            D: date.getDate(),
-            H: date.getHours(),
-            m: date.getMinutes()
-        };
-        // date.toLocaleDateString('ru', {year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric'});
-        date.toJSON();
         let body = {
-            date: date,
+            orderDate: date,
             // date: `${dateFormat.Y}/${dateFormat.M}/${dateFormat.D} ----- ${dateFormat.H}:${dateFormat.m}`,
-            name: document.getElementById('order-name').value,
-            tel: document.getElementById('order-tel').value,
-            items: this.items
+            customerName: document.getElementById('order-name').value,
+            customerPhone: document.getElementById('order-tel').value,
+            products: this.items
         };
         const options = {
             method: 'POST',
@@ -100,8 +92,8 @@ class Model extends EventEmitter {
         };
         const req = new Request(url, options);
         fetch(req)
-            .then(response => console.log(response))
-            .then(data => console.log(data))
+            // .then(response => console.log(response))
+            // .then(data => console.log(data))
             .catch(error => new Error('Ошибка с отправкой данных'));
 
         this.items = [];
@@ -109,6 +101,47 @@ class Model extends EventEmitter {
         this.emit('change', this.items);
         return this.items;
     }
+
+    // orderItems() {
+    //     const url = 'http://localhost:3001/cart';
+    //     let date = new Date();
+    //     const dateFormat = {
+    //         Y: date.getFullYear(),
+    //         M: date.getUTCMonth() + +1,
+    //         D: date.getDate(),
+    //         H: date.getHours(),
+    //         m: date.getMinutes()
+    //     };
+    //     // date.toLocaleDateString('ru', {year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric'});
+    //     date.toJSON();
+    //     let body = {
+    //         date: date,
+    //         // date: `${dateFormat.Y}/${dateFormat.M}/${dateFormat.D} ----- ${dateFormat.H}:${dateFormat.m}`,
+    //         name: document.getElementById('order-name').value,
+    //         tel: document.getElementById('order-tel').value,
+    //         items: this.items
+    //     };
+    //     const options = {
+    //         method: 'POST',
+    //         mode: 'cors',
+    //         headers: {
+    //             'Accept': 'application/json, text/plain',
+    //             'Content-Type': 'application/json',
+    //             'X-Requested-With': 'XMLHttpRequest'
+    //         },
+    //         body: JSON.stringify(body)
+    //     };
+    //     const req = new Request(url, options);
+    //     fetch(req)
+    //         .then(response => console.log(response))
+    //         .then(data => console.log(data))
+    //         .catch(error => new Error('Ошибка с отправкой данных'));
+
+    //     this.items = [];
+
+    //     this.emit('change', this.items);
+    //     return this.items;
+    // }
 }
 
 export default Model;

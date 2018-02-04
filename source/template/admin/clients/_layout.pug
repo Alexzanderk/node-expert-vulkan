@@ -1,0 +1,34 @@
+extends ../_layout
+
+include ../_mixins/forms/index
+include ../_mixins/subMenu
+include ../_mixins/showItems
+
+block main
+    block controls
+        //- +subMenu({
+            'Создать': '/admin',
+            'Сбросить': '/admin/news'
+         },[
+            {
+                title: 'Фильтры',
+                href: `/admin/news?published=true`,
+                drop: [{
+                    title: 'Date >',
+                    href: '/admin/news?dateUp=true'
+                },{
+                    title: 'Date <',
+                    href: '/admin/news?dateUp=false'
+                }],
+            },
+            {
+                title: 'Опубликованые',
+                href: `/admin/news?published=true`
+            },
+            {
+                title: 'Неопубликованые',
+                href: `/admin/news?published=false`
+            }
+         ])
+    .container.py-4
+        block content

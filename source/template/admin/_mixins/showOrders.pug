@@ -1,0 +1,15 @@
+mixin badge(name)
+    span.badge.font-weight-normal.ml-2&attributes(attributes)= name
+
+mixin showOrders(items)
+    table.table
+        tbody
+            each item in items
+                tr
+                    th.mw-50.w-50
+                        a(href=`/admin/${entity}/order/${item.id}`)= moment(item.orderDate).format('Заказ # -- DDMMYYYY__HHmmss')
+                    td
+                        i.ml-auto.fa.fa-calendar
+                        span.admin-table-date.ml-2= moment(item.orderDate).format('YYYY-MM-DD : HH:mm:ss')
+                    td
+                        +badge(item.closeOrder ? 'Отгружен' : 'В работе')(class='text-center ' + ((item.closeOrder === true) ? 'badge-success' : 'badge-danger'))

@@ -39,7 +39,7 @@ app.use(app.get('env') === 'development' ? error.development : error.production)
 // proxy на локальный сервер на Express
 browserSync.init({
     proxy: 'http://localhost:3000',
-    startPath: '/admin/products',
+    startPath: '/admin/orders',
     notify: false,
     tunnel: false,
     host: 'localhost',

@@ -1,26 +1,36 @@
 mixin subMenu(items, filters)
-    nav.navbar.navbar-expand-lg.navbar-light.bg-secondary
+    nav.navbar.navbar-expand-lg.navbar-light(class=((!order) ? ' bg-secondary': ' border border-left-0 border-right-0 border-top-0 border-info'))
         .container
             button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNavDropdown', aria-controls='navbarNavDropdown', aria-expanded='false', aria-label='Toggle navigation')
                 span.navbar-toggler-icon.text-light
             
             #navbarNavDropdown.collapse.navbar-collapse.d-flex.justify-content-between
-                
-                ul.nav-pills.nav
-                    each val, key in items
-                        li.nav-item
-                            a.nav-link.btn.btn-outline-light.btn-sm.mr-2(href=val)= key
-                
-                ul.nav
-                    each filter in filters
-                        if !filter.drop
+               
+                if order
+                    h5(class=' ' + ((order.closeOrder) ? 'bg-success' : 'bg-danger')).my-auto.text-white.px-3.py-1= `Заказ: ${moment(order.orderDate).format('DDMMYYYY__hhmmss')}`
+                    i.text-secondary.fa.fa-calendar.ml-5.mr-1
+                    span.text-secondary= moment(order.orderDate).format('YYYY-MM-DD')
+                else
+                    ul.nav-pills.nav
+                        each val, key in items
                             li.nav-item
-                                a.text-light.nav-link.btn-sm.mr-2(href=filter.href)= filter.title
-                        if filter.drop
-                            li.nav-item.dropdown
-                                a#navbarDropdownMenuLink.text-light.nav-link.dropdown-toggle.btn-sm(href='#', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-                                    | Фильтры
-                                .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
-                                    each dropFilter in filter.drop
-                                        a.dropdown-item(href=dropFilter.href)= dropFilter.title
-                                
+                                a.nav-link.btn.btn-outline-light.btn-sm.mr-2(href=val)= key
+               
+               
+                if order
+                    +button('Сохранить')(type='submit' form='order'  class='btn-success ml-auto mr-2')
+                    +button('Удалить')(href=`/admin/${entity}/order/${order.id}/delete` class='btn-danger')
+                else
+                    ul.nav
+                        each filter in filters
+                            if !filter.drop
+                                li.nav-item
+                                    a.text-light.nav-link.btn-sm.mr-2(href=filter.href)= filter.title
+                            if filter.drop
+                                li.nav-item.dropdown
+                                    a#navbarDropdownMenuLink.text-light.nav-link.dropdown-toggle.btn-sm(href='#', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                                        | Фильтры
+                                    .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
+                                        each dropFilter in filter.drop
+                                            a.dropdown-item(href=dropFilter.href)= dropFilter.title
+                                    

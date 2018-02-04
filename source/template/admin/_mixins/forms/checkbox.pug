@@ -1,0 +1,5 @@
+mixin checkbox(title, name, value)
+    .form-check.news-publish-checkbox
+        label.form-check-label
+            input.form-check-input(type='checkbox', name=name, id=Name, checked=value ) 
+            span(class='badge ' + ((value) ? 'badge-success' : 'badge-danger'))=`${title}`

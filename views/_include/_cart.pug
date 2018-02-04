@@ -15,8 +15,8 @@ include /_mixins/_mixin.pug
             span.order-sum-price 
             span.order-sum-qty 
         .order-wrapper
-            input#order-name.input(type="text", name="name" placeholder="Ваше имя" required)
-            input#order-tel.input(type="tel", name="tel" placeholder="Телефон для связи" required pattern="^[ 0-9]+$")
+            input#order-name.input(type="text", name="customerName" placeholder="Ваше имя" required)
+            input#order-tel.input(type="tel", name="customerPhone" placeholder="Телефон для связи" required pattern="^[ 0-9]+$")
         button#order-button.btn.btn-submit(type="submit" formnovalidate) Оформить заказ
     // content
   // modal

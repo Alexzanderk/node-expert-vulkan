@@ -407,9 +407,9 @@ class View extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter */
     createListItemProduct(product) {
         const closeIcon = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* createElement */])('i', { className: 'fa fa-times close-icon' });
         const itemDeleteButton = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* createElement */])('button', { className: 'btn btn-delete' }, closeIcon);
-        const itemQuantity = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* createElement */])('span', { className: 'item-quantity' }, product.qty);
+        const itemQuantity = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* createElement */])('span', { className: 'item-quantity' }, product.quantity);
         const itemPrice = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* createElement */])('span', { className: 'item-price' }, product.price);
-        const itemTitle = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* createElement */])('span', { className: 'item-name' }, product.title);
+        const itemTitle = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* createElement */])('span', { className: 'item-name' }, product.name);
         const itemImg = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* createElement */])('img', { className: 'cart-img', 'src': product.img });
         const itemImgFrame = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* createElement */])('div', { className: 'cart-img-frame' }, itemImg);
         const item = Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* createElement */])('li', { className: 'cart__item', 'data-id': product.id }, itemImgFrame, itemTitle, itemPrice, itemQuantity, itemDeleteButton);
@@ -433,10 +433,12 @@ class View extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter */
         const product = document.getElementById('production');
         const value = {};
         value.id = product.getAttribute('data-id');
-        value.title = product.getAttribute('name');
+        value.name = product.getAttribute('name');
         value.price = product.getAttribute('data-price');
         value.img = product.getAttribute('data-img');
-        value.qty = '1';
+        value.quantity = '1';
+        value.article = product.getAttribute('data-article');
+        value.model = product.getAttribute('data-model');
         
         this.emit('add', value);
     }
@@ -459,7 +461,7 @@ class View extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter */
 
     show(cart) {
         let total = {
-            qty: 0, 
+            quantity: 0, 
             price: 0
         };
 
@@ -467,20 +469,20 @@ class View extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter */
             const listItem = this.createListItemProduct(item);
             this.cartListProduct.appendChild(listItem);
             
-            total.qty += +item.qty;
-            total.price += +item.qty * +item.price;
+            total.quantity += +item.quantity;
+            total.price += +item.quantity * +item.price;
 
         });
         
-        this.changeCartQuantity(total.qty);
+        this.changeCartQuantity(total.quantity);
         this.totalProductQuantity(total);
     }
 
     addProduct(product) {
         
-        if ( product.qty > 1 ) {
+        if ( product.quantity > 1 ) {
             const productInList = this.findListItemProduct(product.id);
-            productInList.querySelector('.item-quantity').innerText = product.qty;
+            productInList.querySelector('.item-quantity').innerText = product.quantity;
         } else {
             const listItemProduct = this.createListItemProduct(product);
             this.cartListProduct.appendChild(listItemProduct);
@@ -503,7 +505,7 @@ class View extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter */
     }
 
     totalProductQuantity(total) {
-        this.totalCartQuantity.innerText = +total.qty;
+        this.totalCartQuantity.innerText = +total.quantity;
         this.totalCartPrice.innerText = +total.price;
     }
 
@@ -539,6 +541,7 @@ class Model extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter *
         super();
 
         this.items = items;
+        console.log(this.items);
     }
 
     findItem(id) {
@@ -552,7 +555,7 @@ class Model extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter *
             
             if ( itemInCart !== undefined ) {
                 if (itemInCart.id === item.id) {
-                    itemInCart.qty = +itemInCart.qty + +item.qty;
+                    itemInCart.quantity = +itemInCart.quantity + +item.quantity;
                     
                     this.emit('change', this.items);
                     return itemInCart;
@@ -583,12 +586,12 @@ class Model extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter *
         let totalPrice = 0;
         
         this.items.forEach(item => {
-            totalQty += +item.qty;
-            totalPrice += item.qty * item.price;
+            totalQty += +item.quantity;
+            totalPrice += item.quantity * item.price;
         });
 
         return {
-            qty: totalQty,
+            quantity: totalQty,
             price: totalPrice
         };
     }
@@ -597,7 +600,7 @@ class Model extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter *
         let sum = 0;
 
         this.items.forEach(item => {
-            sum = sum + +item.qty;
+            sum = sum + +item.quantity;
         });
 
         return sum;
@@ -606,21 +609,12 @@ class Model extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter *
     orderItems() {
         const url = 'http://localhost:3001/cart';
         let date = new Date();
-        const dateFormat = {
-            Y: date.getFullYear(),
-            M: date.getUTCMonth() + +1,
-            D: date.getDate(),
-            H: date.getHours(),
-            m: date.getMinutes()
-        };
-        // date.toLocaleDateString('ru', {year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric'});
-        date.toJSON();
         let body = {
-            date: date,
+            orderDate: date,
             // date: `${dateFormat.Y}/${dateFormat.M}/${dateFormat.D} ----- ${dateFormat.H}:${dateFormat.m}`,
-            name: document.getElementById('order-name').value,
-            tel: document.getElementById('order-tel').value,
-            items: this.items
+            customerName: document.getElementById('order-name').value,
+            customerPhone: document.getElementById('order-tel').value,
+            products: this.items
         };
         const options = {
             method: 'POST',
@@ -634,8 +628,8 @@ class Model extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter *
         };
         const req = new Request(url, options);
         fetch(req)
-            .then(response => console.log(response))
-            .then(data => console.log(data))
+            // .then(response => console.log(response))
+            // .then(data => console.log(data))
             .catch(error => new Error('Ошибка с отправкой данных'));
 
         this.items = [];
@@ -643,6 +637,47 @@ class Model extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter *
         this.emit('change', this.items);
         return this.items;
     }
+
+    // orderItems() {
+    //     const url = 'http://localhost:3001/cart';
+    //     let date = new Date();
+    //     const dateFormat = {
+    //         Y: date.getFullYear(),
+    //         M: date.getUTCMonth() + +1,
+    //         D: date.getDate(),
+    //         H: date.getHours(),
+    //         m: date.getMinutes()
+    //     };
+    //     // date.toLocaleDateString('ru', {year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric'});
+    //     date.toJSON();
+    //     let body = {
+    //         date: date,
+    //         // date: `${dateFormat.Y}/${dateFormat.M}/${dateFormat.D} ----- ${dateFormat.H}:${dateFormat.m}`,
+    //         name: document.getElementById('order-name').value,
+    //         tel: document.getElementById('order-tel').value,
+    //         items: this.items
+    //     };
+    //     const options = {
+    //         method: 'POST',
+    //         mode: 'cors',
+    //         headers: {
+    //             'Accept': 'application/json, text/plain',
+    //             'Content-Type': 'application/json',
+    //             'X-Requested-With': 'XMLHttpRequest'
+    //         },
+    //         body: JSON.stringify(body)
+    //     };
+    //     const req = new Request(url, options);
+    //     fetch(req)
+    //         .then(response => console.log(response))
+    //         .then(data => console.log(data))
+    //         .catch(error => new Error('Ошибка с отправкой данных'));
+
+    //     this.items = [];
+
+    //     this.emit('change', this.items);
+    //     return this.items;
+    // }
 }
 
 /* harmony default export */ __webpack_exports__["a"] = (Model);

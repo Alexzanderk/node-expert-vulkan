@@ -1,0 +1,34 @@
+extends _layout.pug
+
+block content
+    form(method="post" name='order' id='order')
+        .row
+            .col-4
+                h6.font-weight-bold Контактная информация:
+                +input('customerName', order.customerName)(placeholder='Имя' type='text' class='form-control form-control-sm' disabled)
+                +input('customerPhone', order.customerPhone)(placeholder='Телефон' type='text' class='form-control form-control-sm' disabled)
+                +input('customerAdress', order.customerAdress)(placeholder='Адрес доставки' type='text' class='form-control form-control-sm')
+                +textarea('notes', order.notes)(rows='8' placeholder='Заметки')
+            .col-8
+                +checkbox('Отгружено', 'closeOrder', order.closeOrder)
+                
+                h6.font-weight-bold Заказ:
+                table.table.table-hover
+                    thead
+                        tr
+                            th Наименование
+                            th Модель
+                            th Артикул
+                            th Кол-во
+                            th Стоимость
+                            th Сумма
+                    tbody
+                        each product in order.products
+                            tr
+                                td= product.name
+                                td= product.model
+                                td= product.article
+                                td= product.quantity
+                                td= product.price
+                                td= product.price*product.quantity
+                        

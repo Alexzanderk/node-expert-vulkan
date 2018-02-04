@@ -10,12 +10,12 @@ const ProductProperty = new Schema({
 
 const Products = new Schema({
     title: String,
-    slug: String,
+    slug: {type: String, trim: true, unique: true},
     uploadImg: { type: String },
     description: String,
     category: {type: String, ref: 'Category'},
     model: String,
-    article: Number,
+    article: {type: Number, default: '00000'},
     price: Number,
     published: {type: Boolean},
     description: {type: String},

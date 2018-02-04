@@ -14,7 +14,7 @@ module.exports = {
 
     // GET admin/products  -  showAllProducts
     showAllProducts(req, res, next) {
-        Products.find()
+        Products.find(req.query)
             .then(products => {
                 Category.find()
                     .then(category => {
@@ -49,6 +49,7 @@ module.exports = {
         let propertiesObjects = [];
         let uploadImg = (req.file) ? '/upload/products/' + req.file.filename : '';
         let published = req.body.published === undefined ? false : true;
+        let article = req.body.article === null ? '00000' : req.body.article;
 
         for (let i = 0; i < names.length; i++) {
             let obj = {};
@@ -58,7 +59,7 @@ module.exports = {
             propertiesObjects.push(obj);
         }
 
-        let productData = Object.assign({}, req.body, { published: published }, { uploadImg: uploadImg }, { properties: propertiesObjects })
+        let productData = Object.assign({}, req.body, { published: published, article: article }, { uploadImg: uploadImg }, { properties: propertiesObjects })
 
         Products.create(productData)
             .then(() => res.redirect('/admin/products'))
@@ -112,6 +113,7 @@ module.exports = {
         let propertiesObjects = [];
         let uploadImg = (req.file) ? '/upload/products/' + req.file.filename : req.product.uploadImg;
         let published = req.body.published === undefined ? false : true;
+        let article = req.body.article === null ? ' ' : req.body.article;
 
         for (let i = 0; i < names.length; i++) {
             let obj = {};
@@ -122,7 +124,7 @@ module.exports = {
         }
 
         
-        let productData = Object.assign({}, req.body, { published: published }, { uploadImg: uploadImg }, { properties: propertiesObjects })
+        let productData = Object.assign({}, req.body, { article: article, published: published }, { uploadImg: uploadImg }, { properties: propertiesObjects })
 
         Products.findOneAndUpdate({ _id: req.product.id }, productData)
             .then(product => res.redirect('/admin/products'))

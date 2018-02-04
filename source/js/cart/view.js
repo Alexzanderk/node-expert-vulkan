@@ -25,9 +25,9 @@ class View extends EventEmitter {
     createListItemProduct(product) {
         const closeIcon = createElement('i', { className: 'fa fa-times close-icon' });
         const itemDeleteButton = createElement('button', { className: 'btn btn-delete' }, closeIcon);
-        const itemQuantity = createElement('span', { className: 'item-quantity' }, product.qty);
+        const itemQuantity = createElement('span', { className: 'item-quantity' }, product.quantity);
         const itemPrice = createElement('span', { className: 'item-price' }, product.price);
-        const itemTitle = createElement('span', { className: 'item-name' }, product.title);
+        const itemTitle = createElement('span', { className: 'item-name' }, product.name);
         const itemImg = createElement('img', { className: 'cart-img', 'src': product.img });
         const itemImgFrame = createElement('div', { className: 'cart-img-frame' }, itemImg);
         const item = createElement('li', { className: 'cart__item', 'data-id': product.id }, itemImgFrame, itemTitle, itemPrice, itemQuantity, itemDeleteButton);
@@ -51,10 +51,12 @@ class View extends EventEmitter {
         const product = document.getElementById('production');
         const value = {};
         value.id = product.getAttribute('data-id');
-        value.title = product.getAttribute('name');
+        value.name = product.getAttribute('name');
         value.price = product.getAttribute('data-price');
         value.img = product.getAttribute('data-img');
-        value.qty = '1';
+        value.quantity = '1';
+        value.article = product.getAttribute('data-article');
+        value.model = product.getAttribute('data-model');
         
         this.emit('add', value);
     }
@@ -77,7 +79,7 @@ class View extends EventEmitter {
 
     show(cart) {
         let total = {
-            qty: 0, 
+            quantity: 0, 
             price: 0
         };
 
@@ -85,20 +87,20 @@ class View extends EventEmitter {
             const listItem = this.createListItemProduct(item);
             this.cartListProduct.appendChild(listItem);
             
-            total.qty += +item.qty;
-            total.price += +item.qty * +item.price;
+            total.quantity += +item.quantity;
+            total.price += +item.quantity * +item.price;
 
         });
         
-        this.changeCartQuantity(total.qty);
+        this.changeCartQuantity(total.quantity);
         this.totalProductQuantity(total);
     }
 
     addProduct(product) {
         
-        if ( product.qty > 1 ) {
+        if ( product.quantity > 1 ) {
             const productInList = this.findListItemProduct(product.id);
-            productInList.querySelector('.item-quantity').innerText = product.qty;
+            productInList.querySelector('.item-quantity').innerText = product.quantity;
         } else {
             const listItemProduct = this.createListItemProduct(product);
             this.cartListProduct.appendChild(listItemProduct);
@@ -121,7 +123,7 @@ class View extends EventEmitter {
     }
 
     totalProductQuantity(total) {
-        this.totalCartQuantity.innerText = +total.qty;
+        this.totalCartQuantity.innerText = +total.quantity;
         this.totalCartPrice.innerText = +total.price;
     }
 

@@ -22,6 +22,8 @@ admin.use('/:entity*', (req, res, next) => {
 admin.use('/', routers.home);
 admin.use('/news', routers.news);
 admin.use('/products', routers.products);
+admin.use('/orders', routers.order);
+admin.use('/base', routers.base);
 
 
 

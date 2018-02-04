@@ -1,0 +1,55 @@
+extends ../_layout
+
+include ../_mixins/forms/index
+include ../_mixins/subMenu
+include ../_mixins/showOrders
+
+block inHeader
+    if order
+        +subMenu({},[
+            {
+                title: 'Фильтры',
+                href: `/admin/orders?published=true`,
+                drop: [{
+                    title: 'Date >',
+                    href: '/admin/orders?dateUp=true'
+                },{
+                    title: 'Date <',
+                    href: '/admin/orders?dateUp=false'
+                }],
+            },
+            {
+                title: 'Открытые заказы',
+                href: `/admin/orders?closeOrder=false`
+            },
+            {
+                title: 'Закрытые заказы',
+                href: `/admin/orders?closeOrder=true`
+            }
+        ])
+block main
+    block controls
+        if !order
+            +subMenu({},[
+            {
+                title: 'Фильтры',
+                href: `/admin/orders?published=true`,
+                drop: [{
+                    title: 'Date >',
+                    href: '/admin/orders?dateUp=true'
+                },{
+                    title: 'Date <',
+                    href: '/admin/orders?dateUp=false'
+                }],
+            },
+            {
+                title: 'Открытые заказы',
+                href: `/admin/orders?closeOrder=false`
+            },
+            {
+                title: 'Закрытые заказы',
+                href: `/admin/orders?closeOrder=true`
+            }
+         ])
+    .container.py-4
+        block content
