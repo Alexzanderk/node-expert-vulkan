@@ -8,7 +8,7 @@ block main
     block controls
         +subMenu({
             'Создать': '/admin/news/create',
-            'Сбросить': '/admin/news'
+            'Сбросить': `/admin/news?page=${page}&limit=${limit}`
         },[
             {
                 title: 'Фильтры',
@@ -23,11 +23,11 @@ block main
             },
             {
                 title: 'Опубликованые',
-                href: `/admin/news?published=true`
+                href: `/admin/news?page=${page}&limit=${limit}&published=true`
             },
             {
                 title: 'Неопубликованые',
-                href: `/admin/news?published=false`
+                href: `/admin/news?page=${page}&limit=${limit}&published=false`
             }
         ])
     .container.py-4

@@ -1,8 +1,15 @@
 const { Router } = require('express');
+const bodyParser = require('body-parser');
+
 const router = Router();
 
-const { product: { productsIndex, showProductsCatalog, showProduct } } = require('../controllers');
+const { product, baseOrder } = require('../controllers');
 
-router.get('/', productsIndex);
+
+router.use(bodyParser.json());
+
+router.get('/', product.showCategoriesWithProducts);
+router.post('/client', baseOrder.sendContacts);
+router.post('/cart', baseOrder.sendCart);
 
 module.exports = router;

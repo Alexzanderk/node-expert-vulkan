@@ -145,6 +145,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+// import { sendContacts } from './functions/sendContacts';
 
 if (document.getElementById('admin-products')) {
     Object(__WEBPACK_IMPORTED_MODULE_6__adminAddProps__["a" /* adminAddProps */])();
@@ -541,7 +542,6 @@ class Model extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter *
         super();
 
         this.items = items;
-        console.log(this.items);
     }
 
     findItem(id) {
@@ -628,8 +628,9 @@ class Model extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter *
         };
         const req = new Request(url, options);
         fetch(req)
-            // .then(response => console.log(response))
-            // .then(data => console.log(data))
+            .then(response => {
+                if(response.status === 200) window.location.href = 'http://localhost:3001/';
+            })
             .catch(error => new Error('Ошибка с отправкой данных'));
 
         this.items = [];
@@ -638,46 +639,6 @@ class Model extends __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* EventEmitter *
         return this.items;
     }
 
-    // orderItems() {
-    //     const url = 'http://localhost:3001/cart';
-    //     let date = new Date();
-    //     const dateFormat = {
-    //         Y: date.getFullYear(),
-    //         M: date.getUTCMonth() + +1,
-    //         D: date.getDate(),
-    //         H: date.getHours(),
-    //         m: date.getMinutes()
-    //     };
-    //     // date.toLocaleDateString('ru', {year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric'});
-    //     date.toJSON();
-    //     let body = {
-    //         date: date,
-    //         // date: `${dateFormat.Y}/${dateFormat.M}/${dateFormat.D} ----- ${dateFormat.H}:${dateFormat.m}`,
-    //         name: document.getElementById('order-name').value,
-    //         tel: document.getElementById('order-tel').value,
-    //         items: this.items
-    //     };
-    //     const options = {
-    //         method: 'POST',
-    //         mode: 'cors',
-    //         headers: {
-    //             'Accept': 'application/json, text/plain',
-    //             'Content-Type': 'application/json',
-    //             'X-Requested-With': 'XMLHttpRequest'
-    //         },
-    //         body: JSON.stringify(body)
-    //     };
-    //     const req = new Request(url, options);
-    //     fetch(req)
-    //         .then(response => console.log(response))
-    //         .then(data => console.log(data))
-    //         .catch(error => new Error('Ошибка с отправкой данных'));
-
-    //     this.items = [];
-
-    //     this.emit('change', this.items);
-    //     return this.items;
-    // }
 }
 
 /* harmony default export */ __webpack_exports__["a"] = (Model);

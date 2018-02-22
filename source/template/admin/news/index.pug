@@ -2,19 +2,19 @@ extends _layout
 
 block content
     +showItems(newsAll)
+
     nav(aria-label='Page navigation example')
+        -let i = 0;
         ul.pagination
             li.page-item
-                a.page-link(href='#', aria-label='Previous')
+                a.page-link(href=((page > i+1) ? `/admin/news?page=${page - 1}&limit=${limit}` : `/admin/news?page=${page}&limit=${limit}`) + (published && published !== undefined ? `&published=${published}` : ''), aria-label='Previous')
                     span(aria-hidden='true') «
                     span.sr-only Previous
+            while i < totalNewsCount/limit
+                - i++
+                li.page-item
+                    a.page-link(href=`/admin/news?page=${i}&limit=${limit}` + (published && published !== undefined ? `&published=${published}` : '') )= i
             li.page-item
-                a.page-link(href=`?page=1`) 1
-            li.page-item
-                a.page-link(href='#') 2
-            li.page-item
-                a.page-link(href='#') 3
-            li.page-item
-                a.page-link(href='#', aria-label='Next')
+                a.page-link(href=((page < i) ? `/admin/news?page=${++page}&limit=${limit}` : `/admin/news?page=${page}&limit=${limit}`) + (published && published !== undefined ? `&published=${published}` : ''), aria-label='Next' disabled)
                     span(aria-hidden='true') »
                     span.sr-only Next

@@ -1,22 +1,21 @@
 const router = require('express').Router();
-const { base: { showClientsBase, showOrder, showEditPage, updateOrder, showDeletePage, deleteOrder } } = require('../controllers');
+const { base } = require('../controllers');
+
+router.param('id', base.findClient);
 
 // GET /admin/orders
-router.get('/', showClientsBase);
-
-// GET /admin/orders/:id
-router.get('/order/:id', showOrder);
+router.get('/', base.showClientsBase);
 
 // GET /admin/orders/:id/edit
 // POST /admin/orders/:id/edit
-router.route('/order/:id/edit')
-    .get(showEditPage)
-    .post(updateOrder);
+router.route('/:id/edit')
+    .get(base.showEditPage)
+    .post(base.updateClient);
 
 // GET /admin/orders/:id/delete
 // POST /admin/orders/:id/delete
-router.route('/order/:id/delete')
-    .get(showDeletePage)
-    .post(deleteOrder);
+router.route('/:id/delete')
+    .get(base.showDeletePage)
+    .post(base.deleteClient);
 
 module.exports = router;

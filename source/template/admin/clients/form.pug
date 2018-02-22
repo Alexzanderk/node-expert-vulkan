@@ -1,0 +1,11 @@
+extends _layout.pug
+
+block content
+    form(method="post" name='client')
+        h6.font-weight-bold Контактная информация:
+        +input('contactName', client.contactName)(placeholder='Имя' type='text' class='form-control form-control-sm')
+        +input('contactPhone', client.contactPhone)(placeholder='Телефон' type='text' class='form-control form-control-sm')
+        +input('email', client.email)(placeholder='Почта' type='text' class='form-control form-control-sm')
+        +textarea('notes', client.notes)(rows='8' placeholder='Заметки')
+        +button('Сохранить')(type='submimt' class='btn-success mr-3')
+        +button('Удалить')(href=`/admin/${entity}/${client.id}/delete` class='btn-danger')

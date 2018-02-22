@@ -5,12 +5,12 @@ block content
         .row
             .col-4
                 h6.font-weight-bold Контактная информация:
-                +input('customerName', order.customerName)(placeholder='Имя' type='text' class='form-control form-control-sm' disabled)
-                +input('customerPhone', order.customerPhone)(placeholder='Телефон' type='text' class='form-control form-control-sm' disabled)
+                +input('customerName', order.customerName)(placeholder='Имя' type='text' class='form-control form-control-sm' disabled=((edit) ? false : true))
+                +input('customerPhone', order.customerPhone)(placeholder='Телефон' type='text' class='form-control form-control-sm' disabled=((edit) ? false : true))
                 +input('customerAdress', order.customerAdress)(placeholder='Адрес доставки' type='text' class='form-control form-control-sm')
                 +textarea('notes', order.notes)(rows='8' placeholder='Заметки')
             .col-8
-                +checkbox('Отгружено', 'closeOrder', order.closeOrder)
+                
                 
                 h6.font-weight-bold Заказ:
                 table.table.table-hover

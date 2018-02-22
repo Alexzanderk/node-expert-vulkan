@@ -1,11 +1,13 @@
 const {Products, Category} = require('../../models');
 const moment = require('moment');
 const path = require('path');
+const mongoose = require('mongoose');
 
 module.exports = {
     showProduct(req, res, next, id) {
         Products.findById(id)
             .then(product => {
+                
                 req.product = product;
                 next();
             })

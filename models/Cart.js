@@ -15,7 +15,7 @@ const Cart = new Schema({
     customerPhone: String,
     customerAdress: {type: String},
     orderDate: Date,
-    closeOrder: {type: Boolean},
+    closeOrder: {type: Boolean, default: false},
     bill: String,
     notes: {type: String},
     products: [cartProducts]

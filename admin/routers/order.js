@@ -11,17 +11,18 @@ router.get('/', showOrders);
 router.route('/order/:id')
     .get(showOrder)
     .post(updateOrder);
-
-// GET /admin/orders/:id/edit
-// POST /admin/orders/:id/edit
-router.route('/order/:id/edit')
-    .get(showEditPage)
-    .post(updateOrder);
-
+    
 // GET /admin/orders/:id/delete
 // POST /admin/orders/:id/delete
 router.route('/order/:id/delete')
     .get(showDeletePage)
     .post(deleteOrder);
+    
+// GET /admin/orders/:id/edit
+// POST /admin/orders/:id/edit
+router.route('/order/:id/:edit')
+    .get(showEditPage)
+    .post(updateOrder);
+
 
 module.exports = router;

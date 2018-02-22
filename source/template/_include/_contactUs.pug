@@ -11,17 +11,21 @@
     
     .contact__form
         .front__h2 Оставить запрос
-        form.form-request(action="")
+        form.form-request(action='/client' method="POST" name='base' id='base')
             span.form-request__input.form-request__input_effect 
-                input.input__field.input__field_effect(type="text" id="inputName")
+                input.input__field.input__field_effect(type="text" id="inputName" name='contactName')
                 label.input__label.input__label_effect(for="inputName")
                     span.input__label-content.input__label-content_effect Ваше имя
             span.form-request__input 
-                input.input__field.input__field_effect(type="text" id="inputPhone")
+                input.input__field.input__field_effect(type="tel" id="inputPhone" name='contactPhone')
                 label.input__label.input__label_effect(for="inputPhone")
                     span.input__label-content.input__label-content_effect Контактный телефон
+            span.form-request__input 
+                input.input__field.input__field_effect(type="email" id="inputEmail" name='email')
+                label.input__label.input__label_effect(for="inputPhone")
+                    span.input__label-content.input__label-content_effect Электронная почта
             
-            button.form-request__button Отправить
+            button#customerContacts(type='submit').form-request__button Отправить
                 span.line1.btn-border-line
                 span.line2.btn-border-line
                 span.line3.btn-border-line

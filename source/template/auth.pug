@@ -1,0 +1,37 @@
+extends _layout-index.pug
+
+block front
+    .logo
+        a.logo__link(href="/") Складская
+            span.logo__color_yellow Техника
+    .auth-container
+        h3.h3 Login:
+        form.form-request(action='/auth/login' method="POST" name='login' id='login')
+            span.form-request__input.form-request__input_effect 
+                input.input__field.input__field_effect(type="email" id="inputName" name='contactName')
+                label.input__label.input__label_effect(for="inputName")
+                    span.input__label-content.input__label-content_effect Email
+            span.form-request__input 
+                input.input__field.input__field_effect(type="password" id="inputPhone" name='contactPhone')
+                label.input__label.input__label_effect(for="inputPhone")
+                    span.input__label-content.input__label-content_effect Password
+            
+            button#customerContacts(type='submit').form-request__button Enter
+                span.line1.btn-border-line
+                span.line2.btn-border-line
+                span.line3.btn-border-line
+                span.line4.btn-border-line
+        //- p or
+        //- .socials-login
+            a(href='#')
+                i.fa.fa-github
+            a(href='#')
+                i.fa.fa-facebook
+        .another-login
+            a.auth-link(href='/auth/registration') Registration
+            span or
+            a.soc-login__link(href='#')
+                i.fa.fa-github
+            a.soc-login__link(href='#')
+                i.fa.fa-facebook
+

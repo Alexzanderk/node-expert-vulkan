@@ -1,35 +1,65 @@
-const { Cart } = require('../../models');
+const { Cart, Client } = require('../../models');
+const moment = require('moment');
 
 module.exports = {
-    // GET /admin/orders
-    showClientsBase(req, res,next) {
-        res.render('clients', {
-            
-        })
+    
+    // GET /admin/base/:id
+    async findClient(req, res, next, id) {
+        try {
+            let client = await Client.findById(id);
+            req.client = client;
+            next();
+        } catch (error) {
+            next(error);
+        }
     },
     
-    // GET /admin/orders/:id
-    showOrder(req, res,next) {
-        
+    // GET /admin/base
+    async showClientsBase(req, res,next) {
+        try {
+            let clients = await Client.find();
+            res.render('clients', {
+                clients,
+                moment
+            })
+        } catch (error) {
+            next(error);
+        }
     },
     
-    // GET /admin/orders/:id/edit
-    // POST /admin/orders/:id/edit
-    showEditPage(req, res,next) {
-        
+    // GET /admin/base/:id/edit
+    // POST /admin/base/:id/edit
+    showEditPage(req, res, next) {
+        res.render('clients/form', {
+            client: req.client,
+            moment
+        });
     },
 
-    updateOrder(req, res,next) {
-        
+    async updateClient(req, res, next) {
+        try {
+            await Client.findOneAndUpdate({_id: req.client.id}, req.body);
+            res.redirect('/admin/base');
+        } catch (error) {
+            next(error);
+        }
     },
         
-    // GET /admin/orders/:id/delete
-    // POST /admin/orders/:id/delete
+    // GET /admin/base/:id/delete
+    // POST /admin/base/:id/delete
     showDeletePage(req, res,next) {
-        
+        res.render('clients/delete', {
+            client: req.client,
+            moment
+        });
     },
 
-    deleteOrder(req, res,next) {
-        
+    async deleteClient(req, res,next) {
+        try {
+          await req.client.remove();
+          res.redirect('/admin/base');  
+        } catch (error) {
+            next(error);
+        }
     },
 }

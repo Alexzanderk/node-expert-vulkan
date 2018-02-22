@@ -18,7 +18,9 @@ mixin subMenu(items, filters)
                
                
                 if order
+                    +checkbox('Отгружено', 'closeOrder', order.closeOrder)(form='order' class='')
                     +button('Сохранить')(type='submit' form='order'  class='btn-success ml-auto mr-2')
+                    +button('Изменить')(href=`/admin/${entity}/order/${order.id}/edit` class='btn-primary mr-2')
                     +button('Удалить')(href=`/admin/${entity}/order/${order.id}/delete` class='btn-danger')
                 else
                     ul.nav

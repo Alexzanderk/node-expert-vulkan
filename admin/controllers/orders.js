@@ -42,7 +42,11 @@ module.exports = {
 
     // GET /admin/orders/:id/edit
     showEditPage(req, res, next) {
-        
+        res.render('orders/order', {
+            order: req.order,
+            moment,
+            edit: req.params.edit
+        })
     },
     
     // POST /admin/orders/:id/edit

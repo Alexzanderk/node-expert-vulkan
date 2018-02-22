@@ -12,6 +12,7 @@ module.exports = {
         sourceTemplate: path.resolve(__dirname, '..', 'source', 'template')
     },
     mongodbUrl: 'mongodb://localhost:27017/vulkan',
-    mongodbMlab: process.env.MONGODB_MLAB_URL
+    mongodbMlab: process.env.MONGODB_MLAB_URL,
+    sessionSecret: 'CR,>Ekw?=#XZzch8%fWKt7'
 
 };

@@ -12,15 +12,13 @@ mixin newsCatalog(item)
 mixin pagination(totalNewsCount, limit, currentpage)
 	-let i = 0;
 	ul.pagination
-		if currentpage > 1
-			li.pagination__item
-				a.pagination__link(href=`/news-catalog?page=${currentpage - 1}&limit=${limit}`)
-					span.pagination__previous <
+		li.pagination__item
+			a.pagination__link(href=((currentpage > i+1) ? `/news-catalog?page=${currentpage - 1}&limit=${limit}` : `/news-catalog?page=${currentpage}&limit=${limit}`))
+				span.pagination__previous <
 		while i < totalNewsCount/limit
 			- i++
 			li.pagination__item
 				a(class= {'active': `${i}` === currentpage } href=`/news-catalog?page=${i}&limit=${limit}` class='pagination__link' )= i
-		if currentpage < totalNewsCount/limit
-			li.pagination__item
-				a.pagination__link(href=`/news-catalog?page=${++currentpage}&limit=${limit}`)
-					span.pagination__next >
+		li.pagination__item
+			a.pagination__link(href=((currentpage < i) ? `/news-catalog?page=${++currentpage}&limit=${limit}` : `/news-catalog?page=${currentpage}&limit=${limit}`))
+				span.pagination__next >

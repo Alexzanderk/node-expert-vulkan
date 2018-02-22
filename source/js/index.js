@@ -5,6 +5,7 @@ import { menuMobile } from './functions/menuMobile';
 import { menuCatalog } from './functions/productCatalogMenu';
 import { Controller, Model, View, save, load } from './cart';
 import { adminAddProps } from './adminAddProps';
+// import { sendContacts } from './functions/sendContacts';
 
 if (document.getElementById('admin-products')) {
     adminAddProps();

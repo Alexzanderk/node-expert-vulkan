@@ -3,5 +3,6 @@ module.exports = {
     Category: require('./Category'),
     Client: require('./Client'),
     News: require('./News'),
-    Products: require('./Products')
+    Products: require('./Products'),
+    User: require('./User')
 }

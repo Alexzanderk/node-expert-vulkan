@@ -3,13 +3,13 @@ const { Products, Category } = require('../models')
 module.exports = {
 
     //GET /
-    async productsIndex(req, res) {
+    async showCategoriesWithProducts(req, res) {
         let products = await Products.find({ published: true });
         let rokla = await Products.find({ published: true, category: 'palletTruck' });
         let shtabeler = await Products.find({ published: true, category: 'stacker' });
         let electroShtabeler = await Products.find({ published: true, category: 'electricStacker' });
         let liftTable = await Products.find({ published: true, category: 'liftTable' });
-
+        
         res.render('index', {
             id: 'front-page',
             products,
