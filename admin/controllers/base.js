@@ -1,4 +1,4 @@
-const { Cart, Client } = require('../../models');
+const { Cart, Client } = require('../../shared/models');
 const moment = require('moment');
 
 module.exports = {

@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 
 const admin = express();
-
+const { auth } = require('./middleware');
 const routers = require('./routers');
 
 admin.set('views', path.join(__dirname, 'views'));
@@ -18,6 +18,8 @@ admin.use('/:entity*', (req, res, next) => {
     res.locals.entity = req.params.entity;
     next();
 });
+
+admin.use(auth.isAdmin);
 
 admin.use('/', routers.home);
 admin.use('/news', routers.news);

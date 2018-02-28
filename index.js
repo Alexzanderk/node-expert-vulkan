@@ -4,28 +4,29 @@ const logger = require('morgan');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
-const config = require('./config');
-const { error, auth } = require('./middleware');
-const { db, passport } = require('./services');
-const routers = require('./routers');
+const config = require('./shared/config');
+const { error, auth } = require('./shared/middleware');
+const { db, passport } = require('./shared/services');
+
+const main = require('./main');
 const admin = require('./admin');
 
-const app = express();
+const server = express();
 
-app.disable('view cache');
+server.disable('view cache');
 
-app.set('views', config.paths.views);
-app.set('view engine', 'pug');
-app.set('config', config);
+server.set('views', config.paths.views);
+server.set('view engine', 'pug');
+server.set('config', config);
 
-app.locals.version = config.version;
-app.locals.basedir = config.paths.views;
+server.locals.version = config.version;
+server.locals.basedir = config.paths.views;
 
-app.use(logger('dev'));
-app.use(express.static(path.join(__dirname, 'public')));
-app.use('/lib', express.static(config.paths.lib));
-app.use(express.urlencoded({ extended: false }));
-app.use(session({
+server.use(express.static(config.paths.public));
+server.use('/lib', express.static(config.paths.lib));
+server.use(express.urlencoded({ extended: false }));
+server.use(logger('dev'));
+server.use(session({
     name: 'sessionId',
     secret: config.sessionSecret,
     resave: false,
@@ -43,28 +44,14 @@ app.use(session({
     })
 }));
 
-app.use(passport.initialize());
-app.use(passport.session());
+server.use(passport.initialize());
+server.use(passport.session());
 
-// app.use(auth.findUser);
+server.use('/', main);
+server.use('/admin', auth.authenticated, admin);
 
-app.use((req, res, next) => {
-    res.locals.user = req.user;
-    next();
-});
-
-app.use('/', routers.main);
-app.use('/news-catalog', routers.news);
-app.use('/product-catalog', routers.product);
-app.use('/auth', routers.auth);
-
-app.use(auth.authenticated);
-
-
-app.use('/admin', auth.isAdmin, admin);
-
-app.use(error.notFound);
-app.use(app.get('env') === 'development' ? error.development : error.production);
+server.use(error.notFound);
+server.use(server.get('env') === 'development' ? error.development : error.production);
 
 // require('./utils/browserSync');
-app.listen(config.port, () => console.log('server worker...', config.port));
+server.listen(config.port, () => console.log('server worker...', config.port));

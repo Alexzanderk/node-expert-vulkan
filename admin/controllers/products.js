@@ -1,4 +1,4 @@
-const {Products, Category} = require('../../models');
+const {Products, Category} = require('../../shared/models');
 const moment = require('moment');
 const path = require('path');
 const mongoose = require('mongoose');

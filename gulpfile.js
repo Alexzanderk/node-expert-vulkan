@@ -2,13 +2,13 @@
 
 global.$ = {
   package: require('./package.json'),
-  config: require('./gulp/config'),
+  config: require('./source/gulp/config'),
   path: {
-    task: require('./gulp/paths/tasks.js'),
-    template: require('./gulp/paths/template.js'),
-    jsFoundation: require('./gulp/paths/js.foundation.js'),
-    cssFoundation: require('./gulp/paths/css.foundation.js'),
-    app: require('./gulp/paths/app.js')
+    task: require('./source/gulp/paths/tasks.js'),
+    template: require('./source/gulp/paths/template.js'),
+    jsFoundation: require('./source/gulp/paths/js.foundation.js'),
+    cssFoundation: require('./source/gulp/paths/css.foundation.js'),
+    app: require('./source/gulp/paths/app.js')
   },
   gulp: require('gulp'),
   webpackStream: require('webpack-stream'),
@@ -18,7 +18,7 @@ global.$ = {
   concatcss: require('gulp-concat-css'),
   csso: require('postcss-csso'),
   postcss: require('postcss'),
-  dataJson: require('./data/news'),
+  // dataJson: require('./data/news'),
   gp: require('gulp-load-plugins')()
 };
 

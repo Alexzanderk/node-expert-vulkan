@@ -1,4 +1,4 @@
-const News = require('../../models/News');
+const News = require('../../shared/models/News');
 const moment = require('moment');
 const path = require('path');
 
