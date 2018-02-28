@@ -8,11 +8,11 @@ block front
         h3.h3 Login:
         form.form-request(action='/auth/login' method="POST" name='login' id='login')
             span.form-request__input.form-request__input_effect 
-                input.input__field.input__field_effect(type="email" id="inputName" name='contactName')
+                input.input__field.input__field_effect(type="email" id="inputName" name='email')
                 label.input__label.input__label_effect(for="inputName")
                     span.input__label-content.input__label-content_effect Email
             span.form-request__input 
-                input.input__field.input__field_effect(type="password" id="inputPhone" name='contactPhone')
+                input.input__field.input__field_effect(type="password" id="inputPhone" name='password')
                 label.input__label.input__label_effect(for="inputPhone")
                     span.input__label-content.input__label-content_effect Password
             
@@ -30,8 +30,8 @@ block front
         .another-login
             a.auth-link(href='/auth/registration') Registration
             span or
-            a.soc-login__link(href='#')
+            a.soc-login__link(href='/auth/github')
                 i.fa.fa-github
-            a.soc-login__link(href='#')
+            a.soc-login__link(href='/auth/facebook')
                 i.fa.fa-facebook
 

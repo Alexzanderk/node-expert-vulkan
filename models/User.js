@@ -66,4 +66,12 @@ User.statics.authenticate = function(email, password) {
         });
 };
 
+User.statics.isAdmin = function(role) {
+    return role === 'admin';
+};
+
+User.methods.isCorrectPassword = function(password) {
+    return bcrypt.compare(password, this.password);
+};
+
 module.exports = mongoose.model('User', User);

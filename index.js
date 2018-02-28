@@ -3,11 +3,10 @@ const path = require('path');
 const logger = require('morgan');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
-const passport = require('passport');
 
 const config = require('./config');
 const { error, auth } = require('./middleware');
-const db = require('./services/db');
+const { db, passport } = require('./services');
 const routers = require('./routers');
 const admin = require('./admin');
 
@@ -47,7 +46,12 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(auth.findUser);
+// app.use(auth.findUser);
+
+app.use((req, res, next) => {
+    res.locals.user = req.user;
+    next();
+});
 
 app.use('/', routers.main);
 app.use('/news-catalog', routers.news);
@@ -55,7 +59,9 @@ app.use('/product-catalog', routers.product);
 app.use('/auth', routers.auth);
 
 app.use(auth.authenticated);
-app.use('/admin', admin);
+
+
+app.use('/admin', auth.isAdmin, admin);
 
 app.use(error.notFound);
 app.use(app.get('env') === 'development' ? error.development : error.production);

@@ -15,7 +15,6 @@ module.exports = {
 
     //POST /client
     async sendContacts(req, res, next) {
-        console.log(req.body);
         try {
             await Client.create(req.body);
             res.redirect('/')

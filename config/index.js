@@ -13,6 +13,13 @@ module.exports = {
     },
     mongodbUrl: 'mongodb://localhost:27017/vulkan',
     mongodbMlab: process.env.MONGODB_MLAB_URL,
-    sessionSecret: 'CR,>Ekw?=#XZzch8%fWKt7'
+    sessionSecret: 'CR,>Ekw?=#XZzch8%fWKt7',
+    oauth: {
+        github: {
+            clientID: process.env.GITHUB_CLIENT_ID,
+            clientSecret: process.env.GITHUB_CLIENT_SECRET,
+            callback: process.env.GITHUB_CLIENT_CALLBACK
+        }
+    }
 
 };

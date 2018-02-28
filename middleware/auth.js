@@ -31,6 +31,14 @@ module.exports = {
         } else {
             res.redirect('/');
         }
+    },
+
+    isAdmin(req, res, next) {
+        if (User.isAdmin(req.user.role)) {
+            next();
+        } else {
+            res.redirect('/');
+        }
     }
 
 };

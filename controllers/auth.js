@@ -1,5 +1,5 @@
 const { User }  = require('../models');
-
+const { passport } = require('../services');
 
 module.exports = {
 
@@ -28,36 +28,14 @@ module.exports = {
         }
     },
 
-    async register(req, res, next) {
-        try {
-            let { email, password, confirmPassword } = req.body;
-    
-            if (!email || !password) return next(new Error());
-            else if (password !== confirmPassword) return next(new Error());
-    
-            let user = await User.create(req.body);
-            req.session.userId = user.id;
-            res.redirect('/admin');
-        } catch (error) {
-            next(error);
-        }
-    },
+    register: passport.authenticate('local-register', {
+        successRedirect: '/',
+        failureRedirect: '/auth/login'
+    }),
 
-    login(req, res, next) {
-        let { contactName: email, contactPhone: password } = req.body;
-        
-        if (!email || !password) {
-            let error = new Error('Необходимо ввести логин и пароль');
-            error.status = 401;
-            return next(error);
-        }
-        
-        User.authenticate(email, password)
-            .then(user => {
-                req.session.userId = user.id;
-                res.redirect('/');
-            })
-            .catch(next);
-    }
+    login: passport.authenticate('local-login', {
+        successRedirect: '/admin',
+        failureRedirect: '/auth/login'
+    }),
 
 };

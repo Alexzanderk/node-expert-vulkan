@@ -2,5 +2,6 @@ module.exports = {
     baseOrder: require('./baseOrder'),
     news: require('./news'),
     product: require('./product'),
-    auth: require('./auth')
+    auth: require('./auth'),
+    oauth: require('./oauth')
 }
