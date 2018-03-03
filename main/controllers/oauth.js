@@ -7,5 +7,12 @@ module.exports = {
             successRedirect: '/',
             failureRedirect: '/auth/login'
         }),
+    },
+    facebook: {
+        authenticate: passport.authenticate('facebook', {scope : 'email'}),
+        callback:passport.authenticate('facebook', {
+            successRedirect: '/',
+            failureRedirect: '/auth/login'
+        }),
     }
 };

@@ -19,6 +19,12 @@ module.exports = {
             clientID: process.env.GITHUB_CLIENT_ID,
             clientSecret: process.env.GITHUB_CLIENT_SECRET,
             callback: process.env.GITHUB_CLIENT_CALLBACK
+        },
+        facebook: {
+            clientID: process.env.FACEBOOK_APP_ID,
+            clientSecret: process.env.FACEBOOK_APP_SECRET,
+            callbackURL: process.env.FACEBOOK_APP_CALLBACK,
+            profileFields: ['id', 'email']
         }
     }
 

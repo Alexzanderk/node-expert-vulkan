@@ -12,6 +12,9 @@ router.route('/login')
 router.get('/github', oauthController.github.authenticate);
 router.get('/github/callback', oauthController.github.callback);
 
+router.get('/facebook', oauthController.facebook.authenticate);
+router.get('/facebook/callback', oauthController.facebook.callback);
+
 router.route('/registration')
     .all(auth.unauthenticated)
     .get(authController.showRegisterPage)

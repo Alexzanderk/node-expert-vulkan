@@ -2,6 +2,7 @@ const passport = require('passport');
 
 require('./local');
 require('./github');
+require('./facebook');
 const { User } = require('../../models');
 
 passport.serializeUser((user, done) => {
