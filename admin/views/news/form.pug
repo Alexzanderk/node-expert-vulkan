@@ -7,8 +7,9 @@ block content
         if oneNews.title
             img(src=`${oneNews.upload}`, alt="" class='img-thumbnail w-25')
         +input('upload', null)(type='file' class='form-control-file')
-        +textarea('description', oneNews.description)(placeholder='Короткое описание' rows='2' maxlength='255')
-        +textarea('content', oneNews.content)(placeholder='Полное описание' rows='7')
+        +textarea('description', oneNews.description)(placeholder='Короткое описание' rows='4' maxlength='255')
+        +editor('content', oneNews.content)
+        //- +textarea('content', oneNews.content)(placeholder='Полное описание' rows='7')
         .row.btn-row
             .col-3
                 +input('publishDate', (!oneNews.publishDate) ? oneNews.publishDate : moment(oneNews.publishDate).format('YYYY-MM-DD'))(type='date' class='form-control')

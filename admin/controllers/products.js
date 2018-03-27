@@ -45,6 +45,7 @@ module.exports = {
 
     // POST /admin/products/create  -  createProduct
     createProduct(req, res, next) {
+
         const icons = req.body.icon;
         const names = req.body.name || [];
         const values = req.body.value;

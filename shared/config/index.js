@@ -26,6 +26,11 @@ module.exports = {
             callbackURL: process.env.FACEBOOK_APP_CALLBACK,
             profileFields: ['id', 'email']
         }
+    },
+    sendPulse: {
+        userId: process.env.SENDPULSE_API_USER_ID,
+        secret: process.env.SENDPULSE_API_SECRET,
+        token: process.env.SENDPULSE_TOKEN_STORAGE
     }
 
 };

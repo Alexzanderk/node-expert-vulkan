@@ -7,18 +7,18 @@ const Category = new Schema({
     title: String,
     uploadImg: { type: String },
     description: String,
-    published: {type: Boolean}
+    published: { type: Boolean }
 }, {
-        toJSON: { virtuals: true },
-        timestamps: true,
-
+        toObject: { getters: false, virtuals: true },
+        toJSON: { versionKey: false, getters: true, virtuals: true },
+        timestamps: true
     });
 
 
-    Category.virtual('products', {
-        ref: 'Products', // The model to use
-        localField: '_id', // Find people where `localField`
-        foreignField: 'category', // is equal to `foreignField`
-      });
+Category.virtual('products', {
+    ref: 'Products', // The model to use
+    localField: '_id', // Find people where `localField`
+    foreignField: 'category', // is equal to `foreignField`
+});
 
 module.exports = mongoose.model('Category', Category);

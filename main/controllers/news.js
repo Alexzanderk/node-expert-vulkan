@@ -7,7 +7,7 @@ module.exports = {
 
     // GET /news-catalog/
     async showNewsCatalog(req, res) {
-        let news = await News.find({published: true});
+        let news = await News.find({published: true}).sort({$natural:-1});
         
         let limit = req.query.limit || NUMBER_OF_NEWS_TO_SHOW;
         let page = req.query.page || 1;

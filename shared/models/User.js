@@ -21,6 +21,8 @@ const User = new Schema({
     phoneNumber: Number
 
 }, {
+    toObject: { getters: false, virtuals: true },
+    toJSON: { versionKey: false, getters: true },
     timestamp: true
 });
 

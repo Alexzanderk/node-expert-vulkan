@@ -9,6 +9,7 @@ const { error, auth } = require('./shared/middleware');
 const { db, passport } = require('./shared/services');
 
 const main = require('./main');
+const api = require('./api');
 const admin = require('./admin');
 
 const server = express();
@@ -25,6 +26,7 @@ server.locals.basedir = config.paths.views;
 server.use(express.static(config.paths.public));
 server.use('/lib', express.static(config.paths.lib));
 server.use(express.urlencoded({ extended: false }));
+server.use(express.json());
 server.use(logger('dev'));
 server.use(session({
     name: 'sessionId',
@@ -48,6 +50,7 @@ server.use(passport.initialize());
 server.use(passport.session());
 
 server.use('/', main);
+server.use('/api', api);
 server.use('/admin', auth.authenticated, admin);
 
 server.use(error.notFound);

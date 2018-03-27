@@ -97,6 +97,8 @@ export const adminAddProps = function() {
     }
 
     bindEvents();
-    addRowButton.addEventListener('click', addRow);
-    deletePropsTableButton.addEventListener('click', deleteAllRows);
+    if (addRowButton) {
+        addRowButton.addEventListener('click', addRow);
+        deletePropsTableButton.addEventListener('click', deleteAllRows);
+    }
 }

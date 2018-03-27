@@ -38,6 +38,7 @@ module.exports = {
     // POST /admin/news/create  -  createNews
     async createNews(req, res, next) {
         try {
+            console.log(req.body);
             await News.create({
                 title: req.body.title,
                 upload: req.file ? '/' + req.file.fieldname + '/' + req.file.filename : '',
@@ -47,7 +48,7 @@ module.exports = {
                 published: req.body.published === undefined ? false : true
             });
 
-            res.redirect('/admin');
+            res.redirect('/admin/news?page=1&limit=10');
         } catch (error) {
             next(error);
         }

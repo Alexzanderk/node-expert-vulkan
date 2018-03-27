@@ -1,7 +1,7 @@
 mixin news(item)
+	-console.log(item)
 	.news
 		h1.news__h1= item.title
 		.news__date= moment(item.publishDate).format('DD/MM/YYYY')
 			i.fa.fa-calendar
-		.description
-			pre= item.content
+		div.news-description !{item.content}

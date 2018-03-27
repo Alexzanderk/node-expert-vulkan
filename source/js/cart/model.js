@@ -70,11 +70,10 @@ class Model extends EventEmitter {
     }
 
     orderItems() {
-        const url = 'http://localhost:3001/cart';
+        const url = 'http://localhost:3000/cart';
         let date = new Date();
         let body = {
             orderDate: date,
-            // date: `${dateFormat.Y}/${dateFormat.M}/${dateFormat.D} ----- ${dateFormat.H}:${dateFormat.m}`,
             customerName: document.getElementById('order-name').value,
             customerPhone: document.getElementById('order-tel').value,
             products: this.items

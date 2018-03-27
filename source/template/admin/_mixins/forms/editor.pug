@@ -1,0 +1,4 @@
+mixin editor(name, value)
+    .form-group
+        textarea.form-control(name='editor', id=`texteditor` class='tinymce')&attributes(attributes)= value
+        input(type="hidden" name=name value=value)

@@ -9,7 +9,7 @@ const {
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, path.resolve(__dirname, '..', '..', 'public', 'upload', 'products'));
+        cb(null, path.resolve(__dirname, '..', '..', 'shared', 'public', 'upload', 'products'));
     },
     filename: function (req, file, cb) {
         cb(null, file.fieldname + '-' + Date.now() +'-' + file.originalname);
@@ -20,7 +20,7 @@ const upload = multer({ storage: storage });
 
 const storageCategory = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, path.resolve(__dirname, '..', '..', 'public', 'upload', 'products', 'category'));
+        cb(null, path.resolve(__dirname, '..', '..', 'shared', 'public', 'upload', 'products', 'category'));
     },
     filename: function (req, file, cb) {
         cb(null, file.fieldname + '-' + Date.now() +'-' + file.originalname);

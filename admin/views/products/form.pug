@@ -3,9 +3,9 @@ extends _layout
 
 block content
     h4 Создание продукта
-    form(method="post" enctype='multipart/form-data').form-create-product#form-create-product
+    form(method="post" name='createProduct' enctype='multipart/form-data' ).form-create-product#form-create-product
         .row.my-3.ml-auto
-            +button(!product.title ? 'Создать' : 'Сохранить')(type='submimt' class='btn-success mr-3')
+            +button(!product.title ? 'Создать' : 'Сохранить')(type='submit' class='btn-success mr-3')
             if !product.title
                 +button('Отменить')(type='reset' class='btn-danger' )
             else 
@@ -27,7 +27,9 @@ block content
                         input.form-check-input(type='checkbox', name='published', id='publish', checked=product.published )
                         | Опубликовать
             .col-9
-                +textarea('description', product.description)(rows='8')
+                //- +editorQuilljs()
+                +editor('description', product.description)
+                //- +input('description', product.description)(type='hidden')
                 .row.mb-2
                     +button('Добавить')(class='btn-primary mr-2', id='add-props')
                     +button('Удалить все')(class='btn-danger ', id='delete-props-table')
@@ -42,8 +44,8 @@ block content
                         tbody
                             +tr(product.properties)
         
-        .row.my-3.ml-auto
-            +button(!product.title ? 'Создать' : 'Сохранить')(type='submimt' class='btn-success mr-3')
+        //- .row.my-3.ml-auto
+            +button(!product.title ? 'Создать' : 'Сохранить')(type='submit' class='btn-success mr-3')
             if !product.title
                 +button('Отменить')(type='reset' class='btn-danger' )
             else 

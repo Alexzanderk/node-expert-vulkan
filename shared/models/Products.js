@@ -22,8 +22,9 @@ const Products = new Schema({
     icons: {type: Array, enum: ['box', 'weight', 'wallet', 'arrow_10', 'water']},
     properties: [ProductProperty]
 }, {
-        timestamps: true
-
+    toObject: { getters: false, virtuals: true },
+    toJSON: { versionKey: false, getters: true },
+    timestamps: true
     });
 
 module.exports = mongoose.model('Products', Products);

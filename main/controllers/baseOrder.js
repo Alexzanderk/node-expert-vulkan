@@ -1,4 +1,5 @@
 const { Cart, Client } = require('../../shared/models');
+const { sendpulse } = require('../../shared/services');
 
 module.exports = {
 
@@ -17,6 +18,26 @@ module.exports = {
     async sendContacts(req, res, next) {
         try {
             await Client.create(req.body);
+            console.log(req.body);
+
+// @codedojo
+            let cb = function cb(data) {
+                console.log(data);
+            };
+
+            let email = {
+                html: '',
+                text: req.body,
+                subject: 'Заказ обратного звонка',
+                from: [req.body.email],
+                to: ['kotsarev.a@gmail.com'],
+                bcc: [],
+                attachments: []
+            };
+
+            sendpulse.smtpSendMail(cb, email);
+
+            
             res.redirect('/')
         } catch (error) {
             next(error);

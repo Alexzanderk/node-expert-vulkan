@@ -36,7 +36,5 @@ mixin product(item)
 					//- tr.tr
 						td.td Цена
 						td.td= item.price
-		div(class=`product-description`)
-			p.p
-				pre.p= item.description
+		div(class=`product-description`) !{item.description}
 			
