@@ -7,4 +7,19 @@ var TOKEN_STORAGE = config.sendPulse.token;
 
 sendpulse.init(API_USER_ID,API_SECRET,TOKEN_STORAGE);
 
-module.exports = sendpulse;
+function send(email) {
+    return new Promise((resolve, reject) => {
+        sendpulse.smtpSendMail(data => {
+            if ('error_code' in data) {
+                reject(new Error(data.message));
+            } else {
+                resolve();
+            }
+        }, email);
+    });
+};
+
+module.exports = {
+    sendpulse,
+    send
+};
